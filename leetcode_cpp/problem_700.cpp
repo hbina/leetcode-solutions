@@ -31,8 +31,8 @@ public:
             {
                 right = searchBST(root->right, val);
             }
-            
-            // If left failed, then the only option is right. 
+
+            // If left failed, then the only option is right.
             // Right could be null, but that's perfectly fine.
             if (left == NULL)
             {
@@ -43,5 +43,20 @@ public:
                 return left;
             }
         }
+    }
+
+    TreeNode *searchBST_2(TreeNode *root, int val)
+    {
+        TreeNode *tree = root;
+        while (tree)
+        {
+            if (tree->val == val) // found the solution
+                return tree;
+            else if (tree->val < val) // current is smaller, then go right
+                tree = tree->right;
+            else // current is larger, then go left
+                tree = tree->left;
+        }
+        return nullptr;
     }
 };
