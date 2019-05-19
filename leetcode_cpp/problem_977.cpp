@@ -8,32 +8,23 @@ class Solution
 public:
     vector<int> sortedSquares(vector<int> &A)
     {
+
+        if (A.size() == 0)
+        {
+            return vector<int>{};
+        }
+
         vector<int> s;
         s.reserve(A.size());
 
-        for (int a : A)
+        int going_right = 0;
+
+        while (going_right < A.size() && A[going_right] < 0)
         {
-            a = a * a;
-        }
-        return s;
-    }
-
-    vector<int> sortedSquares_(vector<int> &A)
-    {
-        vector<int> s;
-        s.reserve(A.size());
-
-        int sign_change_index = 0;
-
-        while (sign_change_index < A.size() && A[sign_change_index] < 0)
-        {
-            sign_change_index++;
+            going_right++;
         }
 
-        s.push_back(A[sign_change_index]);
-
-        int going_left = sign_change_index - 1;
-        int going_right = sign_change_index + 1;
+        int going_left = going_right - 1;
 
         // "Zip" through left and right from the middle...
         while (going_left >= 0 && going_right < A.size())
@@ -71,12 +62,7 @@ int main()
 {
     Solution s;
     vector<int> s1{-4, -1, 0, 3, 10};
-
-    vector<int> result = s.sortedSquares_(s1);
-
-    std::cout << "result:" << std::endl;
-    for (const int &a : result)
-    {
-        std::cout << a << std::endl;
-    }
+    vector<int> s2{};
+    s.sortedSquares(s1);
+    s.sortedSquares(s2);
 }
