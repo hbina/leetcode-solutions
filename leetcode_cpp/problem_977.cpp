@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 using std::vector;
 
@@ -30,8 +29,6 @@ public:
         {
             sign_change_index++;
         }
-
-        std::cout << "sign_change_index:" << sign_change_index << std::endl;
 
         s.push_back(A[sign_change_index]);
 
