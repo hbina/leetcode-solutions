@@ -1,12 +1,6 @@
 #include <cstddef>
 
-struct TreeNode
-{
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
+#include "data_structure/tree_node.h"
 
 class Solution
 {
