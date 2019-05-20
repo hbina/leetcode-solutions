@@ -20,6 +20,4 @@ public class AnonymousInterviewQuestions {
 		int[] array = new int[10];
 		System.out.println(array[1]);
 	}
-	
-	
 }

@@ -22,9 +22,8 @@ public class Problem3 {
 	 * a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,a,... <--- a candidate for the longest
 	 * substring must be a_2 - a_1, ignoring everything in between.
 	 * 
-	 * @param givenString:
-	 *            the string that we want to find the length of the longest
-	 *            substring of.
+	 * @param givenString: the string that we want to find the length of the longest
+	 *                     substring of.
 	 * @return the length of the longest substring in a given string.
 	 */
 	public static int solution(String givenString) {
@@ -72,9 +71,8 @@ public class Problem3 {
 	 * 
 	 * Then it checks if d_2 > d_1.
 	 * 
-	 * @param givenString:
-	 *            the string that we want to check the longest non-repeating
-	 *            substring of.
+	 * @param givenString: the string that we want to check the longest
+	 *                     non-repeating substring of.
 	 * @return the length of the longest substring in the given string
 	 */
 	public static int answer2(String givenString) {
