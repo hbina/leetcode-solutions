@@ -41,22 +41,18 @@ public:
 
         return max_average / k;
     }
-
-    void test()
-    {
-        vector<int> s{1, 12, -5, -6, 50, 3};
-        assert(findMaxAverage(s, 4) == 12.75);
-
-        vector<int> s1;
-        assert(findMaxAverage(s1, 4) == 0);
-
-        vector<int> s3{1, 12, -5, -6};
-        assert(findMaxAverage(s3, 4) == 0.5);
-    }
 };
 
 int main()
 {
     Solution s;
-    s.test();
+
+    vector<int> s1{1, 12, -5, -6, 50, 3};
+    assert(s.findMaxAverage(s1, 4) == 12.75);
+
+    vector<int> s2;
+    assert(s.findMaxAverage(s2, 4) == 0);
+
+    vector<int> s3{1, 12, -5, -6};
+    assert(s.findMaxAverage(s3, 4) == 0.5);
 }
