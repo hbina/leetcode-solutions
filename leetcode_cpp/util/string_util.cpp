@@ -1,4 +1,4 @@
-#include "string_util.h"
+#include "string_util.hpp"
 
 bool is_string_equal(std::string &str1, std::string &str2)
 {
