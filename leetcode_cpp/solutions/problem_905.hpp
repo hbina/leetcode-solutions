@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include <algorithm>
 
@@ -28,7 +30,7 @@ std::vector<int> sortArrayByParity(std::vector<int> &A)
 std::vector<int> sortArrayByParity_modernCPP(std::vector<int> &A)
 {
     std::vector<int> result(A);
-    std::sort(result.begin, result.end, [](int &a, int &b) {
+    std::sort(result.begin(), result.end(), [](int &a, int &b) {
         return a % 2;
     });
     return result;

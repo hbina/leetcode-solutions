@@ -1,1 +1,0 @@
-/usr/bin/g++-7  -g  -rdynamic CMakeFiles/leetcode_solutions.dir/main.cpp.o CMakeFiles/leetcode_solutions.dir/util/string_util.cpp.o  -o leetcode_solutions 

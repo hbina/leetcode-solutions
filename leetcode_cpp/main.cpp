@@ -1,4 +1,30 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest/doctest.h"
 
+#include "solutions/problem_88.hpp"
+#include "solutions/problem_226.hpp"
+#include "solutions/problem_557.hpp"
+#include "solutions/problem_589.hpp"
+#include "solutions/problem_643.hpp"
+#include "solutions/problem_700.hpp"
+#include "solutions/problem_905.hpp"
+#include "solutions/problem_929.hpp"
+#include "solutions/problem_938.hpp"
+#include "solutions/problem_965.hpp"
+#include "solutions/problem_977.hpp"
+#include "solutions/problem_1051.hpp"
+#include "solutions/problem_1010.hpp"
 // Tests here...
+
+TEST_CASE("Problem 1051")
+{
+    std::vector<int> test1{1, 1, 4, 2, 1, 3};
+    CHECK(3 == Solution::heightChecker(test1));
+    CHECK(3 == Solution::heightChecker_1(test1));
+}
+
+TEST_CASE("Problem 1010")
+{
+    std::vector<int> test1{30, 20, 150, 100, 40};
+    CHECK(3 == Solution::numPairsDivisibleBy60(test1));
+}

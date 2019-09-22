@@ -19,6 +19,7 @@ add_executable(
     solutions/problem_938.hpp
     solutions/problem_965.hpp
     solutions/problem_977.hpp
+    solutions/problem_1051.hpp
     )
 
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/doctest)

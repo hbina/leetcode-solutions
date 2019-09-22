@@ -1,4 +1,6 @@
-#include "data_structure/node.hpp"
+#pragma once
+
+#include "../data_structure/node.hpp"
 
 #include <vector>
 #include <stack>
