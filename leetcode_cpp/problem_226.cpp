@@ -1,23 +1,17 @@
-struct TreeNode
+#include "data_structure/tree_node.hpp"
+
+namespace Solution
 {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
-class Solution
+TreeNode *invertTree(TreeNode *root)
 {
-public:
-    TreeNode *invertTree(TreeNode *root)
+    if (root == nullptr)
     {
-        if (root == nullptr)
-        {
-            return nullptr;
-        }
-        TreeNode *tmp_left = root->left;
-        TreeNode *tmp_right = root->right;
-        root->left = invertTree(tmp_right);
-        root->right = invertTree(tmp_left);
-        return root;
+        return nullptr;
     }
-};
+    TreeNode *tmp_left = root->left;
+    TreeNode *tmp_right = root->right;
+    root->left = invertTree(tmp_right);
+    root->right = invertTree(tmp_left);
+    return root;
+}
+}; // namespace Solution

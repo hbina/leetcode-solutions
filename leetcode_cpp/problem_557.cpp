@@ -1,48 +1,38 @@
 #include <string>
 #include <iostream>
 
-using std::string;
-
-class Solution
+namespace Solution
 {
-public:
-    string reverseWords(string s)
+std::string reverseWords(std::string s)
+{
+    std::string result;
+    int begin_index = 0;
+    int end_index = 0;
+    for (const char &a : s)
     {
-        string result;
-        int begin_index = 0;
-        int end_index = 0;
-        for (const char &a : s)
+        if (a != ' ')
         {
-            if (a != ' ')
-            {
-                end_index++;
-            }
-            else
-            {
-                for (int backward_iter = end_index - 1; backward_iter >= begin_index; --backward_iter)
-                {
-                    result.push_back(s.at(backward_iter));
-                }
-                result.push_back(' ');
-
-                end_index++;
-                begin_index = end_index;
-            }
+            end_index++;
         }
-
-        end_index--;
-        while (end_index >= begin_index)
+        else
         {
-            result.push_back(s.at(end_index--));
-        }
+            for (int backward_iter = end_index - 1; backward_iter >= begin_index; --backward_iter)
+            {
+                result.push_back(s.at(backward_iter));
+            }
+            result.push_back(' ');
 
-        return result;
+            end_index++;
+            begin_index = end_index;
+        }
     }
-};
 
-int main()
-{
-    Solution s;
-    string s1{"hello world good bye"};
-    std::cout << s.reverseWords(s1) << std::endl;
+    end_index--;
+    while (end_index >= begin_index)
+    {
+        result.push_back(s.at(end_index--));
+    }
+
+    return result;
 }
+}; // namespace Solution

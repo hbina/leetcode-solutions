@@ -1,41 +1,25 @@
+#include "data_structure/node.hpp"
+
 #include <vector>
 #include <stack>
 #include <iostream>
 
-using namespace std;
-
-class Node
+namespace Solution
 {
-public:
-    int val;
-    vector<Node *> children;
-
-    Node() {}
-
-    Node(int _val, vector<Node *> _children)
-    {
-        val = _val;
-        children = _children;
-    }
-};
-
-class Solution
+std::vector<int> preorder(Node *root)
 {
-public:
-    vector<int> preorder(Node *root)
+    std::vector<int> result;
+    std::deque<Node *> s{nullptr};
+    while (root)
     {
-        std::vector<int> result;
-        std::deque<Node *> s{nullptr};
-        while (root)
+        result.push_back(root->val);
+        for (auto iter = root->children.rbegin(); iter != root->children.rend(); ++iter)
         {
-            result.push_back(root->val);
-            for (auto iter = root->children.rbegin(); iter != root->children.rend(); ++iter)
-            {
-                s.push_front(*iter);
-            }
-            root = s.front();
-            s.pop_front();
+            s.push_front(*iter);
         }
-        return result;
+        root = s.front();
+        s.pop_front();
     }
-};
+    return result;
+}
+}; // namespace Solution
