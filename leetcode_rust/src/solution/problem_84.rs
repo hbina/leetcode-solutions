@@ -10,7 +10,9 @@ pub fn brute_force(heights: Vec<i32>) -> i32 {
     heights[1..]
         .into_iter()
         .map(move |x| match x.cmp(&ic[ic.len() - 1].1) {
-            Ordering::Less => &ic[..].into_iter().filter(|sv| sv.1 < *x).map(|lv| {}),
+            Ordering::Less => &ic[..].into_iter().filter(|sv| sv.1 < *x).map(|lv| {
+                let area= lv.0
+            }),
             Ordering::Equal => println!("="),
             Ordering::Greater => println!(">"),
         });
