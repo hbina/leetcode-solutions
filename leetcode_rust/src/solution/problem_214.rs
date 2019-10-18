@@ -54,7 +54,6 @@ pub fn transform_and_map(buildings: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
                     // Compare y
                     match left.1.cmp(&roof.1) {
                         Ordering::Less => {
-                            println!("{} is lower height than {}", right, roof);
                         },Ordering::Greater => {
                             result.push(vec![left.0,left.1]);
                         },
