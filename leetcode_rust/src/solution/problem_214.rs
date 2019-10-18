@@ -1,40 +1,72 @@
 #![allow(dead_code)]
 use std::cmp::Ordering;
+use std::fmt;
 
-// NOTE ::  This does not work due to the fact that it is unable to distinguish
-//          between 2 overlapping boxes of identical heights
-pub fn transform_and_map(buildings: Vec<Vec<i32>>) {
-    // Please use tuple next time Leetcode....this is 3 levels of indirection abomination
-    let mut transformed_vec = buildings
-        .iter()
-        .flat_map(|dimensions| {
-            let first = (dimensions[0], dimensions[2]);
-            let second = (dimensions[1], dimensions[2]);
-            vec![first, second]
-        })
-        .collect::<Vec<_>>();
+#[derive(Debug, Clone)]
+struct Dimension(i32, i32);
 
-    transformed_vec.sort_by(|left, right| left.0.cmp(&right.0));
-
-    let mut previous_heights: Vec<i32> = Vec::new();
-    let mut result_vec: Vec<Vec<i32>> = Vec::new();
-    transformed_vec.iter().for_each(|current| {
-        match previous_heights.iter().find(|x| **x == current.1) {
-            Some(val) => {
-                // This height existed before
-            }
-            None => {
-                previous_heights.push(current.1);
-            }
-        }
-    });
+impl fmt::Display for Dimension {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "({},{})", self.0, self.1)
+    }
 }
 
-pub fn transform_and_dac(buildings: Vec<Vec<i32>>) {
-    let mut transformed_vec = buildings
+impl PartialEq for Dimension {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0 && self.1 == other.1
+    }
+}
+
+// TODO :: Why am I empty, again??
+impl Eq for Dimension {}
+
+impl Ord for Dimension {
+    fn cmp(&self, other: &Dimension) -> Ordering {
+        self.1.cmp(&other.1)
+    }
+}
+
+impl PartialOrd for Dimension {
+    fn partial_cmp(&self, other: &Dimension) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+// FIXME :: There should be absolutely no lifetime issues here because
+//          the output is entirely based on the input...
+pub fn transform_and_map(buildings: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+    let mut roofs: Vec<Dimension> = Vec::new();
+    let mut result = Vec::new();
+    buildings
         .iter()
-        .map(|dimensions| ((dimensions[0], dimensions[2]), (dimensions[1], 0)))
-        .collect::<Vec<_>>();
+        .map(|raw_iteration| {
+            (
+                Dimension(raw_iteration[0], raw_iteration[2]),
+                Dimension(raw_iteration[1], raw_iteration[2]),
+            )
+        })
+        .for_each(|(left, right)| {
+            // Stuff on the right will book keep the current
+            // highest roof.
+            roofs.push(right.clone());
+            match roofs.iter().max() {
+                Some(roof) => {
+                    // Compare y
+                    match left.1.cmp(&roof.1) {
+                        Ordering::Less => {
+                            println!("{} is lower height than {}", right, roof);
+                        },Ordering::Greater => {
+                            result.push(vec![left.0,left.1]);
+                        },
+                        Ordering::Equal =>{
+                            result.push(vec![left.0,left.1]);
+                        },
+                    }
+                }
+                None => panic!("this is an impossible situation where the PQ does not have any element after we have pushed an element into it..."),
+            };
+        });
+    return result;
 }
 
 #[test]
