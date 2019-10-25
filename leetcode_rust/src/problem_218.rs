@@ -128,27 +128,16 @@ impl Solution {
             },
             // TODO :: Match when lefts are empty??
             // TODO :: Remove matches
-            Dimension::Right(id, x, y) => match previous_lefts.iter().find(|&elem| match elem {
-                Dimension::Left(id1, _, _) => id1 == id,
-                Dimension::Right(_, _, _) => panic!("impossible situation"),
-            }) {
-                Some(elem) => match elem {
+            Dimension::Right(id, x, y) => previous_lefts.retain(|elem| {
+                match elem {
                     Dimension::Left(id1, _, _) => {
-                        previous_lefts.retain(|elem| {
-                            match elem {
-                                Dimension::Left(id2, _, _) => {
-                                    id2 == id1
-                                }
-                                Dimension::Right(_, _, _) => {
-                                    panic!("impossible situation...")
-                                }
-                            }
-                        })
+                        id1 == id
                     }
-                    Dimension::Right(_, _, _) => panic!("impossible situation..."),
-                },
-                None => previous_rights.push(Dimension::Right(*id, *x, *y)),
-            },
+                    Dimension::Right(_, _, _) => {
+                        panic!("impossible situation...")
+                    }
+                }
+            })
         });
         result
     }
