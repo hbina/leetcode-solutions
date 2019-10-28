@@ -2,7 +2,6 @@
 
 use crate::Solution;
 use std::cmp::Ordering;
-use std::collections::BinaryHeap;
 use std::fmt;
 
 #[derive(Debug, Clone)]
@@ -128,16 +127,10 @@ impl Solution {
             },
             // TODO :: Match when lefts are empty??
             // TODO :: Remove matches
-            Dimension::Right(id, x, y) => previous_lefts.retain(|elem| {
-                match elem {
-                    Dimension::Left(id1, _, _) => {
-                        id1 == id
-                    }
-                    Dimension::Right(_, _, _) => {
-                        panic!("impossible situation...")
-                    }
-                }
-            })
+            Dimension::Right(id, x, y) => previous_lefts.retain(|elem| match elem {
+                Dimension::Left(id1, _, _) => id1 == id,
+                Dimension::Right(_, _, _) => panic!("impossible situation..."),
+            }),
         });
         result
     }
