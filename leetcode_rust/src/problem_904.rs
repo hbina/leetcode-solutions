@@ -1,5 +1,4 @@
 use crate::Solution;
-use std::cmp::Ordering;
 
 impl Solution {
     pub fn total_fruit(tree: Vec<i32>) -> i32 {
@@ -24,7 +23,7 @@ impl Solution {
                         let local_freq_sum =
                             p_basket.iter().fold(0, |acc, (_, (freq, _))| acc + freq);
                         match local_freq_sum.cmp(&p_freq) {
-                            Ordering::Greater => {
+                            std::cmp::Ordering::Greater => {
                                 *p_freq = local_freq_sum;
                             }
                             _ => {}
