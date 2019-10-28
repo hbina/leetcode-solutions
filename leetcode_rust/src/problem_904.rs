@@ -19,7 +19,7 @@ impl Solution {
                 let mut global_frequency: i32 = 0;
 
                 // Helper closures
-                let mut update_global_frequency =
+                let update_global_frequency =
                     |p_basket: &std::collections::HashMap<i32, (i32, i32)>, p_freq: &mut i32| {
                         let local_freq_sum =
                             p_basket.iter().fold(0, |acc, (_, (freq, _))| acc + freq);
