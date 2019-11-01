@@ -1,4 +1,5 @@
 pub struct Solution;
+
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Debug)]
 pub struct ListNode {
@@ -17,3 +18,4 @@ pub mod problem_1108;
 pub mod problem_218;
 pub mod problem_71;
 pub mod problem_904;
+pub mod problem_96;
