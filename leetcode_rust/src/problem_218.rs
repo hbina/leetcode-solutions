@@ -78,8 +78,6 @@ impl Solution {
     pub fn transform_and_map(buildings: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         // Local variables
         let mut previous_lefts: Vec<Dimension> = Vec::new();
-        let mut previous_rights: Vec<Dimension> = Vec::new(); // TODO :: Do we even need this?
-        let mut result = Vec::new();
         let mut id: i32 = -1;
 
         // Transform
@@ -127,12 +125,12 @@ impl Solution {
             },
             // TODO :: Match when lefts are empty??
             // TODO :: Remove matches
-            Dimension::Right(id, x, y) => previous_lefts.retain(|elem| match elem {
+            Dimension::Right(id, _, _) => previous_lefts.retain(|elem| match elem {
                 Dimension::Left(id1, _, _) => id1 == id,
                 Dimension::Right(_, _, _) => panic!("impossible situation..."),
             }),
         });
-        result
+        Vec::new()
     }
 }
 
