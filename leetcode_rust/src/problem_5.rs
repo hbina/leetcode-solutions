@@ -4,24 +4,39 @@ impl Solution {
     pub fn longest_palindrome<T: Into<String>>(s: T) -> String {
         let mut words: std::collections::HashMap<String, (bool, usize)> =
             std::collections::HashMap::new();
-        s.into().chars().enumerate().for_each(|c| {
-            println!("c:({},{})", c.0, c.1);
-            words
+        s.into().chars().enumerate().for_each(|(iter_index, iter_char)| {
+            println!("ch:({},{})", iter_index, iter_char);
+            let new_words = words
                 .iter()
                 .filter(|(_, (_, index))| {
-                    c.0 == *index + 1
+                    iter_index == *index + 1
                 })
-                .map(|pair| {
-                    pair.0
+                .map(|(word, (palindrome, end_index))| {
+                    println!("unfiltered word:{} palindrome:{} end_index:{}", word, palindrome, end_index);
+                    (word, palindrome, end_index)
                 })
-                .map(|pair| {
-                    println!("string:{}", pair);
-                    format!("{}{}", pair, c.1)
+                .map(|(word, palindrome, end_index)| {
+                    match word.chars().next() {
+                        Some(x) => {
+                            let combined_word = format!("{}{}", word, iter_char);
+                            let still_palindrome = x == iter_char;
+                            let new_end_index = end_index + 1;
+                            println!("new word:{} palindrome:{} end_index:{}", combined_word, still_palindrome, new_end_index);
+                            (combined_word, still_palindrome, new_end_index)
+                        }
+                        None => {
+                            panic!("something wrong happened...");
+                        }
+                    }
                 })
-                .map(|x| {
-                    println!("new string:{}", x);
-                });
-            words.insert(c.1.to_string(), (true, c.0));
+                .map(|(word, palindrome, end_index)| {
+                    println!("final word:{} palindrome:{} end_index:{}", word, palindrome, end_index);
+                    (word, palindrome, end_index)
+                }).collect::<Vec<_>>();
+            new_words.iter().for_each(|(word, palindrome, end_index)| {
+                words.insert(word.clone(), (palindrome.clone(), end_index.clone()));
+            });
+            words.insert(iter_char.to_string(), (true, iter_index));
         });
         String::from("dd")
     }
