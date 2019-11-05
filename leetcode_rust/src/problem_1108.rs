@@ -12,7 +12,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn succeeding() {
     let a = String::from("1.1.1.1");
     assert_eq!(Solution::defang_i_paddr(a), String::from("1[.]1[.]1[.]1"));
 }
