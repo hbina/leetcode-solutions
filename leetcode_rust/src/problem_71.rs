@@ -28,7 +28,7 @@ impl Solution {
 }
 
 #[test]
-fn succeeding() {
+fn test() {
     let a = String::from("/home/");
     assert_eq!(Solution::simplify_path(a), String::from("/home"));
     let a = String::from("/../");

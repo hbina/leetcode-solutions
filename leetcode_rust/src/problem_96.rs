@@ -21,7 +21,7 @@ impl Solution {
 }
 
 #[test]
-fn succeeding() {
+fn test() {
     assert_eq!(Solution::num_trees(3), 5);
     assert_eq!(Solution::num_trees(4), 14);
     assert_eq!(Solution::num_trees(5), 42);

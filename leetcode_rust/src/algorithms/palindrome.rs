@@ -1,4 +1,5 @@
 // TODO ::  Make this generic that accepts anything that can be turned into a String
+#[allow(dead_code)]
 fn is_palindrome(word: String) -> bool {
     let result: usize = word
         .chars()
