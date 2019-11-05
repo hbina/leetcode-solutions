@@ -24,7 +24,7 @@ impl Solution {
                             p_basket.iter().fold(0, |acc, (_, &(freq, _))| acc + freq);
                         match local_freq_sum.cmp(&p_freq) {
                             std::cmp::Ordering::Greater => {
-                                println!(
+                                dbg!(
                                     "updating global frequency {}=>{}",
                                     *p_freq, local_freq_sum
                                 );
@@ -35,30 +35,30 @@ impl Solution {
                     };
                 // Perform algorithm
                 tree.iter().for_each(|&value| {
-                    println!("index:{} value:{}",index, value);
+                    dbg!("index:{} value:{}",index, value);
                     match basket.len() {
                         0 | 1 => {
-                            println!("there are only {} types of fruit in the basket...", basket.len());
+                            dbg!("there are only {} types of fruit in the basket...", basket.len());
                             match basket.get_mut(&value) {
                                 Some(some) => {
-                                    println!("incrementing frequency of value:{} freq:{}=>{}", value, (*some).0, (*some).0 + 1);
+                                    dbg!("incrementing frequency of value:{} freq:{}=>{}", value, (*some).0, (*some).0 + 1);
                                     (*some).0 = (*some).0 + 1;
                                 }
                                 None => {
-                                    println!("inserting new unique value:{}", value);
+                                    dbg!("inserting new unique value:{}", value);
                                     basket.insert(value, (1, index));
                                 }
                             }
                         }
                         2 => {
-                            println!("there are exactly {} types of fruit in the basket...", basket.len());
+                            dbg!("there are exactly {} types of fruit in the basket...", basket.len());
                             match basket.get_mut(&value) {
                                 Some(some) => {
-                                    println!("incrementing frequency of value:{} freq:{}=>{}", value, (*some).0, (*some).0 + 1);
+                                    dbg!("incrementing frequency of value:{} freq:{}=>{}", value, (*some).0, (*some).0 + 1);
                                     (*some).0 = (*some).0 + 1;
                                 }
                                 None => {
-                                    println!("found a new unique key, must perform cleanup...");
+                                    dbg!("found a new unique key, must perform cleanup...");
                                     update_global_frequency(&basket, &mut global_frequency);
                                     let oldest_key = basket.iter().min_by(
                                         |(_, (_, left_index)), (_, (_, right_index))| {
@@ -68,9 +68,9 @@ impl Solution {
                                     match oldest_key {
                                         Some((&old_key, &(_, _))) => {
                                             // NOTE :: This was actually problematic, but Rust type system catched this error :)
-                                            println!("removing value:{} from the basket...", old_key);
+                                            dbg!("removing value:{} from the basket...", old_key);
                                             basket.remove(&old_key);
-                                            println!("inserting value:{} into the basket...", value);
+                                            dbg!("inserting value:{} into the basket...", value);
                                             basket.insert(value, (1, index));
                                         }
                                         None => {

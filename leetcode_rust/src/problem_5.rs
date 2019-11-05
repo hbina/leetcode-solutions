@@ -4,16 +4,16 @@ impl Solution {
     pub fn longest_palindrome<T: Into<String>>(s: T) -> String {
         let mut accumulation: std::collections::HashSet<String> = std::collections::HashSet::new();
         s.into().chars().enumerate().for_each(|(index, ch)| {
-            println!("index:{} ch:{}", index, ch);
+            dbg!("index:{} ch:{}", index, ch);
             accumulation.clone().iter().for_each(|word| {
                 let new_word = word.clone() + ch.to_string().as_str();
-                println!("new_word:{}", new_word);
+                dbg!("new_word:{}", new_word);
                 accumulation.insert(new_word);
             });
             accumulation.insert(ch.to_string());
         });
         accumulation.iter().for_each(|word| {
-            println!("word:{}", word);
+            dbg!("word:{}", word);
         });
         String::from("hello")
     }
@@ -25,12 +25,12 @@ impl Solution {
             .chars()
             .enumerate()
             .for_each(|(iter_index, iter_char)| {
-                println!("ch:({},{})", iter_index, iter_char);
+                dbg!("ch:({},{})", iter_index, iter_char);
                 let new_words = words
                     .iter()
                     .filter(|(_, (_, index))| iter_index == *index + 1)
                     .map(|(word, (palindrome, end_index))| {
-                        println!(
+                        dbg!(
                             "unfiltered word:{} palindrome:{} end_index:{}",
                             word, palindrome, end_index
                         );
@@ -41,7 +41,7 @@ impl Solution {
                             let combined_word = format!("{}{}", word, iter_char);
                             let still_palindrome = x == iter_char;
                             let new_end_index = end_index + 1;
-                            println!(
+                            dbg!(
                                 "new word:{} palindrome:{} end_index:{}",
                                 combined_word, still_palindrome, new_end_index
                             );
@@ -52,7 +52,7 @@ impl Solution {
                         }
                     })
                     .map(|(word, palindrome, end_index)| {
-                        println!(
+                        dbg!(
                             "final word:{} palindrome:{} end_index:{}",
                             word, palindrome, end_index
                         );

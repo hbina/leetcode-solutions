@@ -99,15 +99,15 @@ impl Solution {
                 Some(some) => match some {
                     Dimension::Left(id1, x1, y1) => match y.cmp(y1) {
                         Ordering::Equal => {
-                            println!("{},{},{} is as tall as {},{},{}", id, x, y, id1, x1, y1);
+                            dbg!("{},{},{} is as tall as {},{},{}", id, x, y, id1, x1, y1);
                             previous_lefts.push(Dimension::Left(*id, *x, *y));
                         }
                         Ordering::Greater => {
-                            println!("{},{},{} is higher than {},{},{}", id, x, y, id1, x1, y1);
+                            dbg!("{},{},{} is higher than {},{},{}", id, x, y, id1, x1, y1);
                             previous_lefts.push(Dimension::Left(*id, *x, *y));
                         }
                         Ordering::Less => {
-                            println!("{},{},{} is shorter than {},{},{}", id, x, y, id1, x1, y1);
+                            dbg!("{},{},{} is shorter than {},{},{}", id, x, y, id1, x1, y1);
                             previous_lefts.push(Dimension::Left(*id, *x, *y));
                         }
                     },
@@ -116,7 +116,7 @@ impl Solution {
                     }
                 },
                 None => {
-                    println!(
+                    dbg!(
                         "previous_lefts is empty, so simply adding {},{},{}",
                         *id, *x, *y
                     );
