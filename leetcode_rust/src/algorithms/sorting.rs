@@ -1,7 +1,9 @@
 // Sorting Algorithm Implementations
 // Some of the algorithms provided below can be found in CLRS and will be mentioned as such.
 
-// Basic insertion sort.
+// NAME ::  Insertion sort
+// COMP ::  O(N^2)
+// MEMC ::  O(1)
 // See page 18 of CLRS.
 // NOTE ::  This is a bit different from the pseudocode provided in CLRS.
 //          The difference is mainly due to the fact that Rust will hard crash upon integer overflow.
@@ -10,8 +12,8 @@
 //          Not sure how to proceed with the actual algorithm, so we just modify it a bit here.
 // TODO ::  Make this a generic function that accepts anything iterable
 pub fn insertion_sort<T>(input: &mut Vec<T>) -> &mut Vec<T>
-where
-    T: Ord,
+    where
+        T: Ord,
 {
     for i in 1..input.len() {
         for j in (1..i + 1).rev() {
