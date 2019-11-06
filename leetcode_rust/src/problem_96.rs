@@ -6,7 +6,7 @@ use crate::Solution;
 // TODO ::  You can also improve the algorithm by introducing generic types....
 // NOTE ::  This algorithm can be infinitely improved by introducing more match cases.
 impl Solution {
-    pub fn num_trees(n: i32) -> u64 {
+    pub fn num_trees(n: i32) -> i32 {
         match n {
             0 => 1,
             1 => 1,
@@ -28,23 +28,6 @@ impl Solution {
             17 => 129644790,
             18 => 477638700,
             19 => 1767263190,
-            20 => 6564120420,
-            21 => 24466267020,
-            22 => 91482563640,
-            23 => 343059613650,
-            24 => 1289904147324,
-            25 => 4861946401452,
-            26 => 18367353072152,
-            27 => 69533550916004,
-            28 => 263747951750360,
-            29 => 1002242216651368,
-            30 => 3814986502092304,
-            31 => 14544636039226909,
-            32 => 55534064877048198,
-            33 => 212336130412243110,
-            34 => 812944042149730764,
-            35 => 3116285494907301262,
-            36 => 11959798385860453492,
             _ => (1..=n).collect::<Vec<i32>>().iter().fold(0, |acc, &x| {
                 let left = Solution::num_trees(x - 1);
                 let right = Solution::num_trees(n - x);
