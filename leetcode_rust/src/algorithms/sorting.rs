@@ -13,7 +13,7 @@
 // TODO ::  Make this a generic function that accepts anything iterable
 pub fn insertion_sort<T>(input: &mut Vec<T>) -> &mut Vec<T>
     where
-        T: Ord,
+        T: Ord + Copy + Clone,
 {
     for i in 1..input.len() {
         for j in (1..i + 1).rev() {
