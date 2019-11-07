@@ -86,17 +86,6 @@ impl Solution {
     }
 }
 
-fn palindrome_length(left: &str, right: &str) -> usize {
-    let left_chars = left.chars().rev();
-    let right_chars = right.chars();
-
-    left_chars
-        .zip(right_chars)
-        .take_while(|(c1, c2)| c1 == c2)
-        .map(|(c, _)| c.len_utf8())
-        .sum()
-}
-
 #[test]
 fn failing() {
     assert_eq!(Solution::longest_palindrome("babad").len(), 3);
