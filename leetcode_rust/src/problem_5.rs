@@ -4,6 +4,8 @@ impl Solution {
     // TODO ::  I am pretty sure this abomination can be improved by a lot...
     // TODO ::  Needs to improve the performance because we are failing on large palindromes
     //          The problem is mainly due to the fact that we are mostly doing repetitive works on them.
+    // TODO ::  You can introduce an exit early function because say if the current largest palindrome is N long.
+    //          Then the rightward iteration must be at least N long as well.
     pub fn longest_palindrome<T>(s: T) -> String
         where
             T: Into<String>,
@@ -14,64 +16,66 @@ impl Solution {
             _ => {
                 s.chars()
                     .enumerate()
-                    .map(|(index, ch)| {
-                        let mut palindrome_collector: Vec<String> = Vec::new();
+                    .map(|(current_index, current_character)| {
+                        let mut current_palindromes: Vec<String> = Vec::new();
                         {
-                            // If single center
-                            let left = (0..index)
+                            // If single center i.e. ....bab.....
+                            let leftward_iteration = (0..current_index)
                                 .map(|index| {
                                     let ch = s.chars().enumerate().nth(index).unwrap();
                                     ch
                                 })
                                 .rev();
-                            let right = (index..s.len())
+                            let rightward_iteration = (current_index..s.len())
                                 .map(|index| {
                                     let ch = s.chars().enumerate().nth(index).unwrap();
                                     ch
                                 })
-                                .filter(|&x| x.0 != index);
-                            let mut single = left
-                                .zip(right)
+                                // NOTE :: This is 1 of 2 places where this code block is different than the one below...
+                                .filter(|&x| x.0 != current_index); // Filters out the current index from rightward iteration
+                            let mut current_palindrome = leftward_iteration
+                                .zip(rightward_iteration)
                                 .take_while(|(left, right)| right.1 == left.1)
                                 .map(|(left, right)| vec![left, right])
                                 .flatten()
                                 .collect::<Vec<(usize, char)>>();
-                            single.push((index, ch)); // Push the single character in the middle
-                            single.sort_by(|&left, &right| left.0.cmp(&right.0));
+                            // NOTE :: This is the other 1 of 2 places where this code block is different than the one below...
+                            current_palindrome.push((current_index, current_character)); // Push the single character in the middle
+                            current_palindrome.sort_by(|&left, &right| left.0.cmp(&right.0));
                             let palindrome_single =
-                                single.iter().fold(String::new(), |mut acc, &x| {
+                                current_palindrome.iter().fold(String::new(), |mut acc, &x| {
                                     acc.push(x.1);
                                     acc
                                 });
-                            palindrome_collector.push(palindrome_single);
+                            current_palindromes.push(palindrome_single);
                         }
                         {
-                            // If dual center left
-                            let left = (0..index)
+                            // If dual center i.e. ...aa....
+                            let leftward_iteration = (0..current_index)
                                 .map(|index| {
                                     let ch = s.chars().enumerate().nth(index).unwrap();
                                     ch
                                 })
                                 .rev();
-                            let right = (index..s.len()).map(|index| {
+                            let rightward_iteration = (current_index..s.len()).map(|index| {
                                 let ch = s.chars().enumerate().nth(index).unwrap();
                                 ch
                             });
-                            let mut single_left = left
-                                .zip(right)
+                            let mut current_palindrome = leftward_iteration
+                                .zip(rightward_iteration)
                                 .take_while(|(left, right)| right.1 == left.1)
                                 .map(|(left, right)| vec![left, right])
                                 .flatten()
                                 .collect::<Vec<(usize, char)>>();
-                            single_left.sort_by(|&left, &right| left.0.cmp(&right.0));
+                            current_palindrome.sort_by(|&left, &right| left.0.cmp(&right.0));
                             let palindrome_single =
-                                single_left.iter().fold(String::new(), |mut acc, &x| {
+                                current_palindrome.iter().fold(String::new(), |mut acc, &x| {
                                     acc.push(x.1);
                                     acc
                                 });
-                            palindrome_collector.push(palindrome_single);
+                            current_palindromes.push(palindrome_single);
                         }
-                        palindrome_collector
+                        current_palindromes
                     })
                     .flatten()
                     .filter(|x| !x.is_empty())
@@ -79,13 +83,6 @@ impl Solution {
                     .unwrap()
             }
         }
-    }
-
-    pub fn longest_palindrome_dummy<T>(s: T) -> String
-        where
-            T: Into<String>,
-    {
-        String::from("dd")
     }
 }
 
@@ -109,5 +106,5 @@ fn failing() {
     assert_eq!(Solution::longest_palindrome("").len(), 0);
     assert_eq!(Solution::longest_palindrome("b").len(), 1);
     assert_eq!(Solution::longest_palindrome("fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
-    ).len(), 1);
+    ).len(), 494);
 }
