@@ -1,75 +1,113 @@
 use crate::Solution;
 
 impl Solution {
-    pub fn longest_palindrome<T: Into<String>>(s: T) -> String {
-        let mut accumulation: std::collections::HashSet<String> = std::collections::HashSet::new();
-        s.into().chars().enumerate().for_each(|(index, ch)| {
-            println!("index:{} ch:{}", index, ch);
-            accumulation.clone().iter().for_each(|word| {
-                let new_word = word.clone() + ch.to_string().as_str();
-                println!("new_word:{}", new_word);
-                accumulation.insert(new_word);
-            });
-
-            accumulation.insert(ch.to_string());
-        });
-        accumulation.iter().for_each(|word| {
-            println!("word:{}", word);
-        });
-        String::from("hello")
+    // TODO ::  I am pretty sure this abomination can be improved by a lot...
+    // TODO ::  Needs to improve the performance because we are failing on large palindromes
+    //          The problem is mainly due to the fact that we are mostly doing repetitive works on them.
+    pub fn longest_palindrome<T>(s: T) -> String
+        where
+            T: Into<String>,
+    {
+        let s = s.into();
+        match s.len() {
+            0 => String::new(),
+            _ => {
+                s.chars()
+                    .enumerate()
+                    .map(|(index, ch)| {
+                        let mut palindrome_collector: Vec<String> = Vec::new();
+                        {
+                            // If single center
+                            let left = (0..index)
+                                .map(|index| {
+                                    let ch = s.chars().enumerate().nth(index).unwrap();
+                                    ch
+                                })
+                                .rev();
+                            let right = (index..s.len())
+                                .map(|index| {
+                                    let ch = s.chars().enumerate().nth(index).unwrap();
+                                    ch
+                                })
+                                .filter(|&x| x.0 != index);
+                            let mut single = left
+                                .zip(right)
+                                .take_while(|(left, right)| right.1 == left.1)
+                                .map(|(left, right)| vec![left, right])
+                                .flatten()
+                                .collect::<Vec<(usize, char)>>();
+                            single.push((index, ch)); // Push the single character in the middle
+                            single.sort_by(|&left, &right| left.0.cmp(&right.0));
+                            let palindrome_single =
+                                single.iter().fold(String::new(), |mut acc, &x| {
+                                    acc.push(x.1);
+                                    acc
+                                });
+                            palindrome_collector.push(palindrome_single);
+                        }
+                        {
+                            // If dual center left
+                            let left = (0..index)
+                                .map(|index| {
+                                    let ch = s.chars().enumerate().nth(index).unwrap();
+                                    ch
+                                })
+                                .rev();
+                            let right = (index..s.len()).map(|index| {
+                                let ch = s.chars().enumerate().nth(index).unwrap();
+                                ch
+                            });
+                            let mut single_left = left
+                                .zip(right)
+                                .take_while(|(left, right)| right.1 == left.1)
+                                .map(|(left, right)| vec![left, right])
+                                .flatten()
+                                .collect::<Vec<(usize, char)>>();
+                            single_left.sort_by(|&left, &right| left.0.cmp(&right.0));
+                            let palindrome_single =
+                                single_left.iter().fold(String::new(), |mut acc, &x| {
+                                    acc.push(x.1);
+                                    acc
+                                });
+                            palindrome_collector.push(palindrome_single);
+                        }
+                        palindrome_collector
+                    })
+                    .flatten()
+                    .filter(|x| !x.is_empty())
+                    .max_by(|left, right| left.len().cmp(&right.len()))
+                    .unwrap()
+            }
+        }
     }
 
-    pub fn longest_palindrome_dummy<T: Into<String>>(s: T) -> String {
-        let mut words: std::collections::HashMap<String, (bool, usize)> =
-            std::collections::HashMap::new();
-        s.into()
-            .chars()
-            .enumerate()
-            .for_each(|(iter_index, iter_char)| {
-                println!("ch:({},{})", iter_index, iter_char);
-                let new_words = words
-                    .iter()
-                    .filter(|(_, (_, index))| iter_index == *index + 1)
-                    .map(|(word, (palindrome, end_index))| {
-                        println!(
-                            "unfiltered word:{} palindrome:{} end_index:{}",
-                            word, palindrome, end_index
-                        );
-                        (word, palindrome, end_index)
-                    })
-                    .map(|(word, _, end_index)| match word.chars().next() {
-                        Some(x) => {
-                            let combined_word = format!("{}{}", word, iter_char);
-                            let still_palindrome = x == iter_char;
-                            let new_end_index = end_index + 1;
-                            println!(
-                                "new word:{} palindrome:{} end_index:{}",
-                                combined_word, still_palindrome, new_end_index
-                            );
-                            (combined_word, still_palindrome, new_end_index)
-                        }
-                        None => {
-                            panic!("something wrong happened...");
-                        }
-                    })
-                    .map(|(word, palindrome, end_index)| {
-                        println!(
-                            "final word:{} palindrome:{} end_index:{}",
-                            word, palindrome, end_index
-                        );
-                        (word, palindrome, end_index)
-                    })
-                    .collect::<Vec<_>>();
-                new_words.iter().for_each(|(word, palindrome, end_index)| {
-                    words.insert(word.clone(), (palindrome.clone(), end_index.clone()));
-                });
-                words.insert(iter_char.to_string(), (true, iter_index));
-            });
+    pub fn longest_palindrome_dummy<T>(s: T) -> String
+        where
+            T: Into<String>,
+    {
         String::from("dd")
     }
 }
 
+fn palindrome_length(left: &str, right: &str) -> usize {
+    let left_chars = left.chars().rev();
+    let right_chars = right.chars();
+
+    left_chars
+        .zip(right_chars)
+        .take_while(|(c1, c2)| c1 == c2)
+        .map(|(c, _)| c.len_utf8())
+        .sum()
+}
+
 #[test]
 fn failing() {
-    // assert_eq!(Solution::longest_palindrome("hello").len(), 4);
+    assert_eq!(Solution::longest_palindrome("babad").len(), 3);
+    assert_eq!(Solution::longest_palindrome("cbbd").len(), 2);
+    assert_eq!(Solution::longest_palindrome("ccc").len(), 3);
+    assert_eq!(Solution::longest_palindrome("aaaa").len(), 4);
+    assert_eq!(Solution::longest_palindrome("").len(), 0);
+    assert_eq!(Solution::longest_palindrome("b").len(), 1);
+    assert_eq!(Solution::longest_palindrome("fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+    ).len(), 1);
 }

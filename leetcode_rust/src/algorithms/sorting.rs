@@ -12,8 +12,8 @@
 //          Not sure how to proceed with the actual algorithm, so we just modify it a bit here.
 // TODO ::  Make this a generic function that accepts anything iterable
 pub fn insertion_sort<T>(input: &mut Vec<T>) -> &mut Vec<T>
-    where
-        T: Ord + Copy + Clone,
+where
+    T: Ord + Copy + Clone,
 {
     for i in 1..input.len() {
         for j in (1..i + 1).rev() {
