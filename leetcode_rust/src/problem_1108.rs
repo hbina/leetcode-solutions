@@ -2,8 +2,8 @@ use crate::Solution;
 
 impl Solution {
     pub fn defang_i_paddr<T>(address: T) -> String
-        where
-            T: Into<String>,
+    where
+        T: Into<String>,
     {
         address
             .into()

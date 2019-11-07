@@ -1,8 +1,12 @@
 use crate::Solution;
 
 impl Solution {
-    pub fn simplify_path(path: String) -> String {
+    pub fn simplify_path<T>(path: T) -> String
+    where
+        T: Into<String>,
+    {
         let mut stack: Vec<&str> = Vec::new();
+        let path = path.into();
         path.split('/').for_each(|c: &str| {
             if c == ".." {
                 if stack.len() > 0 {
