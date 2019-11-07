@@ -1,18 +1,22 @@
 use crate::Solution;
 
 impl Solution {
-    pub fn defang_i_paddr(address: String) -> String {
-        let mut result: String = String::new();
-        address.chars().into_iter().for_each(|c| match c {
-            '.' => result.push_str("[.]"),
-            _ => result.push(c),
-        });
-        return result;
+    pub fn defang_i_paddr<T>(address: T) -> String
+    where
+        T: Into<String>,
+    {
+        address
+            .into()
+            .chars()
+            .into_iter()
+            .fold(String::new(), |acc, c| match c {
+                '.' => format!("{}{}", acc, "[.]"),
+                _ => format!("{}{}", acc, c),
+            })
     }
 }
 
 #[test]
 fn test() {
-    let a = String::from("1.1.1.1");
-    assert_eq!(Solution::defang_i_paddr(a), String::from("1[.]1[.]1[.]1"));
+    assert_eq!(Solution::defang_i_paddr("1.1.1.1"), "1[.]1[.]1[.]1");
 }
