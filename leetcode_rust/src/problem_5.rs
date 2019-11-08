@@ -7,8 +7,8 @@ impl Solution {
     // TODO ::  You can introduce an exit early function because say if the current largest palindrome is N long.
     //          Then the rightward iteration must be at least N long as well.
     pub fn longest_palindrome<T>(s: T) -> String
-        where
-            T: Into<String>,
+    where
+        T: Into<String>,
     {
         let s = s.into();
         match s.len() {
@@ -43,10 +43,12 @@ impl Solution {
                             current_palindrome.push((current_index, current_character)); // Push the single character in the middle
                             current_palindrome.sort_by(|&left, &right| left.0.cmp(&right.0));
                             let palindrome_single =
-                                current_palindrome.iter().fold(String::new(), |mut acc, &x| {
-                                    acc.push(x.1);
-                                    acc
-                                });
+                                current_palindrome
+                                    .iter()
+                                    .fold(String::new(), |mut acc, &x| {
+                                        acc.push(x.1);
+                                        acc
+                                    });
                             current_palindromes.push(palindrome_single);
                         }
                         {
@@ -69,10 +71,12 @@ impl Solution {
                                 .collect::<Vec<(usize, char)>>();
                             current_palindrome.sort_by(|&left, &right| left.0.cmp(&right.0));
                             let palindrome_single =
-                                current_palindrome.iter().fold(String::new(), |mut acc, &x| {
-                                    acc.push(x.1);
-                                    acc
-                                });
+                                current_palindrome
+                                    .iter()
+                                    .fold(String::new(), |mut acc, &x| {
+                                        acc.push(x.1);
+                                        acc
+                                    });
                             current_palindromes.push(palindrome_single);
                         }
                         current_palindromes
@@ -87,7 +91,7 @@ impl Solution {
 }
 
 #[test]
-fn failing() {
+fn test() {
     assert_eq!(Solution::longest_palindrome("babad").len(), 3);
     assert_eq!(Solution::longest_palindrome("cbbd").len(), 2);
     assert_eq!(Solution::longest_palindrome("ccc").len(), 3);

@@ -33,16 +33,10 @@ impl Solution {
 
 #[test]
 fn test() {
-    let a = String::from("/home/");
-    assert_eq!(Solution::simplify_path(a), String::from("/home"));
-    let a = String::from("/../");
-    assert_eq!(Solution::simplify_path(a), String::from("/"));
-    let a = String::from("/home//foo/");
-    assert_eq!(Solution::simplify_path(a), String::from("/home/foo"));
-    let a = String::from("/a/./b/../../c/");
-    assert_eq!(Solution::simplify_path(a), String::from("/c"));
-    let a = String::from("/a/../../b/../c//.//");
-    assert_eq!(Solution::simplify_path(a), String::from("/c"));
-    let a = String::from("/a//b////c/d//././/..");
-    assert_eq!(Solution::simplify_path(a), String::from("/a/b/c"));
+    assert_eq!(Solution::simplify_path("/home/"), "/home");
+    assert_eq!(Solution::simplify_path("/../"), "/");
+    assert_eq!(Solution::simplify_path("/home//foo/"), "/home/foo");
+    assert_eq!(Solution::simplify_path("/a/./b/../../c/"), "/c");
+    assert_eq!(Solution::simplify_path("/a/../../b/../c//.//"), "/c");
+    assert_eq!(Solution::simplify_path("/a//b////c/d//././/.."), "/a/b/c");
 }
