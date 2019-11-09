@@ -5,9 +5,22 @@ impl Solution {
         where
             T: Into<String>,
     {
-        let s = s.into();
+        let mut stack = s.into().chars().collect::<std::collections::VecDeque<_>>();
+        let expected_length = stack.len();
         let t = t.into();
-        false
+        t.chars().fold(0, |mut acc, x| {
+            let top = stack.front();
+            match top {
+                Some(&some) => {
+                    if some == x {
+                        stack.pop_front();
+                        acc = acc + 1;
+                    }
+                }
+                None => {}
+            }
+            acc
+        }) == expected_length
     }
 }
 

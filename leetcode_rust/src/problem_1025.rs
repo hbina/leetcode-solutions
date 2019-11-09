@@ -9,7 +9,7 @@ impl Solution {
     //          distribution of the divisors of `N`.
     //          In particular, if `N` is even, we know that the largest divisor is `N/2`.
     //          Furthermore, if `N` is odd, then the smallest divisor must be `< sqrt(N)`
-    pub fn divisor_game_dp(n: i32) -> bool {
+    pub fn divisor_game_recursive(n: i32) -> bool {
         match n {
             1 => false,
             2 => true,
@@ -20,7 +20,7 @@ impl Solution {
                     .collect::<Vec<_>>()
                     .iter()
                     .filter(|&&x| n % x == 0)
-                    .take_while(|&&x| !Solution::divisor_game_dp(n - x))
+                    .take_while(|&&x| !Solution::divisor_game_recursive(n - x))
                     .collect::<Vec<_>>()
                     .len()
                     != 0
@@ -37,13 +37,16 @@ fn test() {
     assert_eq!(Solution::divisor_game(4), true);
     assert_eq!(Solution::divisor_game(5), false);
 
-    assert_eq!(Solution::divisor_game_dp(1), false);
-    assert_eq!(Solution::divisor_game_dp(2), true);
-    assert_eq!(Solution::divisor_game_dp(3), false);
-    assert_eq!(Solution::divisor_game_dp(4), true);
-    assert_eq!(Solution::divisor_game_dp(5), false);
+    assert_eq!(Solution::divisor_game_recursive(1), false);
+    assert_eq!(Solution::divisor_game_recursive(2), true);
+    assert_eq!(Solution::divisor_game_recursive(3), false);
+    assert_eq!(Solution::divisor_game_recursive(4), true);
+    assert_eq!(Solution::divisor_game_recursive(5), false);
 
     (5..20).for_each(|x| {
-        assert_eq!(Solution::divisor_game_dp(x), Solution::divisor_game(x));
+        assert_eq!(
+            Solution::divisor_game_recursive(x),
+            Solution::divisor_game(x)
+        );
     });
 }
