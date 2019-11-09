@@ -1,20 +1,11 @@
 use crate::Solution;
 
+// TODO :: Finish this...
 impl Solution {
     pub fn convert<T>(s: T, num_rows: i32) -> String
-        where
-            T: Into<String>,
+    where
+        T: Into<String>,
     {
-        let mut iter = 0;
-        let mut map: std::collections::HashMap<usize, usize> = std::collections::HashMap::new();
-        s.into().chars().enumerate()
-            .map(|(index, ch)| {
-                let id = num_rows*2
-                (index, ch)
-            })
-            .for_each(|(index, ch)| {
-                println!("index:{} ch:{}", index, ch);
-            });
         String::new()
     }
 }

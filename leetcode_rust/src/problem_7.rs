@@ -1,13 +1,9 @@
 use crate::Solution;
 
+// TODO :: Finish this...
 impl Solution {
-    pub fn reverse(mut x: i32) -> i32 {
-        let mut value = 0;
-        let mut largest_power_of_10 = 1;
-        while largest_power_of_10 < x {
-            largest_power_of_10 *= 10;
-        }
-        value
+    pub fn reverse(x: i32) -> i32 {
+        x
     }
 }
 
