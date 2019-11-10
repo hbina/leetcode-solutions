@@ -3,16 +3,10 @@ use crate::Solution;
 impl Solution {
     pub fn is_palindrome(input_value: i32) -> bool {
         match input_value.cmp(&0) {
-            std::cmp::Ordering::Less => {
-                false
-            }
+            std::cmp::Ordering::Less => false,
             _ => {
                 let mut reversed_integer = 0;
                 let mut pow_10 = input_value;
-                // TODO ::  Must sanitize the input...
-                //          1. This algorithm have a upper bound where it works.
-                //          2. Negative values?
-                //          3. Turn this into a local function
                 while pow_10 != 0 {
                     let remainder = pow_10 % 10;
                     reversed_integer = reversed_integer * 10 + remainder;
