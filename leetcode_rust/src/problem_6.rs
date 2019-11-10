@@ -2,9 +2,9 @@ use crate::Solution;
 
 // TODO :: Finish this...
 impl Solution {
-    pub fn convert<T>(s: T, num_rows: i32) -> String
-    where
-        T: Into<String>,
+    pub fn convert<T>(_: T, _: i32) -> String
+        where
+            T: Into<String>,
     {
         String::new()
     }

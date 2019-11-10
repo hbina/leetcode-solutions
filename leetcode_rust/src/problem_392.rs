@@ -2,8 +2,8 @@ use crate::Solution;
 
 impl Solution {
     pub fn is_subsequence<T>(s: T, t: T) -> bool
-        where
-            T: Into<String>,
+    where
+        T: Into<String>,
     {
         let mut stack = s.into().chars().collect::<std::collections::VecDeque<_>>();
         let expected_length = stack.len();
