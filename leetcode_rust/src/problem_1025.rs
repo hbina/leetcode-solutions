@@ -5,10 +5,11 @@ impl Solution {
         n % 2 == 0
     }
 
-    // TODO ::  This can be improved further by considering the
-    //          distribution of the divisors of `N`.
-    //          In particular, if `N` is even, we know that the largest divisor is `N/2`.
-    //          Furthermore, if `N` is odd, then the smallest divisor must be `< sqrt(N)`
+    //  TODO    ::  This can be improved further by considering the
+    //              distribution of the divisors of `N`.
+    //              In particular, if `N` is even, we know that the largest divisor is `N/2`.
+    //              Furthermore, if `N` is odd, then the smallest divisor must be `< sqrt(N)`
+    //  TODO    ::  Another improvement that can be made is to notice that we only consider the divisor of a number N
     pub fn divisor_game_recursive(n: i32) -> bool {
         match n {
             1 => false,
