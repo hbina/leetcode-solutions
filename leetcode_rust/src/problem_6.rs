@@ -6,8 +6,8 @@ use crate::Solution;
 
 impl Solution {
     pub fn convert<T>(s: T, n: i32) -> String
-        where
-            T: Into<String>,
+    where
+        T: Into<String>,
     {
         if n == 1 {
             return s.into();
@@ -31,7 +31,11 @@ impl Solution {
                     counter += delta;
                 }
                 None => {
-                    panic!("index out of bound counter:{} size:{}", counter, result.len());
+                    panic!(
+                        "index out of bound counter:{} size:{}",
+                        counter,
+                        result.len()
+                    );
                 }
             }
         });

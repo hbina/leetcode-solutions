@@ -1,11 +1,13 @@
 pub struct Solution;
 
 pub mod algorithms;
+pub mod cs6006;
 pub mod problem_1021;
 pub mod problem_1025;
 pub mod problem_1108;
 pub mod problem_13;
 pub mod problem_218;
+pub mod problem_322;
 pub mod problem_392;
 pub mod problem_5;
 pub mod problem_6;

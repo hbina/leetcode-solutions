@@ -8,3 +8,6 @@ impl Solution {
         0
     }
 }
+
+#[test]
+fn test() {}
