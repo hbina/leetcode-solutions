@@ -7,8 +7,8 @@ impl Solution {
     // TODO ::  You can introduce an exit early function because say if the current largest palindrome is N long.
     //          Then the rightward iteration must be at least N long as well.
     pub fn longest_palindrome<T>(s: T) -> String
-    where
-        T: Into<String>,
+        where
+            T: Into<String>,
     {
         let s = s.into();
         match s.len() {
@@ -98,6 +98,7 @@ fn test() {
     assert_eq!(Solution::longest_palindrome("aaaa").len(), 4);
     assert_eq!(Solution::longest_palindrome("").len(), 0);
     assert_eq!(Solution::longest_palindrome("b").len(), 1);
+    //  TODO    ::  Time limit exceeded for this test case
     assert_eq!(Solution::longest_palindrome("fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
     ).len(), 494);
 }

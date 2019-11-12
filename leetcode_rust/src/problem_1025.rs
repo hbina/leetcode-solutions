@@ -1,6 +1,8 @@
 use crate::Solution;
 
 impl Solution {
+    //  NOTE    ::  A brief explanation on why this "works" is available at:
+    //              https://medium.com/@hanif.ariffin.4326/intuition-on-leetcodes-problem-1025-divisor-game-daf00e77d0ce
     pub fn divisor_game(n: i32) -> bool {
         n % 2 == 0
     }

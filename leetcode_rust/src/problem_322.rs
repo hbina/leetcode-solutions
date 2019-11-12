@@ -15,10 +15,6 @@ impl Solution {
             let remainder = acc % x;
             let frequency = acc / x;
             count += frequency;
-            println!(
-                "x:{} acc:{} remainder:{} frequency:{}",
-                x, acc, remainder, frequency
-            );
             acc - (frequency * x)
         }) == 0
         {

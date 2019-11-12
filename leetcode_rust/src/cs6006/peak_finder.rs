@@ -5,8 +5,8 @@
 //              If possible, allow it to accept anything that is iterable!
 //  TODO    ::  Fix copying the values multiple times...
 pub fn peak_finder<T>(a: Vec<T>) -> usize
-    where
-        T: PartialOrd + Clone,
+where
+    T: PartialOrd + Clone,
 {
     match a.len() {
         0 => {
