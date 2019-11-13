@@ -7,8 +7,8 @@ impl Solution {
     // TODO ::  You can introduce an exit early function because say if the current largest palindrome is N long.
     //          Then the rightward iteration must be at least N long as well.
     pub fn longest_palindrome<T>(s: T) -> String
-        where
-            T: Into<String>,
+    where
+        T: Into<String>,
     {
         let s = s.into();
         match s.len() {
