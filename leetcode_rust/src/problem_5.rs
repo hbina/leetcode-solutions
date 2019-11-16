@@ -91,7 +91,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_5_test() {
     assert_eq!(Solution::longest_palindrome("babad").len(), 3);
     assert_eq!(Solution::longest_palindrome("cbbd").len(), 2);
     assert_eq!(Solution::longest_palindrome("ccc").len(), 3);

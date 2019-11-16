@@ -25,7 +25,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_392_test() {
     assert_eq!(Solution::is_subsequence("abc", "ahbgdc"), true);
     assert_eq!(Solution::is_subsequence("axc", "ahbgdc"), false);
 }

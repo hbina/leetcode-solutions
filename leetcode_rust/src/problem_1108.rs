@@ -17,6 +17,6 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_1108_test() {
     assert_eq!(Solution::defang_i_paddr("1.1.1.1"), "1[.]1[.]1[.]1");
 }

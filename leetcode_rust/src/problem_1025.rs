@@ -33,7 +33,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_1025_test() {
     assert_eq!(Solution::divisor_game(1), false);
     assert_eq!(Solution::divisor_game(2), true);
     assert_eq!(Solution::divisor_game(3), false);

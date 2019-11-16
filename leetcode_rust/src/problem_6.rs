@@ -44,7 +44,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_6_test() {
     // assert_eq!(Solution::convert("PAYPALISHIRING", 3), "PAHNAPLSIIGYIR");
     // assert_eq!(Solution::convert("PAYPALISHIRING", 4), "PINALSIGYAHRPI");
     assert_eq!(Solution::convert("AB", 1), "AB");

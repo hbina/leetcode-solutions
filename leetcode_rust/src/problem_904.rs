@@ -11,7 +11,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_904_test() {
     assert_eq!(Solution::total_fruit(vec![1, 2, 1]), 3);
     assert_eq!(Solution::total_fruit(vec![0, 1, 2, 2]), 3);
     assert_eq!(Solution::total_fruit(vec![1, 2, 3, 2, 2]), 4);
@@ -23,6 +23,6 @@ fn test() {
 
 // TODO ::  Resolve this special case...
 #[test]
-fn failing() {
+fn problem_904_failing() {
     assert_eq!(Solution::total_fruit(vec![1, 0, 1, 4, 1, 4, 1, 2, 3]), 5);
 }

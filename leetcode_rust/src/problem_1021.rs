@@ -38,7 +38,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_1021_test() {
     assert_eq!(
         Solution::remove_outer_parentheses(String::from("(()())(())")),
         "()()()"

@@ -32,7 +32,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_71_test() {
     assert_eq!(Solution::simplify_path("/home/"), "/home");
     assert_eq!(Solution::simplify_path("/../"), "/");
     assert_eq!(Solution::simplify_path("/home//foo/"), "/home/foo");

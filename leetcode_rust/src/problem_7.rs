@@ -21,7 +21,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_7_test() {
     assert_eq!(Solution::reverse(1234), 4321);
     assert_eq!(Solution::reverse(123), 321);
     assert_eq!(Solution::reverse(12), 21);

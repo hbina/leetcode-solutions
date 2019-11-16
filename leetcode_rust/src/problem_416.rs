@@ -110,19 +110,19 @@ impl Solution {
             return true;
         } else {
             let next_start_from = start_from + 1;
-            let value = nums[start_from];
-            let whats_left = whats_left - value;
-            match goal_amount.cmp(&value) {
+            let current_value = nums[start_from];
+            let next_whats_left = whats_left - current_value;
+            match goal_amount.cmp(&current_value) {
                 std::cmp::Ordering::Greater => {
                     return Solution::can_partition_dp_top_down(
                         &nums,
                         next_start_from,
-                        whats_left,
-                        goal_amount - value,
+                        next_whats_left,
+                        goal_amount - current_value,
                     ) || Solution::can_partition_dp_top_down(
                         &nums,
                         next_start_from,
-                        whats_left,
+                        next_whats_left,
                         goal_amount,
                     );
                 }
@@ -133,7 +133,7 @@ impl Solution {
                     return Solution::can_partition_dp_top_down(
                         &nums,
                         next_start_from,
-                        whats_left,
+                        next_whats_left,
                         goal_amount,
                     );
                 }

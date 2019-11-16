@@ -19,7 +19,7 @@ impl Solution {
 }
 
 #[test]
-fn test() {
+fn problem_9_test() {
     assert_eq!(Solution::is_palindrome(32123), true);
     assert_eq!(Solution::is_palindrome(4334), true);
     assert_eq!(Solution::is_palindrome(1221), true);

@@ -25,7 +25,7 @@ impl Solution {
 // TODO ::  This test is not comprehensive, we need to implement a custom function to test
 //          the result. One possible solution is to implement an iterator that returns alternating values.
 #[test]
-fn test() {
+fn problem_922_test() {
     assert_eq!(
         Solution::sort_array_by_parity_ii(vec![4, 2, 5, 7]),
         vec![4, 5, 2, 7]
