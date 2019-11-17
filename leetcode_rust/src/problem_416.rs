@@ -102,13 +102,25 @@ impl Solution {
         whats_left: i32,
         goal_amount: i32,
     ) -> bool {
+        // Exit if we have ran through every possible integers
         if start_from >= nums.len() {
             return false;
+
+            // Exit if the goal amount is larger than whats left in the array, meaning even if we
+            // consider every element afterwards, we will still fail
         } else if goal_amount > whats_left {
             return false;
+
+            // Exit with true if considering this value means that we found a summation that yields
+            // whats left of sum/2 after all the considerations made beforehand.
         } else if goal_amount == whats_left {
             return true;
         } else {
+
+            // Else, generate 2 recursive calls that:
+            // 1. considers this value (if possible)
+            // 2. does not consider this value
+            // And returning the OR or those calls.
             let next_start_from = start_from + 1;
             let current_value = nums[start_from];
             let next_whats_left = whats_left - current_value;
