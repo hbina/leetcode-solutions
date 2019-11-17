@@ -11,7 +11,7 @@ impl Solution {
 }
 
 #[test]
-fn problem_8_test() {
+fn problem_8_failing() {
     assert_eq!(Solution::my_atoi("4193 with words"), 4193);
     assert_eq!(Solution::my_atoi("words and 987"), 987);
     assert_eq!(Solution::my_atoi("   -42"), -42);
