@@ -11,14 +11,17 @@ impl Solution {
                 result.push((x, 0))
             }
             _ => {
-                let new_result = result
+                let right_result = result
                     .iter()
                     .map(|&(left, right)| (left, right + x))
                     .collect::<Vec<(i32, i32)>>();
-                result.iter().for_each(|&(mut left, right)| {
-                    left += x;
-                });
-                result.extend(new_result);
+                let left_result = result
+                    .iter()
+                    .map(|&(left, right)| (left + x, right))
+                    .collect::<Vec<(i32, i32)>>();
+                result.clear();
+                result.extend(left_result);
+                result.extend(right_result);
             }
         });
         result

@@ -1,7 +1,7 @@
 use crate::Solution;
 
 impl Solution {
-    pub fn total_fruit(tree: Vec<i32>) -> i32 {
+    pub fn total_fruit(_: Vec<i32>) -> i32 {
         // TODO ::  Find the first 2 couple.
         //          We can actually exit early based on this algorithm.
         //          For now we will just use HashMap

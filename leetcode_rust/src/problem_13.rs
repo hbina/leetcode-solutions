@@ -1,7 +1,7 @@
 use crate::Solution;
 
 impl Solution {
-    pub fn roman_to_int<T>(s: T) -> i32
+    pub fn roman_to_int<T>(_: T) -> i32
     where
         T: Into<String>,
     {
