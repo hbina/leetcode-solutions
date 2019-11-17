@@ -106,17 +106,16 @@ impl Solution {
         if start_from >= nums.len() {
             return false;
 
-            // Exit if the goal amount is larger than whats left in the array, meaning even if we
-            // consider every element afterwards, we will still fail
+        // Exit if the goal amount is larger than whats left in the array, meaning even if we
+        // consider every element afterwards, we will still fail
         } else if goal_amount > whats_left {
             return false;
 
-            // Exit with true if considering this value means that we found a summation that yields
-            // whats left of sum/2 after all the considerations made beforehand.
+        // Exit with true if considering this value means that we found a summation that yields
+        // whats left of sum/2 after all the considerations made beforehand.
         } else if goal_amount == whats_left {
             return true;
         } else {
-
             // Else, generate 2 recursive calls that:
             // 1. considers this value (if possible)
             // 2. does not consider this value
