@@ -1,9 +1,12 @@
+# How to import : from src.utility.tree_node import TreeNode
+
 class TreeNode:
     def __init__(self, x, p_left=None, p_right=None):
         self.val = x
         self.left = p_left
         self.right = p_right
 
+    # Convert this into a free function that accepts a TreeNode
     def getPathTo(self, p_tree):
         result = []
         if self.val == p_tree.val:
