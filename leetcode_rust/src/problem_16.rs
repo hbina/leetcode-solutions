@@ -2,14 +2,16 @@ use crate::Solution;
 
 impl Solution {
     pub fn three_sum_closest(mut nums: Vec<i32>, target: i32) -> i32 {
-
         // If we don't even have more than 3 elements, we just return their sum
         if nums.len() <= 3 {
             return nums.iter().sum();
         }
 
         nums.sort();
-        let (mut result, mut global_diff) = (nums[0] + nums[1] + nums[2], target - (nums[0] + nums[1] + nums[2]));
+        let (mut result, mut global_diff) = (
+            nums[0] + nums[1] + nums[2],
+            target - (nums[0] + nums[1] + nums[2]),
+        );
         // println!("result:{} global_diff:{}", result, global_diff);
         for x in 0..nums.len() {
             if x > 0 && nums[x] == nums[x - 1] {
@@ -18,7 +20,6 @@ impl Solution {
                 let mut left_iter = x + 1;
                 let mut right_iter = nums.len() - 1;
                 while left_iter < right_iter {
-
                     // Pre-calculations
                     let sum = nums[x] + nums[left_iter] + nums[right_iter];
                     let diff = target - sum;
@@ -49,7 +50,6 @@ impl Solution {
         result
     }
 }
-
 
 #[test]
 pub fn problem_16_test() {

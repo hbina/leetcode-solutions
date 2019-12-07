@@ -16,14 +16,14 @@ std::vector<int> sortedSquares(std::vector<int> &A)
     std::vector<int> s;
     s.reserve(A.size());
 
-    int going_right = 0;
+    std::size_t going_right = 0;
 
     while (going_right < A.size() && A[going_right] < 0)
     {
         going_right++;
     }
 
-    int going_left = going_right - 1;
+    std::size_t going_left = going_right - 1;
 
     // "Zip" through left and right from the middle...
     while (going_left >= 0 && going_right < A.size())

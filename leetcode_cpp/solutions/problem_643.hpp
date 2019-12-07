@@ -6,7 +6,7 @@
 
 namespace Solution
 {
-double findMaxAverage(std::vector<int> &nums, int k)
+double findMaxAverage(std::vector<int> &nums, std::size_t k)
 {
 
     if (nums.size() == 0)
@@ -28,7 +28,7 @@ double findMaxAverage(std::vector<int> &nums, int k)
 
     double max_average = sum_cache;
 
-    for (int a = 1; a <= nums.size() - k; a++)
+    for (std::size_t a = 1; a <= nums.size() - k; a++)
     {
         sum_cache = sum_cache - nums[a - 1] + nums[a + k - 1];
 

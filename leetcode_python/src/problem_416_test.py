@@ -24,7 +24,10 @@ def canPartition_recursion(nums: List[int], current_index: int, whats_left: int,
         next_index = current_index + 1
         next_whats_left = whats_left - nums[current_index]
         if local_goal > nums[current_index]:
-            return canPartition_recursion(nums, next_index, next_whats_left, local_goal-nums[current_index]) or canPartition_recursion(nums, next_index, next_whats_left, local_goal)
+            return (
+                canPartition_recursion(nums, next_index, next_whats_left, local_goal-nums[current_index]) or
+                canPartition_recursion(nums, next_index, next_whats_left, local_goal)
+            )
         elif local_goal == nums[current_index]:
             return True
         else:

@@ -17,14 +17,14 @@ impl Solution {
                             result.push(vec![nums[x], nums[left_iter], nums[right_iter]]);
                             while left_iter + 1 < right_iter
                                 && nums[left_iter] == nums[left_iter + 1]
-                                {
-                                    left_iter += 1;
-                                }
+                            {
+                                left_iter += 1;
+                            }
                             while left_iter < right_iter - 1
                                 && nums[right_iter] == nums[right_iter - 1]
-                                {
-                                    right_iter -= 1;
-                                }
+                            {
+                                right_iter -= 1;
+                            }
                             left_iter += 1;
                             right_iter -= 1;
                         }
