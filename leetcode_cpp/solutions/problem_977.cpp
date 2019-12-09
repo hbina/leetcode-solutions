@@ -1,10 +1,8 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <vector>
 #include <cassert>
 
-namespace Solution
-{
 std::vector<int> sortedSquares(std::vector<int> &A)
 {
 
@@ -55,4 +53,3 @@ std::vector<int> sortedSquares(std::vector<int> &A)
 
     return s;
 }
-}; // namespace Solution

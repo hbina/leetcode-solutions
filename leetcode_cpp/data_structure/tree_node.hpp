@@ -17,4 +17,10 @@ struct TreeNode
       : left(left),
         right(right),
         val(val) {}
+
+  ~TreeNode()
+  {
+    delete left;
+    delete right;
+  }
 };

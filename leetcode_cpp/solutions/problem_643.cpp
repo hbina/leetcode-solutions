@@ -1,11 +1,9 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <vector>
 #include <iostream>
 #include <cassert>
 
-namespace Solution
-{
 double findMaxAverage(std::vector<int> &nums, std::size_t k)
 {
 
@@ -40,4 +38,3 @@ double findMaxAverage(std::vector<int> &nums, std::size_t k)
 
     return max_average / k;
 }
-}; // namespace Solution

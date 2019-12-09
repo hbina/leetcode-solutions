@@ -1,9 +1,7 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include "../data_structure/tree_node.hpp"
 
-namespace Solution
-{
 TreeNode *searchBST(TreeNode *root, int val)
 {
     if (root->val == val)
@@ -52,4 +50,3 @@ TreeNode *searchBST_2(TreeNode *root, int val)
     }
     return nullptr;
 }
-}; // namespace Solution

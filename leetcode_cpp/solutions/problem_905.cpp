@@ -1,10 +1,8 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <vector>
 #include <algorithm>
 
-namespace Solution
-{
 std::vector<int> sortArrayByParity(std::vector<int> &A)
 {
     std::vector<int> result;
@@ -35,4 +33,3 @@ std::vector<int> sortArrayByParity_modernCPP(std::vector<int> &A)
     });
     return result;
 }
-}; // namespace Solution

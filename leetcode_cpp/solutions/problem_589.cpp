@@ -1,13 +1,9 @@
-#pragma once
-
 #include "../data_structure/node.hpp"
 
 #include <vector>
 #include <stack>
 #include <iostream>
 
-namespace Solution
-{
 std::vector<int> preorder(Node *root)
 {
     std::vector<int> result;
@@ -24,4 +20,3 @@ std::vector<int> preorder(Node *root)
     }
     return result;
 }
-}; // namespace Solution

@@ -1,4 +1,4 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <string>
 #include <vector>
@@ -6,8 +6,6 @@
 #include <iostream>
 #include <cassert>
 
-namespace Solution
-{
 int numUniqueEmails(const std::vector<std::string> &emails)
 {
     std::unordered_map<std::string, int> map;
@@ -46,4 +44,3 @@ int numUniqueEmails(const std::vector<std::string> &emails)
     }
     return map.size();
 }
-}; // namespace Solution

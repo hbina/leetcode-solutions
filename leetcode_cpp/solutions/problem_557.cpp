@@ -1,10 +1,7 @@
-#pragma once
-
+#include "doctest/doctest.h"
 #include <string>
 #include <iostream>
 
-namespace Solution
-{
 std::string reverseWords(std::string s)
 {
     std::string result;
@@ -37,4 +34,3 @@ std::string reverseWords(std::string s)
 
     return result;
 }
-}; // namespace Solution

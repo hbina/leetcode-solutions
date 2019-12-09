@@ -1,9 +1,7 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <vector>
 
-namespace Solution
-{
 std::vector<int> fairCandySwap(std::vector<int> &A, std::vector<int> &B)
 {
     bool flags[100001] = {false};
@@ -31,4 +29,11 @@ std::vector<int> fairCandySwap(std::vector<int> &A, std::vector<int> &B)
     }
     return result;
 }
-}; // namespace Solution
+
+TEST_CASE("Problem 888")
+{
+    std::vector<int> test1{1, 1};
+    std::vector<int> test2{2, 2};
+    CHECK(1 == fairCandySwap(test1, test2)[0]);
+    CHECK(2 == fairCandySwap(test1, test2)[1]);
+};

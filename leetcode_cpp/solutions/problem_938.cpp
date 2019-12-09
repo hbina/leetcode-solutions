@@ -1,9 +1,7 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include "../data_structure/tree_node.hpp"
 
-namespace Solution
-{
 int rangeSumBST(TreeNode *root, int L, int R)
 {
     if (root == nullptr)
@@ -23,4 +21,3 @@ int rangeSumBST(TreeNode *root, int L, int R)
         return root->val + rangeSumBST(root->left, L, R) + rangeSumBST(root->right, L, R);
     }
 }
-}; // namespace Solution

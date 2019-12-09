@@ -1,11 +1,8 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <algorithm>
 #include <vector>
 #include <unordered_map>
-
-namespace Solution
-{
 
 int numPairsDivisibleBy60(std::vector<int> &time)
 {
@@ -37,4 +34,9 @@ int numPairsDivisibleBy60_O2(std::vector<int> &time)
     }
     return counter;
 }
-}; // namespace Solution
+
+TEST_CASE("Problem 1010")
+{
+    std::vector<int> test1{30, 20, 150, 100, 40};
+    CHECK(3 == numPairsDivisibleBy60(test1));
+};

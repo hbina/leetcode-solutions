@@ -1,9 +1,7 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <vector>
 
-namespace Solution
-{
 void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
 {
     int iterator_nums1 = 0;
@@ -20,4 +18,3 @@ void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
         iterator_nums1++;
     }
 }
-}; // namespace Solution

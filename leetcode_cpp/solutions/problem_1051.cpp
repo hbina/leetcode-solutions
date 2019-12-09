@@ -1,10 +1,8 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include <vector>
 #include <algorithm>
 
-namespace Solution
-{
 int heightChecker(std::vector<int> &heights)
 {
     std::vector<int> copy = heights;
@@ -18,7 +16,7 @@ int heightChecker(std::vector<int> &heights)
     return counter;
 }
 
-int heightChecker_1(std::vector<int> &heights)
+int heightChecker_zip(std::vector<int> &heights)
 {
     // FIXME :: There must be a more natural construct to zip through 2 iterators...cmon <algorithm>
     std::vector<int> copy = heights;
@@ -33,4 +31,10 @@ int heightChecker_1(std::vector<int> &heights)
                   });
     return counter;
 }
-}; // namespace Solution
+
+TEST_CASE("Problem 1051")
+{
+    std::vector<int> test1{1, 1, 4, 2, 1, 3};
+    CHECK(3 == heightChecker(test1));
+    CHECK(3 == heightChecker_zip(test1));
+}

@@ -1,9 +1,7 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include "../data_structure/tree_node.hpp"
 
-namespace Solution
-{
 TreeNode *invertTree(TreeNode *root)
 {
     if (root == nullptr)
@@ -16,4 +14,3 @@ TreeNode *invertTree(TreeNode *root)
     root->right = invertTree(tmp_left);
     return root;
 }
-}; // namespace Solution

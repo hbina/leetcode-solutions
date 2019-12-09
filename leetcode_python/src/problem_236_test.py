@@ -1,4 +1,4 @@
-from src.utility.tree_node import TreeNode
+from utility.tree_node import TreeNode
 from typing import List
 import unittest
 
@@ -10,8 +10,8 @@ import unittest
 
 class Solution:
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
-        p_path = root.getPathTo(p)
-        q_path = root.getPathTo(q)
+        p_path = getPathTo(root, p)
+        q_path = getPathTo(root, q)
         latest = root
         for x in zip(p_path, q_path):
             if x[0].val != x[1].val:
@@ -21,10 +21,31 @@ class Solution:
         return latest
 
 
+def getPathTo(root: TreeNode, p_tree: TreeNode):
+    result = []
+    if root.val == p_tree.val:
+        result.append(root)
+        return result
+    elif root.left is None and root.right is None:
+        return result
+    else:
+        if root.left is not None:
+            tmp = getPathTo(root.left, p_tree)
+            if len(tmp) != 0:
+                result.append(root)
+                return result + tmp
+        if root.right is not None:
+            tmp = getPathTo(root.right, p_tree)
+            if len(tmp) != 0:
+                result.append(root)
+                return result + tmp
+        return result
+
+
 class SimpleTest(unittest.TestCase):
 
     # Returns True or False.
-    def test_problem_236(self):
+    def test(self):
         s = Solution()
         p = TreeNode(5,
                      TreeNode(6),

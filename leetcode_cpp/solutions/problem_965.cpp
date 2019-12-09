@@ -1,9 +1,7 @@
-#pragma once
+#include "doctest/doctest.h"
 
 #include "../data_structure/tree_node.hpp"
 
-namespace Solution
-{
 bool isUnivalTree(TreeNode *root)
 {
     if (root == nullptr)
@@ -36,4 +34,3 @@ bool isUnivalTree(TreeNode *root)
     }
     return left_same & right_same;
 }
-}; // namespace Solution
