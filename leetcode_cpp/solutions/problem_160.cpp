@@ -73,5 +73,5 @@ TEST_CASE("Problem 160")
             new ListNode(
                 5,
                 c1)));
-    CHECK(c1 == getIntersectionNode(a1, b1));
+    CHECK(*c1 == *getIntersectionNode(a1, b1));
 };

@@ -1,20 +1,23 @@
 #include "doctest/doctest.h"
 
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
-void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
+void merge_simple(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
 {
-    int iterator_nums1 = 0;
-    int iterator_nums2 = 0;
-
-    while (iterator_nums1 < m)
+    for (std::size_t counter = 0; counter < n; counter++)
     {
-        if (nums2[iterator_nums2] < nums1[iterator_nums1])
-        {
-            nums1[iterator_nums1 + 1] = nums1[iterator_nums1];
-            nums1[iterator_nums1] = nums2[iterator_nums2];
-            iterator_nums2++;
-        }
-        iterator_nums1++;
+        nums1[m + counter] = nums2[counter];
     }
+    std::sort(nums1.begin(), nums1.end());
 }
+
+TEST_CASE("problem 88")
+{
+    std::vector<int> expected = {1, 2, 2, 3, 5, 6};
+    std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
+    std::vector<int> nums2 = {2, 5, 6};
+    merge_simple(nums1, 3, nums2, 3);
+    CHECK(expected == nums1);
+};

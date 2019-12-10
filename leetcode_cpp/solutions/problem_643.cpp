@@ -14,7 +14,7 @@ double findMaxAverage(std::vector<int> &nums, std::size_t k)
 
     double sum_cache = 0;
 
-    for (const int &a : nums)
+    for (const auto &a : nums)
     {
         sum_cache += a;
     }

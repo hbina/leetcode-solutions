@@ -8,14 +8,14 @@ std::vector<int> sortArrayByParity(std::vector<int> &A)
     std::vector<int> result;
     result.reserve(result.size());
 
-    for (int const &value : A)
+    for (const int &value : A)
     {
         if (!(value % 2))
         {
             result.push_back(value);
         }
     }
-    for (int const &value : A)
+    for (const int &value : A)
     {
         if (value % 2)
         {

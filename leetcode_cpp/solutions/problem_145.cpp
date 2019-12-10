@@ -31,15 +31,15 @@ std::vector<int> postorderTraversal(TreeNode *root)
 TEST_CASE("Problem 145")
 {
     TreeNode *root = new TreeNode(
+        1,
         nullptr,
         new TreeNode(
+            2,
             new TreeNode(
+                3,
                 nullptr,
-                nullptr,
-                3),
-            nullptr,
-            2),
-        1);
+                nullptr),
+            nullptr));
 
     std::vector<int> result = postorderTraversal(root);
     std::vector<int> expected = {3, 2, 1};

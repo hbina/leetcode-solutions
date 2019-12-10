@@ -5,8 +5,8 @@
 std::string reverseWords(std::string s)
 {
     std::string result;
-    int begin_index = 0;
-    int end_index = 0;
+    std::size_t begin_index = 0;
+    std::size_t end_index = 0;
     for (const char &a : s)
     {
         if (a != ' ')
@@ -15,7 +15,7 @@ std::string reverseWords(std::string s)
         }
         else
         {
-            for (int backward_iter = end_index - 1; backward_iter >= begin_index; --backward_iter)
+            for (std::size_t backward_iter = end_index - 1; backward_iter >= begin_index; --backward_iter)
             {
                 result.push_back(s.at(backward_iter));
             }

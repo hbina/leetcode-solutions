@@ -23,6 +23,7 @@ add_executable(
     
     util/string_util.cpp
     data_structure/list_node.cpp
+    data_structure/tree_node.cpp
 
     solutions/problem_145.cpp
     solutions/problem_117.cpp
