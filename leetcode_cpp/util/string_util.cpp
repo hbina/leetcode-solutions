@@ -12,7 +12,7 @@ bool is_string_equal(std::string &str1, std::string &str2)
     }
     else
     {
-        for (int iter = 0; iter < str1.size(); iter++)
+        for (std::size_t iter = 0; iter < str1.size(); iter++)
         {
             if (str1[iter] != str2[iter])
             {

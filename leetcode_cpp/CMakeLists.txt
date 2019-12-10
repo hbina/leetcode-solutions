@@ -10,6 +10,7 @@ add_executable(
 
     solutions/problem_145.cpp
     solutions/problem_117.cpp
+    solutions/problem_160.cpp
     solutions/problem_88.cpp
     solutions/problem_226.cpp
     solutions/problem_557.cpp
