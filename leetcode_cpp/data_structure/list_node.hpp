@@ -21,10 +21,5 @@ struct ListNode
   }
 
   friend std::ostream &operator<<(std::ostream &os, const ListNode &rhs);
+  friend bool operator==(const ListNode &lhs, const ListNode &rhs);
 };
-
-std::ostream &operator<<(std::ostream &os, const ListNode &rhs)
-{
-  os << "ListNode val:" << rhs.val;
-  return os;
-}

@@ -39,7 +39,6 @@ int numUniqueEmails(const std::vector<std::string> &emails)
                 temp += a;
             }
         }
-        std::cout << "temp:" << temp << std::endl;
         map[temp]++;
     }
     return map.size();
