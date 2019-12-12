@@ -2,7 +2,8 @@
 
 #include "../data_structure/tree_node.hpp"
 
-TreeNode *searchBST(TreeNode *root, int val)
+template <typename T>
+TreeNode<T> *searchBST(TreeNode<T> *root, const T &val)
 {
     if (root->val == val)
     {
@@ -10,7 +11,7 @@ TreeNode *searchBST(TreeNode *root, int val)
     }
     else
     {
-        TreeNode *left = nullptr, *right = nullptr;
+        TreeNode<T> *left = nullptr, *right = nullptr;
 
         // Begin search on left branch if it exists
         if (root->left != nullptr)
@@ -36,9 +37,10 @@ TreeNode *searchBST(TreeNode *root, int val)
     }
 }
 
-TreeNode *searchBST_2(TreeNode *root, int val)
+template <typename T>
+TreeNode<T> *searchBST_2(TreeNode<T> *root, const T &val)
 {
-    TreeNode *tree = root;
+    TreeNode<T> *tree = root;
     while (tree)
     {
         if (tree->val == val) // found the solution
@@ -49,4 +51,9 @@ TreeNode *searchBST_2(TreeNode *root, int val)
             tree = tree->left;
     }
     return nullptr;
-}
+};
+
+TEST_CASE("problem 700")
+{
+    //  TODO    ::  Introduce test cases
+};

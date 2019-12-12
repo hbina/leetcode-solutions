@@ -1,55 +1,30 @@
 #include "doctest/doctest.h"
 
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-std::vector<int> sortedSquares(std::vector<int> &A)
+template <typename T>
+std::vector<T> sortedSquares(std::vector<T> &A)
 {
+    std::for_each(A.begin(), A.end(), [](auto &x) -> void {
+        x *= x;
+    });
+    std::sort(A.begin(), A.end(), [](const auto &lhs, const auto &rhs) -> bool {
+        return lhs < rhs;
+    });
+    return A;
+};
 
-    if (A.size() == 0)
-    {
-        return std::vector<int>{};
-    }
+TEST_CASE("problem 977")
+{
+    std::vector<int> input = {-4, -1, 0, 3, 10};
+    std::vector<int> expected = {0, 1, 9, 16, 100};
+    CHECK(expected == sortedSquares(input));
+};
 
-    std::vector<int> s;
-    s.reserve(A.size());
-
-    std::size_t going_right = 0;
-
-    while (going_right < A.size() && A[going_right] < 0)
-    {
-        going_right++;
-    }
-
-    std::size_t going_left = going_right - 1;
-
-    // "Zip" through left and right from the middle...
-    while (going_left >= 0 && going_right < A.size())
-    {
-        if (A[going_left] * A[going_left] < A[going_right] * A[going_right])
-        {
-            s.push_back(A[going_left] * A[going_left]);
-            --going_left;
-        }
-        else
-        {
-            s.push_back(A[going_right] * A[going_right]);
-            ++going_right;
-        }
-    }
-
-    // Clean up the rest of the calculations
-    while (going_left >= 0)
-    {
-        s.push_back(A[going_left] * A[going_left]);
-        --going_left;
-    }
-
-    while (going_right < A.size())
-    {
-        s.push_back(A[going_right] * A[going_right]);
-        ++going_right;
-    }
-
-    return s;
-}
+TEST_CASE("problem 977")
+{
+    std::vector<int> input = {-7, -3, 2, 3, 11};
+    std::vector<int> expected = {4, 9, 9, 49, 121};
+    CHECK(expected == sortedSquares(input));
+};

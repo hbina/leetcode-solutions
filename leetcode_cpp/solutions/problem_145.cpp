@@ -6,8 +6,8 @@
 
 #include "../data_structure/tree_node.hpp"
 
-// Solution using recursion
-std::vector<int> postorderTraversal(TreeNode *root)
+template<typename T>
+std::vector<int> postorderTraversal(TreeNode<T> *root)
 {
     std::vector<int> AB, A, B;
     if (root)
@@ -30,12 +30,12 @@ std::vector<int> postorderTraversal(TreeNode *root)
 
 TEST_CASE("Problem 145")
 {
-    TreeNode *root = new TreeNode(
+    TreeNode<int> *root = new TreeNode<int>(
         1,
         nullptr,
-        new TreeNode(
+        new TreeNode<int>(
             2,
-            new TreeNode(
+            new TreeNode<int>(
                 3,
                 nullptr,
                 nullptr),

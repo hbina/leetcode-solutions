@@ -2,24 +2,25 @@
 
 #include <vector>
 
-std::vector<int> fairCandySwap(std::vector<int> &A, std::vector<int> &B)
+template <typename T>
+std::vector<T> fairCandySwap(std::vector<T> &A, std::vector<T> &B)
 {
     bool flags[100001] = {false};
-    int sum_b = 0;
-    for (int i : B)
+    T sum_b = 0;
+    for (const T &i : B)
     {
         flags[i] = true;
         sum_b += i;
     }
 
-    int sum_a = 0;
-    for (int i : A)
+    T sum_a = 0;
+    for (const T &i : A)
         sum_a += i;
 
-    std::vector<int> result(2, 0);
-    for (int i : A)
+    std::vector<T> result(2, 0);
+    for (const T &i : A)
     {
-        int target = (sum_b - sum_a) / 2 + i;
+        const T target = (sum_b - sum_a) / 2 + i;
         if (target >= 0 && target <= 100000 && flags[target])
         {
             result[0] = i;
@@ -32,8 +33,8 @@ std::vector<int> fairCandySwap(std::vector<int> &A, std::vector<int> &B)
 
 TEST_CASE("Problem 888")
 {
-    std::vector<int> test1{1, 1};
-    std::vector<int> test2{2, 2};
-    CHECK(1 == fairCandySwap(test1, test2)[0]);
-    CHECK(2 == fairCandySwap(test1, test2)[1]);
+    std::vector<int> input_1{1, 1};
+    std::vector<int> input_2{2, 2};
+    CHECK(1 == fairCandySwap(input_1, input_2)[0]);
+    CHECK(2 == fairCandySwap(input_1, input_2)[1]);
 };

@@ -2,16 +2,17 @@
 
 #include "../data_structure/list_node.hpp"
 
-ListNode *reverseList_iterative(ListNode *head)
+template <typename T>
+ListNode<T> *reverseList_iterative(ListNode<T> *head)
 {
     if (!head)
     {
         return nullptr;
     }
 
-    ListNode *pointer_before = nullptr;
-    ListNode *pointer_current = head;
-    ListNode *pointer_after = head->next;
+    ListNode<T> *pointer_before = nullptr;
+    ListNode<T> *pointer_current = head;
+    ListNode<T> *pointer_after = head->next;
 
     while (pointer_after)
     {
@@ -26,7 +27,8 @@ ListNode *reverseList_iterative(ListNode *head)
     return pointer_current;
 };
 
-ListNode *reverseList_recursive_helper(ListNode *head, ListNode *next)
+template <typename T>
+ListNode<T> *reverseList_recursive_helper(ListNode<T> *head, ListNode<T> *next)
 {
     // Means that we are at the end.
     if (!next)
@@ -35,17 +37,18 @@ ListNode *reverseList_recursive_helper(ListNode *head, ListNode *next)
     }
     else
     {
-        ListNode *tmp = next->next;
+        ListNode<T> *tmp = next->next;
         next->next = head;
         return reverseList_recursive_helper(next, tmp);
     }
 };
 
-ListNode *reverseList_recursive(ListNode *head)
+template <typename T>
+ListNode<T> *reverseList_recursive(ListNode<T> *head)
 {
     if (head)
     {
-        ListNode *tmp = head->next;
+        ListNode<T> *tmp = head->next;
         head->next = nullptr;
         return reverseList_recursive_helper(head, tmp);
     }
@@ -57,26 +60,26 @@ ListNode *reverseList_recursive(ListNode *head)
 
 TEST_CASE("problem 206")
 {
-    ListNode *input = new ListNode(
+    ListNode<int> *input = new ListNode<int>(
         1,
-        new ListNode(
+        new ListNode<int>(
             2,
-            new ListNode(
+            new ListNode<int>(
                 3,
-                new ListNode(
+                new ListNode<int>(
                     4,
-                    new ListNode(
+                    new ListNode<int>(
                         5)))));
 
-    ListNode *expected = new ListNode(
+    ListNode<int> *expected = new ListNode<int>(
         5,
-        new ListNode(
+        new ListNode<int>(
             4,
-            new ListNode(
+            new ListNode<int>(
                 3,
-                new ListNode(
+                new ListNode<int>(
                     2,
-                    new ListNode(
+                    new ListNode<int>(
                         1)))));
 
     CHECK(*reverseList_iterative(input) == *expected);
@@ -84,26 +87,26 @@ TEST_CASE("problem 206")
 
 TEST_CASE("problem 206")
 {
-    ListNode *input = new ListNode(
+    ListNode<int> *input = new ListNode<int>(
         1,
-        new ListNode(
+        new ListNode<int>(
             2,
-            new ListNode(
+            new ListNode<int>(
                 3,
-                new ListNode(
+                new ListNode<int>(
                     4,
-                    new ListNode(
+                    new ListNode<int>(
                         5)))));
 
-    ListNode *expected = new ListNode(
+    ListNode<int> *expected = new ListNode<int>(
         5,
-        new ListNode(
+        new ListNode<int>(
             4,
-            new ListNode(
+            new ListNode<int>(
                 3,
-                new ListNode(
+                new ListNode<int>(
                     2,
-                    new ListNode(
+                    new ListNode<int>(
                         1)))));
 
     CHECK(*reverseList_recursive(input) == *expected);
@@ -111,18 +114,18 @@ TEST_CASE("problem 206")
 
 TEST_CASE("problem 206 single")
 {
-    ListNode *input = new ListNode(5);
+    ListNode<int> *input = new ListNode<int>(5);
 
-    ListNode *expected = new ListNode(5);
+    ListNode<int> *expected = new ListNode<int>(5);
 
     CHECK(*reverseList_iterative(input) == *expected);
 };
 
 TEST_CASE("problem 206 single")
 {
-    ListNode *input = new ListNode(5);
+    ListNode<int> *input = new ListNode<int>(5);
 
-    ListNode *expected = new ListNode(5);
+    ListNode<int> *expected = new ListNode<int>(5);
 
     CHECK(*reverseList_recursive(input) == *expected);
 };

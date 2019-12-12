@@ -2,7 +2,8 @@
 
 #include "../data_structure/tree_node.hpp"
 
-bool isUnivalTree(TreeNode *root)
+template <typename T>
+bool isUnivalTree(TreeNode<T> *root)
 {
     if (root == nullptr)
     {
@@ -22,6 +23,7 @@ bool isUnivalTree(TreeNode *root)
             return false;
         }
     }
+    
     if (root->right != nullptr)
     {
         right_same =

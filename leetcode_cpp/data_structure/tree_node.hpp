@@ -2,18 +2,19 @@
 
 #include <iostream>
 
+template <typename T>
 struct TreeNode
 {
-  int val;
-  TreeNode *left;
-  TreeNode *right;
+  T val;
+  TreeNode<T> *left;
+  TreeNode<T> *right;
 
-  TreeNode(const int &x)
+  TreeNode(const T &x)
       : val(x),
         left(nullptr),
         right(nullptr) {}
 
-  TreeNode(const int &val,
+  TreeNode(const T &val,
            TreeNode *left,
            TreeNode *right)
       : val(val),
@@ -26,6 +27,49 @@ struct TreeNode
     delete right;
   }
 
-  friend bool operator==(const TreeNode &lhs, const TreeNode &rhs);
-  friend std::ostream &operator<<(std::ostream &os, const TreeNode &rhs);
+  template <typename T>
+  friend bool operator==(const TreeNode &lhs, const TreeNode<T> &rhs);
+
+  template <typename T>
+  friend std::ostream &operator<<(std::ostream &os, const TreeNode<T> &rhs);
+};
+
+template <typename T>
+bool operator==(const TreeNode<T> &lhs, const TreeNode<T> &rhs)
+{
+  bool value_equal = (lhs.val == rhs.val);
+  bool left_equal = false;
+  if (lhs.left && rhs.left)
+  {
+    left_equal = (*lhs.left == *rhs.left);
+  }
+  else if (!lhs.left && !rhs.left)
+  {
+    left_equal = true;
+  }
+  bool right_equal = false;
+  if (lhs.right && rhs.right)
+  {
+    right_equal = (*lhs.right == *rhs.right);
+  }
+  else if (!lhs.right && !rhs.right)
+  {
+    right_equal = true;
+  }
+  return value_equal && left_equal && right_equal;
+};
+
+template <typename T>
+std::ostream &operator<<(std::ostream &os, const TreeNode<T> &rhs)
+{
+  os << " " << rhs.val;
+  if (rhs.left)
+  {
+    os << " " << *rhs.left;
+  }
+  if (rhs.right)
+  {
+    os << " " << *rhs.right;
+  }
+  return os;
 };

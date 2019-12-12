@@ -6,7 +6,7 @@
 
 void merge_simple(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
 {
-    for (std::size_t counter = 0; counter < n; counter++)
+    for (int counter = 0; counter < n; counter++)
     {
         nums1[m + counter] = nums2[counter];
     }

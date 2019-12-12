@@ -4,14 +4,15 @@
 
 #include <iostream>
 
-ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
+template <typename T>
+ListNode<T> *getIntersectionNode(ListNode<T> *headA, ListNode<T> *headB)
 {
     if (!headA || !headB)
     {
         return nullptr;
     }
-    ListNode *pointerA = headA;
-    ListNode *pointerB = headB;
+    ListNode<T> *pointerA = headA;
+    ListNode<T> *pointerB = headB;
 
     // Recalibrate pointers
     int both_reverted = 2;
@@ -54,23 +55,23 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
 
 TEST_CASE("Problem 160")
 {
-    ListNode *c1 = new ListNode(
+    ListNode<int> *c1 = new ListNode<int>(
         6,
-        new ListNode(
+        new ListNode<int>(
             7,
-            new ListNode(
+            new ListNode<int>(
                 8,
                 nullptr)));
-    ListNode *a1 = new ListNode(
+    ListNode<int> *a1 = new ListNode<int>(
         1,
-        new ListNode(
+        new ListNode<int>(
             2,
             c1));
-    ListNode *b1 = new ListNode(
+    ListNode<int> *b1 = new ListNode<int>(
         3,
-        new ListNode(
+        new ListNode<int>(
             4,
-            new ListNode(
+            new ListNode<int>(
                 5,
                 c1)));
     CHECK(*c1 == *getIntersectionNode(a1, b1));
