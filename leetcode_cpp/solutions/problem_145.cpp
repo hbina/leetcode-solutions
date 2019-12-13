@@ -48,4 +48,4 @@ TEST_CASE("Problem 145")
     {
         CHECK(result[iter] == expected[iter]);
     }
-};
+}

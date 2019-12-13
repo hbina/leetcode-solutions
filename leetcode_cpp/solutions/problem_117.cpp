@@ -71,7 +71,7 @@ constexpr Node<T> *connect(Node<T> *root)
         }
     }
     return root;
-};
+}
 
 TEST_CASE("Problem 117")
 {
@@ -148,4 +148,4 @@ TEST_CASE("Problem 117")
             nullptr),
         nullptr);
     CHECK(*expected == *connect(input));
-};
+}

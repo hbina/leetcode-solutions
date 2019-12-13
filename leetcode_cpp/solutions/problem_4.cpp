@@ -22,7 +22,7 @@ constexpr double findMedianSortedArrays_naive(const std::vector<T> &nums1, const
     {
         return collection[static_cast<std::size_t>(collection.size() / 2)];
     }
-};
+}
 
 template <typename T>
 constexpr double findMedianSortedArrays_search(std::vector<T> &nums1, std::vector<T> &nums2)
@@ -32,18 +32,18 @@ constexpr double findMedianSortedArrays_search(std::vector<T> &nums1, std::vecto
     //              because we are dealing with medians of sorted arrays, all the information
     //              we need is in the middle.
     return 0.0f;
-};
+}
 
 TEST_CASE("problem 4")
 {
     std::vector<int> input_1 = {1, 3};
     std::vector<int> input_2 = {2};
     CHECK(2.0 == findMedianSortedArrays_naive(input_1, input_2));
-};
+}
 
 TEST_CASE("problem 4")
 {
     std::vector<int> input_1 = {1, 2};
     std::vector<int> input_2 = {3, 4};
     CHECK(2.5 == findMedianSortedArrays_naive(input_1, input_2));
-};
+}

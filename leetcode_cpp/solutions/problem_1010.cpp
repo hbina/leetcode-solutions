@@ -41,4 +41,4 @@ TEST_CASE("Problem 1010")
 {
     std::vector<int> test1{30, 20, 150, 100, 40};
     CHECK(3 == numPairsDivisibleBy60(test1));
-};
+}

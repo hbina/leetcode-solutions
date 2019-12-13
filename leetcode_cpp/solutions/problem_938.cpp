@@ -21,7 +21,7 @@ constexpr int rangeSumBST_recursion(TreeNode<T> *root, const T &L, const T &R)
     {
         return root->val + rangeSumBST_recursion(root->left, L, R) + rangeSumBST_recursion(root->right, L, R);
     }
-};
+}
 
 TEST_CASE("problem 938")
 {
@@ -34,4 +34,4 @@ TEST_CASE("problem 938")
                                             nullptr,
                                             new TreeNode<int>(18)));
     CHECK(32 == rangeSumBST_recursion(input, 7, 15));
-};
+}

@@ -20,4 +20,4 @@ TEST_CASE("problem 88")
     std::vector<int> nums2 = {2, 5, 6};
     merge_simple(nums1, 3, nums2, 3);
     CHECK(expected == nums1);
-};
+}

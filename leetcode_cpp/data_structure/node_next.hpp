@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 template <typename T>
 class NodeNext
 {
@@ -29,10 +30,10 @@ public:
     delete next;
   }
 
-  template <typename T>
-  constexpr friend bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs);
-  template <typename T>
-  constexpr friend std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs);
+  template <typename T2>
+  friend std::ostream &operator<<(std::ostream &os, const NodeNext<T2> &rhs);
+  template <typename T2>
+  constexpr friend bool operator==(const NodeNext<T2> &lhs, const NodeNext<T2> &rhs);
 };
 
 template <typename T>
@@ -70,10 +71,10 @@ constexpr bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs)
   }
 
   return value_equal && left_equal && right_equal && next_equal;
-};
+}
 
 template <typename T>
-constexpr std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs)
+std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs)
 {
   os << rhs.val << " ";
   if (rhs.left)
@@ -89,4 +90,4 @@ constexpr std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs)
   else
     os << "null ";
   return os;
-};
+}

@@ -16,7 +16,7 @@ constexpr T specialDivision(const T &value, const T &divisor)
     {
         return division + 1;
     }
-};
+}
 
 template <typename T>
 constexpr T accumulateResult(const std::vector<T> &nums, const T &divisor)
@@ -24,7 +24,7 @@ constexpr T accumulateResult(const std::vector<T> &nums, const T &divisor)
     return std::accumulate(nums.cbegin(), nums.cend(), 0, [&](T sum, const T &x) -> T {
         return std::move(sum) + specialDivision(x, divisor);
     });
-};
+}
 
 template <typename T>
 constexpr T smallestDivisor_naive(const std::vector<T> &nums, T threshold)
@@ -37,7 +37,7 @@ constexpr T smallestDivisor_naive(const std::vector<T> &nums, T threshold)
         result = accumulateResult(nums, divisor);
     }
     return divisor;
-};
+}
 
 //  TODO    ::  The problem is that we are progressing through our guesses WAY too slow.
 //              We are only incrementing our guess +1 each time. We need to have a better search
@@ -59,7 +59,7 @@ constexpr T smallestDivisor_guessFirst(const std::vector<T> &nums, T threshold)
         result = accumulateResult(nums, guess_divisor);
     }
     return guess_divisor;
-};
+}
 
 TEST_CASE("problem 1283")
 {
@@ -68,7 +68,7 @@ TEST_CASE("problem 1283")
     const int expected = 5;
     CHECK(expected == smallestDivisor_naive(input_1, input_2));
     CHECK(expected == smallestDivisor_guessFirst(input_1, input_2));
-};
+}
 
 TEST_CASE("problem 1283")
 {
@@ -77,7 +77,7 @@ TEST_CASE("problem 1283")
     const int expected = 3;
     CHECK(expected == smallestDivisor_naive(input_1, input_2));
     CHECK(expected == smallestDivisor_guessFirst(input_1, input_2));
-};
+}
 
 TEST_CASE("problem 1283 -- long input")
 {
@@ -86,7 +86,7 @@ TEST_CASE("problem 1283 -- long input")
     const int expected = 309071;
     CHECK(expected == smallestDivisor_naive(input_1, input_2));
     CHECK(expected == smallestDivisor_guessFirst(input_1, input_2));
-};
+}
 
 TEST_CASE("problem 1283 -- large treshold")
 {

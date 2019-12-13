@@ -25,7 +25,7 @@ constexpr ListNode<T> *reverseList_iterative(ListNode<T> *head)
     }
     pointer_current->next = pointer_before;
     return pointer_current;
-};
+}
 
 template <typename T>
 constexpr ListNode<T> *reverseList_recursive_helper(ListNode<T> *head, ListNode<T> *next)
@@ -41,7 +41,7 @@ constexpr ListNode<T> *reverseList_recursive_helper(ListNode<T> *head, ListNode<
         next->next = head;
         return reverseList_recursive_helper(next, tmp);
     }
-};
+}
 
 template <typename T>
 constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
@@ -56,7 +56,7 @@ constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
     {
         return nullptr;
     }
-};
+}
 
 TEST_CASE("problem 206")
 {
@@ -83,7 +83,7 @@ TEST_CASE("problem 206")
                         1)))));
 
     CHECK(*reverseList_iterative(input) == *expected);
-};
+}
 
 TEST_CASE("problem 206")
 {
@@ -110,7 +110,7 @@ TEST_CASE("problem 206")
                         1)))));
 
     CHECK(*reverseList_recursive(input) == *expected);
-};
+}
 
 TEST_CASE("problem 206 single")
 {
@@ -119,7 +119,7 @@ TEST_CASE("problem 206 single")
     ListNode<int> *expected = new ListNode<int>(5);
 
     CHECK(*reverseList_iterative(input) == *expected);
-};
+}
 
 TEST_CASE("problem 206 single")
 {
@@ -128,4 +128,4 @@ TEST_CASE("problem 206 single")
     ListNode<int> *expected = new ListNode<int>(5);
 
     CHECK(*reverseList_recursive(input) == *expected);
-};
+}

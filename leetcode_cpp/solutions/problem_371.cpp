@@ -22,7 +22,7 @@ T getSum(const T &x_input, const T &y_input)
         y = carry << 1;
     }
     return x;
-};
+}
 
 TEST_CASE("problem 371")
 {
@@ -34,4 +34,4 @@ TEST_CASE("problem 371")
     CHECK(-11 == getSum(-11, 0));
     CHECK(0 == getSum(0, 0));
     CHECK(0 == getSum(-1, 1));
-};
+}

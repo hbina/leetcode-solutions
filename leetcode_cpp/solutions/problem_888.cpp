@@ -37,4 +37,4 @@ TEST_CASE("Problem 888")
     std::vector<int> input_2{2, 2};
     CHECK(1 == fairCandySwap(input_1, input_2)[0]);
     CHECK(2 == fairCandySwap(input_1, input_2)[1]);
-};
+}

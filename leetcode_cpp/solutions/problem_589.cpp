@@ -22,10 +22,10 @@ constexpr std::vector<T> preorder_iterative(Node<T> *root)
         s.pop_front();
     }
     return result;
-};
+}
 
 template <typename T>
-constexpr std::vector<T> preorder_recursive(Node<T> *root)
+std::vector<T> preorder_recursive(Node<T> *root)
 {
     std::vector<T> result = {};
     if (root)
@@ -38,7 +38,7 @@ constexpr std::vector<T> preorder_recursive(Node<T> *root)
         }
     }
     return result;
-};
+}
 
 TEST_CASE("problem 589 -- iterative")
 {
@@ -50,7 +50,7 @@ TEST_CASE("problem 589 -- iterative")
                                       new Node<int>(4)});
     std::vector<int> expected = {1, 3, 5, 6, 2, 4};
     CHECK(expected == preorder_iterative(input));
-};
+}
 
 TEST_CASE("problem 589 -- recursive")
 {
@@ -63,4 +63,4 @@ TEST_CASE("problem 589 -- recursive")
     std::vector<int> expected = {1, 3, 5, 6, 2, 4};
     std::vector<int> result = preorder_recursive(input);
     CHECK(expected == result);
-};
+}

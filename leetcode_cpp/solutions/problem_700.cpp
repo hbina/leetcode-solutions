@@ -51,9 +51,9 @@ TreeNode<T> *searchBST_2(TreeNode<T> *root, const T &val)
             tree = tree->left;
     }
     return nullptr;
-};
+}
 
 TEST_CASE("problem 700")
 {
     //  TODO    ::  Introduce test cases
-};
+}

@@ -17,7 +17,7 @@ constexpr TreeNode<T> *invertTree(TreeNode<T> *root)
         root->right = invertTree(tmp_left);
         return root;
     }
-};
+}
 
 TEST_CASE("problem_226")
 {
@@ -42,4 +42,4 @@ TEST_CASE("problem_226")
                           new TreeNode<int>(1)));
 
     CHECK(*expected == *invertTree(input));
-};
+}

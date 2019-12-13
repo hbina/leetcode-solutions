@@ -23,7 +23,7 @@ std::vector<std::vector<int>> groupThePeople(const std::vector<int> &groupSizes)
         }
     }
     return result;
-};
+}
 
 TEST_CASE("problem 1282")
 {
@@ -32,14 +32,19 @@ TEST_CASE("problem 1282")
         {0, 1, 2},
         {3, 4, 6},
         {5}};
-    const std::vector<std::vector<int>> result = groupThePeople(input);
+    const std::vector<std::vector<int>>
+        result = groupThePeople(input);
     CHECK(expected == result);
-};
+}
 
 TEST_CASE("problem 1282")
 {
     const std::vector<int> input = {2, 1, 3, 3, 3, 2};
-    const std::vector<std::vector<int>> expected = {{0, 5}, {1}, {2, 3, 4}};
-    const std::vector<std::vector<int>> result = groupThePeople(input);
+    const std::vector<std::vector<int>>
+        expected = {{0, 5},
+                    {1},
+                    {2, 3, 4}};
+    const std::vector<std::vector<int>>
+        result = groupThePeople(input);
     CHECK(expected == result);
 }

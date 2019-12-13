@@ -42,7 +42,7 @@ constexpr double findMaxAverage(const std::vector<InputType> &nums, const std::s
     }
 
     return max_average / k;
-};
+}
 
 TEST_CASE("problem 643")
 {
@@ -50,4 +50,4 @@ TEST_CASE("problem 643")
     std::size_t input_2 = 4;
     double expected = 12.75;
     CHECK(expected == findMaxAverage(input_1, input_2));
-};
+}

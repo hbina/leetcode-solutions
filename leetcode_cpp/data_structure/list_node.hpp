@@ -21,14 +21,14 @@ struct ListNode
     delete next;
   }
 
-  template <typename T>
-  constexpr friend std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs);
-  template <typename T>
-  constexpr friend bool operator==(const ListNode &lhs, const ListNode<T> &rhs);
+  template <typename T2>
+  friend std::ostream &operator<<(std::ostream &os, const ListNode<T2> &rhs);
+  template <typename T2>
+  constexpr friend bool operator==(const ListNode<T2> &lhs, const ListNode<T2> &rhs);
 };
 
 template <typename T>
-constexpr std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs)
+std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs)
 {
   os << "ListNode val:" << rhs.val;
   return os;
@@ -50,4 +50,4 @@ constexpr bool operator==(const ListNode<T> &lhs, const ListNode<T> &rhs)
   {
     return false;
   }
-};
+}
