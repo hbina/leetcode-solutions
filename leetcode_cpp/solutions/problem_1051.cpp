@@ -3,9 +3,10 @@
 #include <vector>
 #include <algorithm>
 
-int heightChecker(std::vector<int> &heights)
+template <typename T>
+int heightChecker(std::vector<T> &heights)
 {
-    std::vector<int> copy = heights;
+    std::vector<T> copy = heights;
     std::sort(copy.begin(), copy.end());
     std::size_t counter = 0;
     for (std::size_t iter = 0; iter < heights.size(); iter++)
@@ -16,7 +17,8 @@ int heightChecker(std::vector<int> &heights)
     return counter;
 }
 
-int heightChecker_zip(std::vector<int> &heights)
+template <typename T>
+int heightChecker_zip(std::vector<T> &heights)
 {
     // FIXME :: There must be a more natural construct to zip through 2 iterators...cmon <algorithm>
     std::vector<int> copy = heights;
