@@ -4,24 +4,29 @@
 #include <iostream>
 #include <cassert>
 
-double findMaxAverage(std::vector<int> &nums, std::size_t k)
+template <typename InputType>
+double findMaxAverage(std::vector<InputType> &nums, std::size_t k)
 {
+    double sum_cache = 0.0;
 
-    if (nums.size() == 0)
+    if (nums.empty())
     {
-        return 0;
-    }
-
-    double sum_cache = 0;
-
-    for (const auto &a : nums)
-    {
-        sum_cache += a;
+        return 0.0;
     }
 
     if (nums.size() < k)
     {
-        return sum_cache / nums.size();
+        InputType sum = 0;
+        for (const auto &a : nums)
+        {
+            sum += a;
+        }
+        return sum / nums.size();
+    }
+
+    for (std::size_t a = 0; a < k; a++)
+    {
+        sum_cache += nums[a];
     }
 
     double max_average = sum_cache;
@@ -37,4 +42,12 @@ double findMaxAverage(std::vector<int> &nums, std::size_t k)
     }
 
     return max_average / k;
-}
+};
+
+TEST_CASE("problem 643")
+{
+    std::vector<int> input_1 = {1, 12, -5, -6, 50, 3};
+    std::size_t input_2 = 4;
+    double expected = 12.75;
+    CHECK(expected == findMaxAverage(input_1, input_2));
+};

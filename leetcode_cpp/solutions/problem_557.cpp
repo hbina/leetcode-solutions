@@ -1,36 +1,41 @@
 #include "doctest/doctest.h"
-#include <string>
-#include <iostream>
 
-std::string reverseWords(std::string s)
+#include <string>
+#include <vector>
+
+std::string reverseWords(const std::string &input)
 {
     std::string result;
-    std::size_t begin_index = 0;
-    std::size_t end_index = 0;
-    for (const char &a : s)
+    std::vector<std::string> collector;
+    std::string tmp;
+
+    for (auto riter = input.rbegin(); riter != input.rend(); riter++)
     {
-        if (a != ' ')
+        if (*riter == ' ')
         {
-            end_index++;
+            if (!tmp.empty())
+            {
+                collector.push_back(tmp);
+                tmp.clear();
+            }
         }
         else
         {
-            for (std::size_t backward_iter = end_index - 1; backward_iter >= begin_index; --backward_iter)
-            {
-                result.push_back(s.at(backward_iter));
-            }
-            result.push_back(' ');
-
-            end_index++;
-            begin_index = end_index;
+            tmp.push_back(*riter);
         }
     }
-
-    end_index--;
-    while (end_index >= begin_index)
+    if (!tmp.empty())
     {
-        result.push_back(s.at(end_index--));
+        collector.push_back(tmp);
     }
+    for (auto riter = collector.rbegin(); riter != collector.rend(); riter++)
+    {
+        result += *riter + ' ';
+    }
+    return result.substr(0, result.length() - 1);
+};
 
-    return result;
-}
+TEST_CASE("problem 557")
+{
+    CHECK("s'teL ekat edoCteeL tsetnoc" == reverseWords("Let's take LeetCode contest"));
+};

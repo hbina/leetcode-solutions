@@ -3,22 +3,26 @@
 #include <vector>
 
 // Use template and std::array
+template <typename T>
 class Node
 {
 public:
-  int val;
-  std::vector<Node *> children;
+  T val;
+  std::vector<Node<T> *> children;
 
   Node() = delete;
 
-  Node(int p_val,
-       std::vector<Node *> p_children)
+  Node(const T &p_val)
+      : val(p_val) {}
+
+  Node(const T &p_val,
+       const std::vector<Node<T> *> &p_children)
       : val(p_val),
         children(p_children) {}
 
   ~Node()
   {
-    for (Node *x : children)
+    for (Node<T> *x : children)
     {
       delete x;
     }

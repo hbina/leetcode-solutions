@@ -3,72 +3,69 @@
 #include "../data_structure/node_next.hpp"
 
 #include <vector>
+#include <iostream>
 
-using Node = NodeNext;
+template <typename T>
+using Node = NodeNext<T>;
 
-void connect_recursion(Node *child, Node *parent)
+template <typename T>
+void connect_recursion(Node<T> *child, decltype(child) parent)
 {
+    if (!child)
+        return;
+
+    std::cout << "child:" << child->val << std::endl;
     // Find the first next nodes of parent with a child
     if (parent)
     {
         while (
-            // Parent have a value
             parent &&
-            // Parent does not have any child
+            parent->next &&
             (!parent->left && !parent->right))
         {
             parent = parent->next;
         }
-    }
-
-    // If the previous next yield any next nodes with a child,
-    // then assign next node with that node's left if possible
-    if (parent)
-    {
-        if (parent->left)
+        if (parent)
         {
-            child->next = parent->left;
-        }
-        else
-        {
-            child->next = parent->right;
+            if (parent->left)
+                child->next = parent->left;
+            else if (parent->right)
+                child->next = parent->right;
         }
     }
+    connect_recursion(child->right, child);
+    connect_recursion(child->left, child);
+};
 
-    if (child->right)
-        connect_recursion(child->right, child->next);
-    if (child->left)
-        connect_recursion(child->left, child);
-}
-
-Node *connect(Node *root)
+template <typename T>
+Node<T> *connect(Node<T> *root)
 {
     connect_recursion(root, nullptr);
     return root;
-}
+};
 
 TEST_CASE("Problem 117")
 {
-    Node *input = new Node(
+    Node<int> *input = new Node<int>(
         1,
-        new Node(
+        new Node<int>(
             2,
-            new Node(
+            new Node<int>(
                 4,
                 nullptr,
                 nullptr,
                 nullptr),
-            new Node(
+            new Node<int>(
                 5,
                 nullptr,
                 nullptr,
                 nullptr),
             nullptr),
 
-        new Node(
+        new Node<int>(
             3,
             nullptr,
-            new Node(
+            new Node<int>(
                 7,
                 nullptr,
                 nullptr,
@@ -76,45 +73,48 @@ TEST_CASE("Problem 117")
             nullptr),
         nullptr);
 
-    Node *expected = new Node(
+    //std::cout << "input:\n"
+    //          << (*input) << std::endl;
+
+    Node<int> *expected = new Node<int>(
         1,
-        new Node(
+        new Node<int>(
             2,
-            new Node(
+            new Node<int>(
                 4,
                 nullptr,
                 nullptr,
-                new Node(
+                new Node<int>(
                     5,
                     nullptr,
                     nullptr,
-                    new Node(
+                    new Node<int>(
                         7,
                         nullptr,
                         nullptr,
                         nullptr))),
-            new Node(
+            new Node<int>(
                 5,
                 nullptr,
                 nullptr,
-                new Node(
+                new Node<int>(
                     7,
                     nullptr,
                     nullptr,
                     nullptr)),
-            new Node(
+            new Node<int>(
                 3,
                 nullptr,
-                new Node(
+                new Node<int>(
                     7,
                     nullptr,
                     nullptr,
                     nullptr),
                 nullptr)),
-        new Node(
+        new Node<int>(
             3,
             nullptr,
-            new Node(
+            new Node<int>(
                 7,
                 nullptr,
                 nullptr,
@@ -122,5 +122,6 @@ TEST_CASE("Problem 117")
             nullptr),
         nullptr);
     //  FIXME   ::  This test is failing...
-    // CHECK(expected == connect(input));
+    // std::cout << "result:\n"
+    //           << *connect(input) << std::endl;
 };
