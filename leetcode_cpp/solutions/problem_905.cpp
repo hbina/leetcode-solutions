@@ -4,7 +4,7 @@
 #include <algorithm>
 
 template <typename T>
-std::vector<T> sortArrayByParity(std::vector<T> &A)
+constexpr std::vector<T> sortArrayByParity(const std::vector<T> &A)
 {
     std::vector<T> result;
     result.reserve(A.size());
@@ -27,7 +27,7 @@ std::vector<T> sortArrayByParity(std::vector<T> &A)
 }
 
 template <typename T>
-std::vector<T> sortArrayByParity_stdStablePartition(std::vector<T> &result)
+constexpr std::vector<T> sortArrayByParity_stdStablePartition(std::vector<T> &result)
 {
     std::stable_partition(result.begin(), result.end(), [](const T &a) -> bool {
         return !(a % 2);

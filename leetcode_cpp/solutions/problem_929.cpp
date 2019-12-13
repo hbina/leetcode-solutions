@@ -6,12 +6,13 @@
 #include <iostream>
 #include <cassert>
 
-int numUniqueEmails(const std::vector<std::string> &emails)
+template <typename T>
+int numUniqueEmails(const std::vector<T> &emails)
 {
-    std::unordered_map<std::string, int> map;
-    for (const std::string &email : emails)
+    std::unordered_map<T, std::size_t> map;
+    for (const T &email : emails)
     {
-        std::string temp;
+        T temp;
         bool skipping_plus = false;
         bool skipping_dot = true;
         for (const char &a : email)

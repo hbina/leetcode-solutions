@@ -3,7 +3,7 @@
 #include <vector>
 
 template <typename T>
-std::vector<T> fairCandySwap(std::vector<T> &A, std::vector<T> &B)
+constexpr std::vector<T> fairCandySwap(const std::vector<T> &A, const std::vector<T> &B)
 {
     bool flags[100001] = {false};
     T sum_b = 0;

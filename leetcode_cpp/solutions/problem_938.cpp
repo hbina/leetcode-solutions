@@ -3,7 +3,7 @@
 #include "../data_structure/tree_node.hpp"
 
 template <typename T>
-int rangeSumBST_recursion(TreeNode<T> *root, const T &L, const T &R)
+constexpr int rangeSumBST_recursion(TreeNode<T> *root, const T &L, const T &R)
 {
     if (root == nullptr)
     {

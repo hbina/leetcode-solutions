@@ -3,7 +3,7 @@
 #include "../data_structure/tree_node.hpp"
 
 template <typename T>
-bool isUnivalTree(TreeNode<T> *root)
+constexpr bool isUnivalTree(TreeNode<T> *root)
 {
     if (root == nullptr)
     {

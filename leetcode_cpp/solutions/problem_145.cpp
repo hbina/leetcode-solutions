@@ -6,10 +6,10 @@
 
 #include "../data_structure/tree_node.hpp"
 
-template<typename T>
-std::vector<int> postorderTraversal(TreeNode<T> *root)
+template <typename T>
+constexpr std::vector<T> postorderTraversal(TreeNode<T> *root)
 {
-    std::vector<int> AB, A, B;
+    std::vector<T> AB, A, B;
     if (root)
     {
         if (root->left)

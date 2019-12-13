@@ -5,7 +5,7 @@
 #include <cassert>
 
 template <typename InputType>
-double findMaxAverage(std::vector<InputType> &nums, std::size_t k)
+constexpr double findMaxAverage(const std::vector<InputType> &nums, const std::size_t &k)
 {
     double sum_cache = 0.0;
 

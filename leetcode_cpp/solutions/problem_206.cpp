@@ -3,7 +3,7 @@
 #include "../data_structure/list_node.hpp"
 
 template <typename T>
-ListNode<T> *reverseList_iterative(ListNode<T> *head)
+constexpr ListNode<T> *reverseList_iterative(ListNode<T> *head)
 {
     if (!head)
     {
@@ -28,7 +28,7 @@ ListNode<T> *reverseList_iterative(ListNode<T> *head)
 };
 
 template <typename T>
-ListNode<T> *reverseList_recursive_helper(ListNode<T> *head, ListNode<T> *next)
+constexpr ListNode<T> *reverseList_recursive_helper(ListNode<T> *head, ListNode<T> *next)
 {
     // Means that we are at the end.
     if (!next)
@@ -44,7 +44,7 @@ ListNode<T> *reverseList_recursive_helper(ListNode<T> *head, ListNode<T> *next)
 };
 
 template <typename T>
-ListNode<T> *reverseList_recursive(ListNode<T> *head)
+constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
 {
     if (head)
     {

@@ -9,14 +9,14 @@ public:
   NodeNext *right = nullptr;
   NodeNext *next = nullptr;
 
-  NodeNext() = delete;
+  constexpr NodeNext() = delete;
 
-  NodeNext(const T &val) = delete;
+  constexpr NodeNext(const T &val) = delete;
 
-  NodeNext(const T &val,
-           NodeNext<T> *left,
-           NodeNext<T> *right,
-           NodeNext<T> *next)
+  constexpr NodeNext(const T &val,
+                     NodeNext<T> *left,
+                     NodeNext<T> *right,
+                     NodeNext<T> *next)
       : val(val),
         left(left),
         right(right),
@@ -30,13 +30,13 @@ public:
   }
 
   template <typename T>
-  friend bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs);
+  constexpr friend bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs);
   template <typename T>
-  friend std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs);
+  constexpr friend std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs);
 };
 
 template <typename T>
-bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs)
+constexpr bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs)
 {
   bool value_equal = lhs.val == rhs.val;
   bool left_equal = false;
@@ -73,7 +73,7 @@ bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs)
 };
 
 template <typename T>
-std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs)
+constexpr std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs)
 {
   os << rhs.val << " ";
   if (rhs.left)

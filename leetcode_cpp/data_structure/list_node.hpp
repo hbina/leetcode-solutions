@@ -8,11 +8,11 @@ struct ListNode
 {
   T val;
   ListNode *next;
-  ListNode(const T &x)
+  constexpr ListNode(const T &x)
       : val(x),
         next(nullptr) {}
-  ListNode(const T &x,
-           ListNode *next)
+  constexpr ListNode(const T &x,
+                     ListNode *next)
       : val(x),
         next(next) {}
 
@@ -22,20 +22,20 @@ struct ListNode
   }
 
   template <typename T>
-  friend std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs);
+  constexpr friend std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs);
   template <typename T>
-  friend bool operator==(const ListNode &lhs, const ListNode<T> &rhs);
+  constexpr friend bool operator==(const ListNode &lhs, const ListNode<T> &rhs);
 };
 
 template <typename T>
-std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs)
+constexpr std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs)
 {
   os << "ListNode val:" << rhs.val;
   return os;
 }
 
 template <typename T>
-bool operator==(const ListNode<T> &lhs, const ListNode<T> &rhs)
+constexpr bool operator==(const ListNode<T> &lhs, const ListNode<T> &rhs)
 {
   bool value_equal = (lhs.val == rhs.val);
   if (lhs.next && rhs.next)

@@ -10,13 +10,13 @@ public:
   T val;
   std::vector<Node<T> *> children;
 
-  Node() = delete;
+  constexpr Node() = delete;
 
-  Node(const T &p_val)
+  constexpr Node(const T &p_val)
       : val(p_val) {}
 
-  Node(const T &p_val,
-       const std::vector<Node<T> *> &p_children)
+  constexpr Node(const T &p_val,
+                 const std::vector<Node<T> *> &p_children)
       : val(p_val),
         children(p_children) {}
 

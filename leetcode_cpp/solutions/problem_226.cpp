@@ -3,7 +3,7 @@
 #include "../data_structure/tree_node.hpp"
 
 template <typename T>
-TreeNode<T> *invertTree(TreeNode<T> *root)
+constexpr TreeNode<T> *invertTree(TreeNode<T> *root)
 {
     if (root == nullptr)
     {

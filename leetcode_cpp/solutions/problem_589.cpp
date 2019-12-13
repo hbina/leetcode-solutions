@@ -7,9 +7,9 @@
 #include <iostream>
 
 template <typename T>
-std::vector<int> preorder_iterative(Node<T> *root)
+constexpr std::vector<T> preorder_iterative(Node<T> *root)
 {
-    std::vector<int> result = {};
+    std::vector<T> result = {};
     std::deque<Node<T> *> s = {nullptr};
     while (root)
     {
@@ -25,9 +25,9 @@ std::vector<int> preorder_iterative(Node<T> *root)
 };
 
 template <typename T>
-std::vector<int> preorder_recursive(Node<T> *root)
+constexpr std::vector<T> preorder_recursive(Node<T> *root)
 {
-    std::vector<int> result = {};
+    std::vector<T> result = {};
     if (root)
     {
         result.push_back(root->val);

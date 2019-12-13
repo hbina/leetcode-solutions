@@ -9,14 +9,14 @@ struct TreeNode
   TreeNode<T> *left;
   TreeNode<T> *right;
 
-  TreeNode(const T &x)
+  constexpr TreeNode(const T &x)
       : val(x),
         left(nullptr),
         right(nullptr) {}
 
-  TreeNode(const T &val,
-           TreeNode *left,
-           TreeNode *right)
+  constexpr TreeNode(const T &val,
+                     TreeNode *left,
+                     TreeNode *right)
       : val(val),
         left(left),
         right(right) {}
@@ -28,14 +28,13 @@ struct TreeNode
   }
 
   template <typename T>
-  friend bool operator==(const TreeNode &lhs, const TreeNode<T> &rhs);
-
+  constexpr friend bool operator==(const TreeNode &lhs, const TreeNode<T> &rhs);
   template <typename T>
-  friend std::ostream &operator<<(std::ostream &os, const TreeNode<T> &rhs);
+  constexpr friend std::ostream &operator<<(std::ostream &os, const TreeNode<T> &rhs);
 };
 
 template <typename T>
-bool operator==(const TreeNode<T> &lhs, const TreeNode<T> &rhs)
+constexpr bool operator==(const TreeNode<T> &lhs, const TreeNode<T> &rhs)
 {
   bool value_equal = (lhs.val == rhs.val);
   bool left_equal = false;
@@ -60,7 +59,7 @@ bool operator==(const TreeNode<T> &lhs, const TreeNode<T> &rhs)
 };
 
 template <typename T>
-std::ostream &operator<<(std::ostream &os, const TreeNode<T> &rhs)
+constexpr std::ostream &operator<<(std::ostream &os, const TreeNode<T> &rhs)
 {
   os << " " << rhs.val;
   if (rhs.left)

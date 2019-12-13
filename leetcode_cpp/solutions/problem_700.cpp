@@ -3,7 +3,7 @@
 #include "../data_structure/tree_node.hpp"
 
 template <typename T>
-TreeNode<T> *searchBST(TreeNode<T> *root, const T &val)
+constexpr TreeNode<T> *searchBST(TreeNode<T> *root, const T &val)
 {
     if (root->val == val)
     {
