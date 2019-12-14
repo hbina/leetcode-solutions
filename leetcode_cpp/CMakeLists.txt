@@ -43,6 +43,8 @@ add_executable(
     solutions/problem_905.cpp
     solutions/problem_929.cpp
     solutions/problem_938.cpp
+    solutions/problem_106.cpp
+    solutions/problem_889.cpp
     solutions/problem_965.cpp
     solutions/problem_977.cpp
     solutions/problem_1010.cpp
