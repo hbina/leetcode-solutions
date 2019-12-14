@@ -32,6 +32,8 @@ add_executable(
     solutions/problem_206.cpp
     solutions/problem_226.cpp
     solutions/problem_371.cpp
+    solutions/problem_535.cpp
+    solutions/problem_536.cpp
     solutions/problem_557.cpp
     solutions/problem_589.cpp
     solutions/problem_643.cpp
