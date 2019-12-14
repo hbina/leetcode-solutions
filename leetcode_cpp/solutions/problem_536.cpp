@@ -6,18 +6,18 @@ template <typename T>
 bool isMirror(TreeNode<T> *lhs, TreeNode<T> *rhs)
 {
     if (lhs == nullptr && rhs == nullptr)
-        return false;
+        return true;
     if (lhs == nullptr || rhs == nullptr)
         return false;
     return lhs->val == rhs->val &&
-           isMirror(lhs->left, lhs->right) &&
-           isMirror(lhs->right, lhs->left);
+           isMirror(lhs->right, rhs->left) &&
+           isMirror(lhs->left, rhs->right);
 }
 
 template <typename T>
 bool isSymmetric(TreeNode<T> *root)
 {
-    return isMirror(root->left, root->right);
+    return isMirror(root, root);
 }
 
 TEST_CASE("Problem 536")
