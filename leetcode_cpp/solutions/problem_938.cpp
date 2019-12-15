@@ -25,13 +25,13 @@ constexpr int rangeSumBST_recursion(TreeNode<T> *root, const T &L, const T &R)
 
 TEST_CASE("problem 938")
 {
-    TreeNode<int> *input =
-        new TreeNode<int>(10,
-                          new TreeNode<int>(5,
-                                            new TreeNode<int>(3),
-                                            new TreeNode<int>(7)),
-                          new TreeNode<int>(15,
+    TreeNode<> *input =
+        new TreeNode<>(10,
+                          new TreeNode<>(5,
+                                            new TreeNode<>(3),
+                                            new TreeNode<>(7)),
+                          new TreeNode<>(15,
                                             nullptr,
-                                            new TreeNode<int>(18)));
+                                            new TreeNode<>(18)));
     CHECK(32 == rangeSumBST_recursion(input, 7, 15));
 }

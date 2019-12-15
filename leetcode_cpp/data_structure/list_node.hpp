@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-template <typename T>
+template <typename T = int>
 struct ListNode
 {
   T val;

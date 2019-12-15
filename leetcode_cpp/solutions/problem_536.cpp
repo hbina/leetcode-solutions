@@ -22,33 +22,33 @@ bool isSymmetric(TreeNode<T> *root)
 
 TEST_CASE("Problem 536")
 {
-    TreeNode<int> *input = new TreeNode<int>(1,
-                                             new TreeNode<int>(2,
-                                                               new TreeNode<int>(3),
-                                                               new TreeNode<int>(4)),
-                                             new TreeNode<int>(2,
-                                                               new TreeNode<int>(4),
-                                                               new TreeNode<int>(3)));
+    TreeNode<> *input = new TreeNode<>(1,
+                                             new TreeNode<>(2,
+                                                               new TreeNode<>(3),
+                                                               new TreeNode<>(4)),
+                                             new TreeNode<>(2,
+                                                               new TreeNode<>(4),
+                                                               new TreeNode<>(3)));
     bool expected = true;
     CHECK(expected == isSymmetric(input));
 }
 
 TEST_CASE("Problem 536")
 {
-    TreeNode<int> *input = new TreeNode<int>(1,
-                                             new TreeNode<int>(2,
-                                                               new TreeNode<int>(3),
-                                                               new TreeNode<int>(2)),
-                                             new TreeNode<int>(2,
-                                                               new TreeNode<int>(4),
-                                                               new TreeNode<int>(3)));
+    TreeNode<> *input = new TreeNode<>(1,
+                                             new TreeNode<>(2,
+                                                               new TreeNode<>(3),
+                                                               new TreeNode<>(2)),
+                                             new TreeNode<>(2,
+                                                               new TreeNode<>(4),
+                                                               new TreeNode<>(3)));
     bool expected = false;
     CHECK(expected == isSymmetric(input));
 }
 
 TEST_CASE("Problem 536")
 {
-    TreeNode<int> *input = new TreeNode<int>(1);
+    TreeNode<> *input = new TreeNode<>(1);
     bool expected = true;
     CHECK(expected == isSymmetric(input));
 }

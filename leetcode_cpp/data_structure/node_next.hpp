@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-template <typename T>
+template <typename T = int>
 class NodeNext
 {
 public:

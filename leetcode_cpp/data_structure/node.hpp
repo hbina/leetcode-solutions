@@ -3,7 +3,7 @@
 #include <vector>
 
 // Use template and std::array
-template <typename T>
+template <typename T = int>
 class Node
 {
 public:

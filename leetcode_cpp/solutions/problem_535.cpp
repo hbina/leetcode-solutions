@@ -16,38 +16,38 @@ T maxDepth(TreeNode<T> *root)
 
 TEST_CASE("Problem 535")
 {
-    TreeNode<int> *input = new TreeNode<int>(3,
-                                             new TreeNode<int>(9),
-                                             new TreeNode<int>(20,
-                                                               new TreeNode<int>(15),
-                                                               new TreeNode<int>(7)));
+    TreeNode<> *input = new TreeNode<>(3,
+                                             new TreeNode<>(9),
+                                             new TreeNode<>(20,
+                                                               new TreeNode<>(15),
+                                                               new TreeNode<>(7)));
     int expected = 3;
     CHECK(expected == maxDepth(input));
 }
 
 TEST_CASE("Problem 535")
 {
-    TreeNode<int> *input = new TreeNode<int>(3);
+    TreeNode<> *input = new TreeNode<>(3);
     int expected = 1;
     CHECK(expected == maxDepth(input));
 }
 
 TEST_CASE("Problem 535")
 {
-    TreeNode<int> *input = nullptr;
+    TreeNode<> *input = nullptr;
     int expected = 0;
     CHECK(expected == maxDepth(input));
 }
 
 TEST_CASE("Problem 535")
 {
-    TreeNode<int> *input = new TreeNode<int>(3,
+    TreeNode<> *input = new TreeNode<>(3,
                                              nullptr,
-                                             new TreeNode<int>(20,
+                                             new TreeNode<>(20,
                                                                nullptr,
-                                                               new TreeNode<int>(7,
+                                                               new TreeNode<>(7,
                                                                                  nullptr,
-                                                                                 new TreeNode<int>(7))));
+                                                                                 new TreeNode<>(7))));
     int expected = 4;
     CHECK(expected == maxDepth(input));
 }

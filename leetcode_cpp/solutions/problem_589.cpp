@@ -42,24 +42,24 @@ std::vector<T> preorder_recursive(Node<T> *root)
 
 TEST_CASE("problem 589 -- iterative")
 {
-    Node<int> *input = new Node<int>(1,
-                                     {new Node<int>(3,
-                                                    {new Node<int>(5),
-                                                     new Node<int>(6)}),
-                                      new Node<int>(2),
-                                      new Node<int>(4)});
+    Node<> *input = new Node<>(1,
+                                     {new Node<>(3,
+                                                    {new Node<>(5),
+                                                     new Node<>(6)}),
+                                      new Node<>(2),
+                                      new Node<>(4)});
     std::vector<int> expected = {1, 3, 5, 6, 2, 4};
     CHECK(expected == preorder_iterative(input));
 }
 
 TEST_CASE("problem 589 -- recursive")
 {
-    Node<int> *input = new Node<int>(1,
-                                     {new Node<int>(3,
-                                                    {new Node<int>(5),
-                                                     new Node<int>(6)}),
-                                      new Node<int>(2),
-                                      new Node<int>(4)});
+    Node<> *input = new Node<>(1,
+                                     {new Node<>(3,
+                                                    {new Node<>(5),
+                                                     new Node<>(6)}),
+                                      new Node<>(2),
+                                      new Node<>(4)});
     std::vector<int> expected = {1, 3, 5, 6, 2, 4};
     std::vector<int> result = preorder_recursive(input);
     CHECK(expected == result);

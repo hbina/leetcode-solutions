@@ -30,12 +30,12 @@ constexpr std::vector<T> postorderTraversal(TreeNode<T> *root)
 
 TEST_CASE("Problem 145")
 {
-    TreeNode<int> *root = new TreeNode<int>(
+    TreeNode<> *root = new TreeNode<>(
         1,
         nullptr,
-        new TreeNode<int>(
+        new TreeNode<>(
             2,
-            new TreeNode<int>(
+            new TreeNode<>(
                 3,
                 nullptr,
                 nullptr),

@@ -5,7 +5,7 @@
 #include <vector>
 #include <iostream>
 
-template <typename T>
+template <typename T = int>
 using Node = NodeNext<T>;
 
 template <typename T>
@@ -75,26 +75,26 @@ constexpr Node<T> *connect(Node<T> *root)
 
 TEST_CASE("Problem 117")
 {
-    Node<int> *input = new Node<int>(
+    Node<> *input = new Node<>(
         1,
-        new Node<int>(
+        new Node<>(
             2,
-            new Node<int>(
+            new Node<>(
                 4,
                 nullptr,
                 nullptr,
                 nullptr),
-            new Node<int>(
+            new Node<>(
                 5,
                 nullptr,
                 nullptr,
                 nullptr),
             nullptr),
 
-        new Node<int>(
+        new Node<>(
             3,
             nullptr,
-            new Node<int>(
+            new Node<>(
                 7,
                 nullptr,
                 nullptr,
@@ -102,45 +102,45 @@ TEST_CASE("Problem 117")
             nullptr),
         nullptr);
 
-    Node<int> *expected = new Node<int>(
+    Node<> *expected = new Node<>(
         1,
-        new Node<int>(
+        new Node<>(
             2,
-            new Node<int>(
+            new Node<>(
                 4,
                 nullptr,
                 nullptr,
-                new Node<int>(
+                new Node<>(
                     5,
                     nullptr,
                     nullptr,
-                    new Node<int>(
+                    new Node<>(
                         7,
                         nullptr,
                         nullptr,
                         nullptr))),
-            new Node<int>(
+            new Node<>(
                 5,
                 nullptr,
                 nullptr,
-                new Node<int>(
+                new Node<>(
                     7,
                     nullptr,
                     nullptr,
                     nullptr)),
-            new Node<int>(
+            new Node<>(
                 3,
                 nullptr,
-                new Node<int>(
+                new Node<>(
                     7,
                     nullptr,
                     nullptr,
                     nullptr),
                 nullptr)),
-        new Node<int>(
+        new Node<>(
             3,
             nullptr,
-            new Node<int>(
+            new Node<>(
                 7,
                 nullptr,
                 nullptr,
