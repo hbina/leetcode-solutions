@@ -7,16 +7,13 @@
 #include <type_traits>
 #include <iterator>
 
-//  FIXME   ::  Can be improved by removing all those memory copying. Create a new function that accepts
-//              std::vector<T>::const_iterator instead.
-
 template <typename Iterator,
           typename T,
           typename = std::enable_if_t<
               std::is_same_v<
                   typename std::iterator_traits<Iterator>::value_type,
                   T>>>
-std::size_t get_dividing_index(
+constexpr std::size_t get_dividing_index(
     const Iterator &inorder_begin,
     const Iterator &inorder_end,
     const T &postorder_end)
@@ -30,12 +27,14 @@ std::size_t get_dividing_index(
 }
 
 template <typename Iterator>
-TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplate(
+constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplate(
     const Iterator &inorder_begin,
     const Iterator &inorder_end,
     const Iterator &postorder_begin,
     const Iterator &postorder_end)
 {
+    using T = typename std::iterator_traits<Iterator>::value_type;
+
     if (inorder_begin == inorder_end && postorder_begin == postorder_end)
         return nullptr;
 
@@ -44,7 +43,7 @@ TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplate
         inorder_end,
         *(postorder_end - 1));
 
-    TreeNode<int> *root = new TreeNode<int>(*(inorder_begin + dividing_index));
+    TreeNode<T> *root = new TreeNode<T>(*(inorder_begin + dividing_index));
 
     root->left = buildTreeTemplate(
         inorder_begin,
@@ -60,7 +59,7 @@ TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplate
 }
 
 template <typename T>
-TreeNode<T> *buildTree(
+constexpr TreeNode<T> *buildTree(
     const std::vector<T> &inorder,
     const std::vector<T> &postorder)
 {
@@ -71,14 +70,14 @@ TreeNode<T> *buildTree(
         postorder.cend());
 }
 
-TEST_CASE("Problem 942")
+TEST_CASE("Problem 106")
 {
     std::vector<int> input_1 = {9, 3, 15, 20, 7};
     std::vector<int> input_2 = {9, 15, 7, 20, 3};
-    TreeNode<int> *expected = new TreeNode<int>(3,
-                                                new TreeNode<int>(9),
-                                                new TreeNode<int>(20,
-                                                                  new TreeNode<int>(15),
-                                                                  new TreeNode<int>(7)));
+    TreeNode<> *expected = new TreeNode<>(3,
+                                                new TreeNode<>(9),
+                                                new TreeNode<>(20,
+                                                                  new TreeNode<>(15),
+                                                                  new TreeNode<>(7)));
     CHECK(*expected == *buildTree(input_1, input_2));
 }
