@@ -74,10 +74,11 @@ TEST_CASE("Problem 105")
 {
     std::vector<int> input_1 = {3, 9, 20, 15, 7};
     std::vector<int> input_2 = {9, 3, 15, 20, 7};
-    TreeNode<> *expected = new TreeNode<>(3,
-                                          new TreeNode<>(9),
-                                          new TreeNode<>(20,
-                                                         new TreeNode<>(15),
-                                                         new TreeNode<>(7)));
+    std::unique_ptr<TreeNode<int>> expected(
+        new TreeNode<>(3,
+                       new TreeNode<>(9),
+                       new TreeNode<>(20,
+                                      new TreeNode<>(15),
+                                      new TreeNode<>(7))));
     CHECK(*expected == *buildTreePreIn(input_1, input_2));
 }

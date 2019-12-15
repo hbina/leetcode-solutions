@@ -4,8 +4,8 @@
 #include <iostream>
 #include <cassert>
 
-template <typename InputType>
-static constexpr double findMaxAverage(const std::vector<InputType> &nums, const std::size_t &k)
+template <typename T>
+static constexpr double findMaxAverage(const std::vector<T> &nums, const std::size_t &k)
 {
     double sum_cache = 0.0;
 
@@ -16,12 +16,12 @@ static constexpr double findMaxAverage(const std::vector<InputType> &nums, const
 
     if (nums.size() < k)
     {
-        InputType sum = 0;
+        T sum = 0;
         for (const auto &a : nums)
         {
             sum += a;
         }
-        return sum / nums.size();
+        return static_cast<double>(sum) / static_cast<double>(nums.size());
     }
 
     for (std::size_t a = 0; a < k; a++)

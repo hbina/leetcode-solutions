@@ -33,6 +33,7 @@ add_executable(
     solutions/problem_88.cpp
     solutions/problem_206.cpp
     solutions/problem_226.cpp
+    solutions/problem_297.cpp
     solutions/problem_371.cpp
     solutions/problem_535.cpp
     solutions/problem_536.cpp

@@ -3,20 +3,21 @@
 #include <vector>
 #include <map>
 
-std::vector<std::vector<int>> groupThePeople(const std::vector<int> &groupSizes)
+template <typename T>
+std::vector<std::vector<T>> groupThePeople(const std::vector<T> &groupSizes)
 {
-    std::map<int, std::size_t> mapper;
-    std::vector<std::vector<int>> result;
+    std::map<T, std::size_t> mapper;
+    std::vector<std::vector<T>> result;
 
     for (std::size_t id = 0; id < groupSizes.size(); id++)
     {
-        std::size_t x = groupSizes[id];
+        T x = static_cast<T>(groupSizes[id]);
         if (mapper.find(x) == mapper.end())
         {
             mapper[x] = result.size();
             result.push_back({});
         }
-        result[mapper[x]].push_back(id);
+        result[static_cast<T>(mapper[x])].push_back(static_cast<T>(id));
         if (result[mapper[x]].size() == x)
         {
             mapper.erase(x);

@@ -42,7 +42,7 @@ int numUniqueEmails(const std::vector<T> &emails)
         }
         map[temp]++;
     }
-    return map.size();
+    return static_cast<int>(map.size());
 }
 
 TEST_CASE("problem 929")
