@@ -24,6 +24,7 @@ add_executable(
     util/string_util.cpp
 
     solutions/problem_4.cpp
+    solutions/problem_394.cpp
     solutions/problem_105.cpp
     solutions/problem_107.cpp
     solutions/problem_145.cpp
@@ -56,3 +57,4 @@ add_executable(
     )
 
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
+target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/fmt)
