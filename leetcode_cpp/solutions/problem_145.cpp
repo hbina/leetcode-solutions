@@ -7,7 +7,7 @@
 #include "../data_structure/tree_node.hpp"
 
 template <typename T>
-constexpr std::vector<T> postorderTraversal(TreeNode<T> *root)
+static constexpr std::vector<T> postorderTraversal(TreeNode<T> *root)
 {
     std::vector<T> AB, A, B;
     if (root)

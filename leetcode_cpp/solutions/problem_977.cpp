@@ -4,7 +4,7 @@
 #include <algorithm>
 
 template <typename T>
-constexpr std::vector<T> sortedSquares(std::vector<T> &A)
+static constexpr std::vector<T> sortedSquares(std::vector<T> &A)
 {
     std::for_each(A.begin(), A.end(), [](auto &x) -> void {
         x *= x;

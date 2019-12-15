@@ -13,7 +13,7 @@ template <typename Iterator,
               std::is_same_v<
                   typename std::iterator_traits<Iterator>::value_type,
                   T>>>
-constexpr std::size_t get_dividing_index(
+static constexpr std::size_t get_dividing_index(
     const Iterator &preorder_begin,
     const Iterator &preorder_end,
     const T &inorder_end)
@@ -27,7 +27,7 @@ constexpr std::size_t get_dividing_index(
 }
 
 template <typename Iterator>
-constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplatePreIn(
+static constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplatePreIn(
     const Iterator &preorder_begin,
     const Iterator &preorder_end,
     const Iterator &inorder_begin,
@@ -59,7 +59,7 @@ constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTr
 }
 
 template <typename T>
-constexpr TreeNode<T> *buildTreePreIn(
+static constexpr TreeNode<T> *buildTreePreIn(
     const std::vector<T> &preorder,
     const std::vector<T> &inorder)
 {

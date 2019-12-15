@@ -5,7 +5,7 @@
 #include <numeric>
 
 template <typename T>
-constexpr T specialDivision(const T &value, const T &divisor)
+static constexpr T specialDivision(const T &value, const T &divisor)
 {
     const T remainder = value % divisor;
     const T division = (value - remainder) / divisor;
@@ -20,7 +20,7 @@ constexpr T specialDivision(const T &value, const T &divisor)
 }
 
 template <typename T>
-constexpr T accumulateResult(const std::vector<T> &nums, const T &divisor)
+static constexpr T accumulateResult(const std::vector<T> &nums, const T &divisor)
 {
     return std::accumulate(nums.cbegin(), nums.cend(), 0, [&](T sum, const T &x) -> T {
         return std::move(sum) + specialDivision(x, divisor);
@@ -28,7 +28,7 @@ constexpr T accumulateResult(const std::vector<T> &nums, const T &divisor)
 }
 
 template <typename T>
-constexpr T smallestDivisor_naive(const std::vector<T> &nums, T threshold)
+static constexpr T smallestDivisor_naive(const std::vector<T> &nums, T threshold)
 {
     T divisor = 1;
     T result = accumulateResult(nums, divisor);
@@ -41,7 +41,7 @@ constexpr T smallestDivisor_naive(const std::vector<T> &nums, T threshold)
 }
 
 template <typename T>
-constexpr T smallestDivisor_guessFirst(const std::vector<T> &nums, T threshold)
+static constexpr T smallestDivisor_guessFirst(const std::vector<T> &nums, T threshold)
 {
     T sum = accumulateResult(nums, 1);
     T guess_divisor = sum / threshold;

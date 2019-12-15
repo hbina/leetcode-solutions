@@ -9,7 +9,7 @@
 #include <iterator>
 
 template <typename Iterator>
-constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *
+static constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *
 constructFromPrePostTemplate(
     const Iterator &preorder_begin,
     const Iterator &preorder_end,
@@ -61,7 +61,7 @@ constructFromPrePostTemplate(
 }
 
 template <typename T>
-constexpr TreeNode<T> *constructFromPrePost(
+static constexpr TreeNode<T> *constructFromPrePost(
     const std::vector<T> &preorder,
     const std::vector<T> &postorder)
 {

@@ -5,7 +5,7 @@
 #include <functional>
 
 template <typename T>
-constexpr T subtractProductAndSum(const T &input)
+static constexpr T subtractProductAndSum(const T &input)
 {
     T n = input;
     std::vector<T> collection;

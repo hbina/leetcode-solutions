@@ -5,7 +5,7 @@
 #include <iostream>
 
 template <typename T>
-constexpr ListNode<T> *getIntersectionNode(ListNode<T> *headA, ListNode<T> *headB)
+static constexpr ListNode<T> *getIntersectionNode(ListNode<T> *headA, ListNode<T> *headB)
 {
     if (!headA || !headB)
     {

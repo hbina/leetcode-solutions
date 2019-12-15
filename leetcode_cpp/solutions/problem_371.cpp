@@ -5,7 +5,7 @@
 #include <bitset>
 
 template <typename T>
-constexpr std::pair<T, T> full_adder(const T &a, const T &b, const T &c)
+static constexpr std::pair<T, T> full_adder(const T &a, const T &b, const T &c)
 {
     return {(a ^ b) ^ c, ((a ^ b) & c) | (a & b)};
 }

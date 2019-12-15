@@ -9,7 +9,7 @@ template <typename T = int>
 using Node = NodeNext<T>;
 
 template <typename T>
-constexpr Node<T> *connect(Node<T> *root)
+static constexpr Node<T> *connect(Node<T> *root)
 {
     if (!root)
         return nullptr;

@@ -4,7 +4,7 @@
 #include <algorithm>
 
 template <typename T>
-constexpr int heightChecker(const std::vector<T> &heights)
+static constexpr int heightChecker(const std::vector<T> &heights)
 {
     std::vector<T> copy = heights;
     std::sort(copy.begin(), copy.end());
@@ -18,7 +18,7 @@ constexpr int heightChecker(const std::vector<T> &heights)
 }
 
 template <typename T>
-constexpr int heightChecker_zip(const std::vector<T> &heights)
+static constexpr int heightChecker_zip(const std::vector<T> &heights)
 {
     // FIXME :: There must be a more natural construct to zip through 2 iterators...cmon <algorithm>
     std::vector<T> copy = heights;

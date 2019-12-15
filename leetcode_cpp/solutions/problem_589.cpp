@@ -7,7 +7,7 @@
 #include <iostream>
 
 template <typename T>
-constexpr std::vector<T> preorder_iterative(Node<T> *root)
+static constexpr std::vector<T> preorder_iterative(Node<T> *root)
 {
     std::vector<T> result = {};
     std::deque<Node<T> *> s = {nullptr};

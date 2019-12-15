@@ -5,7 +5,7 @@
 #include <iostream>
 
 template <typename T>
-constexpr double findMedianSortedArrays_naive(const std::vector<T> &nums1, const std::vector<T> &nums2)
+static constexpr double findMedianSortedArrays_naive(const std::vector<T> &nums1, const std::vector<T> &nums2)
 {
     std::vector<T> collection;
     collection.reserve(nums1.size() + nums2.size());
@@ -25,7 +25,7 @@ constexpr double findMedianSortedArrays_naive(const std::vector<T> &nums1, const
 }
 
 template <typename T>
-constexpr double findMedianSortedArrays_search(std::vector<T> &nums1, std::vector<T> &nums2)
+static constexpr double findMedianSortedArrays_search(std::vector<T> &nums1, std::vector<T> &nums2)
 {
     //  TODO    ::  There are better ways to do this than to make a heap allocation
     //              of 2 possibly large vectors. Most of the allocations are wasted anyway,
