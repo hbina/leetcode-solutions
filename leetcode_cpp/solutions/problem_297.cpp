@@ -5,17 +5,19 @@
 #include <string>
 #include <memory>
 
+#include <stack>
+
 template <typename T>
 class Codec
 {
 public:
     // Encodes a tree to a single string.
-    std::string serialize(TreeNode<T> *root)
+    std::string serialize(const TreeNode<T> *root)
     {
     }
 
     // Decodes your encoded data to tree.
-    TreeNode<T> *deserialize(std::string data)
+    TreeNode<T> *deserialize(const std::string &data)
     {
     }
 };
