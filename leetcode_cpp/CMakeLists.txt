@@ -24,6 +24,7 @@ add_executable(
     util/string_util.cpp
 
     solutions/problem_4.cpp
+    solutions/problem_105.cpp
     solutions/problem_107.cpp
     solutions/problem_145.cpp
     solutions/problem_117.cpp

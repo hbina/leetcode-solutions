@@ -27,7 +27,8 @@ constexpr std::size_t get_dividing_index(
 }
 
 template <typename Iterator>
-constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplate(
+constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *
+buildTreeTemplateInPost(
     const Iterator &inorder_begin,
     const Iterator &inorder_end,
     const Iterator &postorder_begin,
@@ -45,12 +46,12 @@ constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTr
 
     TreeNode<T> *root = new TreeNode<T>(*(inorder_begin + dividing_index));
 
-    root->left = buildTreeTemplate(
+    root->left = buildTreeTemplateInPost(
         inorder_begin,
         inorder_begin + dividing_index,
         postorder_begin,
         postorder_begin + dividing_index);
-    root->right = buildTreeTemplate(
+    root->right = buildTreeTemplateInPost(
         inorder_begin + dividing_index + 1,
         inorder_end,
         postorder_begin + dividing_index,
@@ -59,11 +60,11 @@ constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTr
 }
 
 template <typename T>
-constexpr TreeNode<T> *buildTree(
+constexpr TreeNode<T> *buildTreeInPost(
     const std::vector<T> &inorder,
     const std::vector<T> &postorder)
 {
-    return buildTreeTemplate(
+    return buildTreeTemplateInPost(
         inorder.cbegin(),
         inorder.cend(),
         postorder.cbegin(),
@@ -75,9 +76,9 @@ TEST_CASE("Problem 106")
     std::vector<int> input_1 = {9, 3, 15, 20, 7};
     std::vector<int> input_2 = {9, 15, 7, 20, 3};
     TreeNode<> *expected = new TreeNode<>(3,
-                                                new TreeNode<>(9),
-                                                new TreeNode<>(20,
-                                                                  new TreeNode<>(15),
-                                                                  new TreeNode<>(7)));
-    CHECK(*expected == *buildTree(input_1, input_2));
+                                          new TreeNode<>(9),
+                                          new TreeNode<>(20,
+                                                         new TreeNode<>(15),
+                                                         new TreeNode<>(7)));
+    CHECK(*expected == *buildTreeInPost(input_1, input_2));
 }
