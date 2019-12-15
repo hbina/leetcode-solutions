@@ -5,14 +5,14 @@
 #include <unordered_map>
 
 template <typename T>
-static constexpr int numPairsDivisibleBy60(const std::vector<T> &time)
+static constexpr std::size_t numPairsDivisibleBy60(const std::vector<T> &time)
 {
     std::vector<T> map(60, 0);
     std::size_t counter = 0;
     for (std::size_t iter = 0; iter < time.size(); ++iter)
     {
-        int val = time[iter] % 60;
-        int diff = 60 - val;
+        T val = time[iter] % 60;
+        T diff = 60 - val;
         if (diff == 60)
             diff = 0;
         counter += map[diff];
@@ -23,7 +23,7 @@ static constexpr int numPairsDivisibleBy60(const std::vector<T> &time)
 
 // NOTE :: This is a pretty bad algorithm that is O(n^2)
 template <typename T>
-static constexpr int numPairsDivisibleBy60_O2(const std::vector<int> &time)
+static constexpr std::size_t numPairsDivisibleBy60_O2(const std::vector<int> &time)
 {
     std::size_t counter = 0;
     for (std::size_t iter1 = 0; iter1 < time.size(); iter1++)

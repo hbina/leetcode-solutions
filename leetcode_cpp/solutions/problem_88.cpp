@@ -4,9 +4,10 @@
 #include <iostream>
 #include <algorithm>
 
-void merge_simple(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
+template <typename T>
+void merge_simple(std::vector<T> &nums1, std::size_t m, std::vector<T> &nums2, std::size_t n)
 {
-    for (int counter = 0; counter < n; counter++)
+    for (std::size_t counter = 0; counter < n; counter++)
     {
         nums1[m + counter] = nums2[counter];
     }
