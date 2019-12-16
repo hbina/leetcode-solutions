@@ -11,7 +11,8 @@ template <
     typename OutputIterator,
     typename = std::enable_if<
         std::is_same_v<
-            std::iterator_traits<OutputIterator::iterator>::value_type,
+            typename std::iterator_traits<
+                typename OutputIterator::iterator>::value_type,
             std::string>>>
 OutputIterator split(
     const std::string &input,

@@ -18,13 +18,12 @@ private:
     //  FIXME   ::  This function is only valid for numeric T.
     //  FIXME   ::  Improve this function by making it consume a view or iterators to begin and end instead.
     template <
-        typename T,
         typename Iterator,
         typename = std::enable_if<
             std::is_same_v<
-                std::iterator_traits<Iterator>::value_type,
+                typename std::iterator_traits<Iterator>::value_type,
                 std::string>>>
-    static constexpr std::pair<TreeNode<T> *, std::size_t>
+    static std::pair<TreeNode<T> *, std::size_t>
     consume(
         const Iterator &data_begin,
         const Iterator &data_end)
@@ -55,7 +54,7 @@ private:
 
 public:
     // Encodes a tree to a single string.
-    static constexpr std::string
+    static std::string
     serialize(const std::unique_ptr<TreeNode<T>> &root)
     {
         if (!root)
@@ -98,7 +97,7 @@ public:
     }
 
     // Decodes your encoded data to tree.
-    static constexpr TreeNode<T> *deserialize(const std::string &data)
+    static TreeNode<T> *deserialize(const std::string &data)
     {
         std::cerr << "data:" << data << std::endl;
         std::string skip_bracket = data.substr(1, data.length() - 2);
@@ -107,7 +106,7 @@ public:
             util::string::split<
                 std::vector<std::string>>(skip_bracket,
                                           delimiter);
-        std::pair<TreeNode<T> *, std::size_t> result = consume<T>(
+        std::pair<TreeNode<T> *, std::size_t> result = consume<>(
             deflatten_data.cbegin(),
             deflatten_data.cend());
         return result.first;

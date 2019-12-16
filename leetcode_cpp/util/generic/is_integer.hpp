@@ -11,7 +11,8 @@ namespace string
 template <typename Iterable>
 bool is_number(const Iterable &s)
 {
-    using T = std::iterator_traits<Iterable::iterator>::value_type;
+    using T = typename std::iterator_traits<
+        typename Iterable::iterator>::value_type;
     return !s.empty() &&
            std::find_if(s.begin(),
                         s.end(),

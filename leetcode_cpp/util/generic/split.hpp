@@ -16,11 +16,13 @@ OutputIteratorOuter split_if(
     InputIterator iter_end,
     const UnaryPredicate &predicate)
 {
-    using T = std::iterator_traits<InputIterator>::value_type;
-    using test_input_iterator = std::iterator_traits<InputIterator>::iterator_category;
-    using test_outer_output_iterator = std::iterator_traits<OutputIteratorOuter::iterator>::iterator_category;
-    using test_inner_output_iterator = std::iterator_traits<
-        typename std::iterator_traits<OutputIteratorOuter::iterator>::value_type::iterator>::iterator_category;
+    using T = typename std::iterator_traits<InputIterator>::value_type;
+    using test_input_iterator = typename std::iterator_traits<InputIterator>::iterator_category;
+    using test_outer_output_iterator = typename std::iterator_traits<
+        typename OutputIteratorOuter::iterator>::iterator_category;
+    using test_inner_output_iterator = typename std::iterator_traits<
+        typename std::iterator_traits<
+            typename OutputIteratorOuter::iterator>::value_type::iterator>::iterator_category;
 
     OutputIteratorOuter result;
     auto find_if = std::find_if(
@@ -56,10 +58,12 @@ OutputIteratorOuter split(
     InputIterator iter_end,
     const T &delimiter)
 {
-    using test_input_iterator = std::iterator_traits<InputIterator>::iterator_category;
-    using test_output_iterator = std::iterator_traits<OutputIteratorOuter::iterator>::iterator_category;
-    using test_output_iterator = std::iterator_traits<
-        typename std::iterator_traits<OutputIteratorOuter::iterator>::value_type::iterator>::iterator_category;
+    using test_input_iterator = typename std::iterator_traits<InputIterator>::iterator_category;
+    using test_output_iterator = typename std::iterator_traits<
+        typename OutputIteratorOuter::iterator>::iterator_category;
+    using test_output_iterator = typename std::iterator_traits<
+        typename std::iterator_traits<
+            typename OutputIteratorOuter::iterator>::value_type::iterator>::iterator_category;
 
     OutputIteratorOuter result;
     auto find = std::find(
