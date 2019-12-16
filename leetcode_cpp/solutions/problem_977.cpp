@@ -4,7 +4,8 @@
 #include <algorithm>
 
 template <typename T>
-static constexpr std::vector<T> sortedSquares(std::vector<T> &A)
+static constexpr std::vector<T> sortedSquares(
+    std::vector<T> &A)
 {
     std::for_each(A.begin(), A.end(), [](auto &x) -> void {
         x *= x;
@@ -18,13 +19,15 @@ static constexpr std::vector<T> sortedSquares(std::vector<T> &A)
 TEST_CASE("problem 977")
 {
     std::vector<int> input = {-4, -1, 0, 3, 10};
-    std::vector<int> expected = {0, 1, 9, 16, 100};
-    CHECK(expected == sortedSquares(input));
+    const std::vector<int> expected = {0, 1, 9, 16, 100};
+    sortedSquares(input);
+    CHECK(expected == input);
 }
 
 TEST_CASE("problem 977")
 {
     std::vector<int> input = {-7, -3, 2, 3, 11};
-    std::vector<int> expected = {4, 9, 9, 49, 121};
-    CHECK(expected == sortedSquares(input));
+    const std::vector<int> expected = {4, 9, 9, 49, 121};
+    sortedSquares(input);
+    CHECK(expected == input);
 }

@@ -74,5 +74,10 @@ TEST_CASE("Problem 160")
             new ListNode<int>(
                 5,
                 c1)));
-    CHECK(*c1 == *getIntersectionNode(a1, b1));
+    ListNode<int> *result = getIntersectionNode(a1, b1);
+    CHECK(*c1 == *result);
+
+    // Solely for cleanup purposes...
+    b1->next->next->next = nullptr;
+    delete a1;
 }

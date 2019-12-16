@@ -147,6 +147,6 @@ TEST_CASE("Problem 117")
                 nullptr),
             nullptr),
         nullptr);
-    const Node<> result = *connect(&input);
-    CHECK(expected == result);
+    connect(&input);
+    CHECK(expected == input);
 }

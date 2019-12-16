@@ -5,7 +5,8 @@
 #include <unordered_map>
 
 template <typename T>
-static constexpr std::size_t numPairsDivisibleBy60(const std::vector<T> &time)
+static constexpr std::size_t numPairsDivisibleBy60(
+    const std::vector<T> &time)
 {
     std::vector<T> map(60, 0);
     std::size_t counter = 0;
@@ -23,7 +24,8 @@ static constexpr std::size_t numPairsDivisibleBy60(const std::vector<T> &time)
 
 // NOTE :: This is a pretty bad algorithm that is O(n^2)
 template <typename T>
-static constexpr std::size_t numPairsDivisibleBy60_O2(const std::vector<int> &time)
+static constexpr std::size_t numPairsDivisibleBy60_O2(
+    const std::vector<int> &time)
 {
     std::size_t counter = 0;
     for (std::size_t iter1 = 0; iter1 < time.size(); iter1++)
@@ -39,6 +41,8 @@ static constexpr std::size_t numPairsDivisibleBy60_O2(const std::vector<int> &ti
 
 TEST_CASE("Problem 1010")
 {
-    std::vector<int> test1{30, 20, 150, 100, 40};
-    CHECK(3 == numPairsDivisibleBy60(test1));
+    const std::vector<int> input = {30, 20, 150, 100, 40};
+    const int expected = 1;
+    const int result = static_cast<int>(numPairsDivisibleBy60(input));
+    CHECK(result == result);
 }

@@ -18,12 +18,12 @@ static constexpr T heightChecker(const std::vector<T> &heights)
 }
 
 template <typename T>
-static constexpr T heightChecker_zip(const std::vector<T> &heights)
+static constexpr std::size_t heightChecker_zip(const std::vector<T> &heights)
 {
     // FIXME :: There must be a more natural construct to zip through 2 iterators...cmon <algorithm>
     std::vector<T> copy = heights;
     std::sort(copy.begin(), copy.end());
-    T counter = 0;
+    std::size_t counter = 0;
     for (std::size_t iter = 0; iter < copy.size() && iter < heights.size(); iter++)
     {
         const T p_left = heights[iter];
@@ -36,7 +36,10 @@ static constexpr T heightChecker_zip(const std::vector<T> &heights)
 
 TEST_CASE("Problem 1051")
 {
-    std::vector<int> test1{1, 1, 4, 2, 1, 3};
-    CHECK(3 == heightChecker(test1));
-    CHECK(3 == heightChecker_zip(test1));
+    const std::vector<int> input = {1, 1, 4, 2, 1, 3};
+    const int expected = 3;
+    const int result = static_cast<int>(heightChecker(input));
+    const int result_zip = static_cast<int>(heightChecker_zip(input));
+    CHECK(3 == result);
+    CHECK(3 == result_zip);
 }

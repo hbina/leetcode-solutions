@@ -27,7 +27,6 @@ public:
   {
     delete left;
     delete right;
-    delete next;
   }
 
   template <typename T2>
