@@ -23,18 +23,18 @@ static constexpr TreeNode<T> *invertTree(TreeNode<T> *root)
 
 TEST_CASE("problem_226")
 {
-    TreeNode<> *input = new TreeNode<>(
-        4,
-        new TreeNode<>(
-            2,
-            new TreeNode<>(1),
-            new TreeNode<>(3)),
-        new TreeNode<>(7,
-                       new TreeNode<>(6),
-                       new TreeNode<>(9)));
+    TreeNode<> input =
+        TreeNode<>(4,
+                   new TreeNode<>(
+                       2,
+                       new TreeNode<>(1),
+                       new TreeNode<>(3)),
+                   new TreeNode<>(7,
+                                  new TreeNode<>(6),
+                                  new TreeNode<>(9)));
 
-    std::unique_ptr<TreeNode<int>> expected(
-        new TreeNode<>(
+    const TreeNode<int> expected =
+        TreeNode<>(
             4,
             new TreeNode<>(
                 7,
@@ -42,7 +42,7 @@ TEST_CASE("problem_226")
                 new TreeNode<>(6)),
             new TreeNode<>(2,
                            new TreeNode<>(3),
-                           new TreeNode<>(1))));
+                           new TreeNode<>(1)));
 
-    CHECK(*expected == *invertTree(input));
+    CHECK(expected == *invertTree(&input));
 }

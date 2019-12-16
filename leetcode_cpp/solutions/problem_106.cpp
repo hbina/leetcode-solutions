@@ -74,13 +74,14 @@ static constexpr TreeNode<T> *buildTreeInPost(
 
 TEST_CASE("Problem 106")
 {
-    std::vector<int> input_1 = {9, 3, 15, 20, 7};
-    std::vector<int> input_2 = {9, 15, 7, 20, 3};
-    std::unique_ptr<TreeNode<int>> expected(
-        new TreeNode<>(3,
-                       new TreeNode<>(9),
-                       new TreeNode<>(20,
-                                      new TreeNode<>(15),
-                                      new TreeNode<>(7))));
-    CHECK(*expected == *buildTreeInPost(input_1, input_2));
+    const std::vector<int> input_1 = {9, 3, 15, 20, 7};
+    const std::vector<int> input_2 = {9, 15, 7, 20, 3};
+    const TreeNode<> expected =
+        TreeNode<>(3,
+                   new TreeNode<>(9),
+                   new TreeNode<>(20,
+                                  new TreeNode<>(15),
+                                  new TreeNode<>(7)));
+    const TreeNode<> result = *buildTreeInPost(input_1, input_2);
+    CHECK(expected == result);
 }

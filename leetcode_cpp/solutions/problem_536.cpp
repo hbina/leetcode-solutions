@@ -3,7 +3,7 @@
 #include "../data_structure/tree_node.hpp"
 
 template <typename T>
-bool isMirror(TreeNode<T> *lhs, TreeNode<T> *rhs)
+bool isMirror(const TreeNode<T> *lhs, const TreeNode<T> *rhs)
 {
     if (lhs == nullptr && rhs == nullptr)
         return true;
@@ -15,40 +15,42 @@ bool isMirror(TreeNode<T> *lhs, TreeNode<T> *rhs)
 }
 
 template <typename T>
-bool isSymmetric(TreeNode<T> *root)
+bool isSymmetric(const TreeNode<T> *root)
 {
     return isMirror(root, root);
 }
 
 TEST_CASE("Problem 536")
 {
-    TreeNode<> *input = new TreeNode<>(1,
-                                             new TreeNode<>(2,
-                                                               new TreeNode<>(3),
-                                                               new TreeNode<>(4)),
-                                             new TreeNode<>(2,
-                                                               new TreeNode<>(4),
-                                                               new TreeNode<>(3)));
+    const TreeNode<> input =
+        TreeNode<>(1,
+                   new TreeNode<>(2,
+                                  new TreeNode<>(3),
+                                  new TreeNode<>(4)),
+                   new TreeNode<>(2,
+                                  new TreeNode<>(4),
+                                  new TreeNode<>(3)));
     bool expected = true;
-    CHECK(expected == isSymmetric(input));
+    CHECK(expected == isSymmetric(&input));
 }
 
 TEST_CASE("Problem 536")
 {
-    TreeNode<> *input = new TreeNode<>(1,
-                                             new TreeNode<>(2,
-                                                               new TreeNode<>(3),
-                                                               new TreeNode<>(2)),
-                                             new TreeNode<>(2,
-                                                               new TreeNode<>(4),
-                                                               new TreeNode<>(3)));
-    bool expected = false;
-    CHECK(expected == isSymmetric(input));
+    const TreeNode<> input =
+        TreeNode<>(1,
+                   new TreeNode<>(2,
+                                  new TreeNode<>(3),
+                                  new TreeNode<>(2)),
+                   new TreeNode<>(2,
+                                  new TreeNode<>(4),
+                                  new TreeNode<>(3)));
+    const bool expected = false;
+    CHECK(expected == isSymmetric(&input));
 }
 
 TEST_CASE("Problem 536")
 {
-    TreeNode<> *input = new TreeNode<>(1);
-    bool expected = true;
-    CHECK(expected == isSymmetric(input));
+    const TreeNode<> input = TreeNode<>(1);
+    const bool expected = true;
+    CHECK(expected == isSymmetric(&input));
 }

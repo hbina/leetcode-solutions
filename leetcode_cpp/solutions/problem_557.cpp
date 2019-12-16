@@ -3,12 +3,11 @@
 #include <string>
 #include <vector>
 
-template <typename T>
-T reverseWords(const T &input)
+std::string reverseWords(const std::string &input)
 {
-    T result;
-    std::vector<T> collector;
-    T tmp;
+    std::string result;
+    std::vector<std::string> collector;
+    std::string tmp;
 
     for (auto riter = input.rbegin(); riter != input.rend(); riter++)
     {
@@ -40,5 +39,6 @@ TEST_CASE("problem 557")
 {
     const std::string input = "Let's take LeetCode contest";
     const std::string expected = "s'teL ekat edoCteeL tsetnoc";
-    CHECK(expected == reverseWords(input));
+    const std::string result = reverseWords(input);
+    CHECK(expected == result);
 }

@@ -7,10 +7,11 @@
 #include <iostream>
 
 template <typename T>
-static constexpr std::vector<T> preorder_iterative(Node<T> *root)
+static constexpr std::vector<T> preorder_iterative(const Node<T> *root)
 {
     std::vector<T> result = {};
-    std::deque<Node<T> *> s = {nullptr};
+    std::deque<const Node<T> *> s = {nullptr};
+
     while (root)
     {
         result.push_back(root->val);
@@ -25,13 +26,13 @@ static constexpr std::vector<T> preorder_iterative(Node<T> *root)
 }
 
 template <typename T>
-std::vector<T> preorder_recursive(Node<T> *root)
+std::vector<T> preorder_recursive(const Node<T> *root)
 {
     std::vector<T> result = {};
     if (root)
     {
         result.push_back(root->val);
-        for (Node<T> *child : root->children)
+        for (const Node<T> *child : root->children)
         {
             std::vector<int> tmp = preorder_recursive(child);
             result.insert(result.end(), tmp.begin(), tmp.end());
@@ -42,25 +43,28 @@ std::vector<T> preorder_recursive(Node<T> *root)
 
 TEST_CASE("problem 589 -- iterative")
 {
-    Node<> *input = new Node<>(1,
-                                     {new Node<>(3,
-                                                    {new Node<>(5),
-                                                     new Node<>(6)}),
-                                      new Node<>(2),
-                                      new Node<>(4)});
-    std::vector<int> expected = {1, 3, 5, 6, 2, 4};
-    CHECK(expected == preorder_iterative(input));
+    const Node<> input =
+        Node<>(1,
+               {new Node<>(3,
+                           {new Node<>(5),
+                            new Node<>(6)}),
+                new Node<>(2),
+                new Node<>(4)});
+    const std::vector<int> expected = {1, 3, 5, 6, 2, 4};
+    const std::vector<int> result = preorder_iterative(&input);
+    CHECK(expected == result);
 }
 
 TEST_CASE("problem 589 -- recursive")
 {
-    Node<> *input = new Node<>(1,
-                                     {new Node<>(3,
-                                                    {new Node<>(5),
-                                                     new Node<>(6)}),
-                                      new Node<>(2),
-                                      new Node<>(4)});
-    std::vector<int> expected = {1, 3, 5, 6, 2, 4};
-    std::vector<int> result = preorder_recursive(input);
+    const Node<> input =
+        Node<>(1,
+               {new Node<>(3,
+                           {new Node<>(5),
+                            new Node<>(6)}),
+                new Node<>(2),
+                new Node<>(4)});
+    const std::vector<int> expected = {1, 3, 5, 6, 2, 4};
+    const std::vector<int> result = preorder_recursive(&input);
     CHECK(expected == result);
 }

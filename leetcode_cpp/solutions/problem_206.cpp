@@ -60,7 +60,7 @@ static constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
 
 TEST_CASE("problem 206")
 {
-    ListNode<> *input = new ListNode<>(
+    ListNode<> input = ListNode<>(
         1,
         new ListNode<>(
             2,
@@ -71,7 +71,7 @@ TEST_CASE("problem 206")
                     new ListNode<>(
                         5)))));
 
-    ListNode<> *expected = new ListNode<>(
+    const ListNode<> expected = ListNode<>(
         5,
         new ListNode<>(
             4,
@@ -82,12 +82,12 @@ TEST_CASE("problem 206")
                     new ListNode<>(
                         1)))));
 
-    CHECK(*reverseList_iterative(input) == *expected);
+    CHECK(*reverseList_iterative(&input) == expected);
 }
 
 TEST_CASE("problem 206")
 {
-    ListNode<> *input = new ListNode<>(
+    ListNode<> input = ListNode<>(
         1,
         new ListNode<>(
             2,
@@ -98,7 +98,7 @@ TEST_CASE("problem 206")
                     new ListNode<>(
                         5)))));
 
-    ListNode<> *expected = new ListNode<>(
+    const ListNode<> expected = ListNode<>(
         5,
         new ListNode<>(
             4,
@@ -109,23 +109,23 @@ TEST_CASE("problem 206")
                     new ListNode<>(
                         1)))));
 
-    CHECK(*reverseList_recursive(input) == *expected);
+    CHECK(*reverseList_recursive(&input) == expected);
 }
 
 TEST_CASE("problem 206 single")
 {
-    ListNode<> *input = new ListNode<>(5);
+    ListNode<> input = ListNode<>(5);
 
-    ListNode<> *expected = new ListNode<>(5);
+    const ListNode<> expected = ListNode<>(5);
 
-    CHECK(*reverseList_iterative(input) == *expected);
+    CHECK(*reverseList_iterative(&input) == expected);
 }
 
 TEST_CASE("problem 206 single")
 {
-    ListNode<> *input = new ListNode<>(5);
+    ListNode<> input = ListNode<>(5);
 
-    ListNode<> *expected = new ListNode<>(5);
+    const ListNode<> expected = ListNode<>(5);
 
-    CHECK(*reverseList_recursive(input) == *expected);
+    CHECK(*reverseList_recursive(&input) == expected);
 }

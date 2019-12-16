@@ -18,7 +18,7 @@ std::vector<std::vector<T>> groupThePeople(const std::vector<T> &groupSizes)
             result.push_back({});
         }
         result[static_cast<T>(mapper[x])].push_back(static_cast<T>(id));
-        if (result[mapper[x]].size() == x)
+        if (result[mapper[x]].size() == static_cast<std::size_t>(x))
         {
             mapper.erase(x);
         }

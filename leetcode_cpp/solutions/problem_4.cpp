@@ -5,7 +5,9 @@
 #include <iostream>
 
 template <typename T>
-static constexpr double findMedianSortedArrays_naive(const std::vector<T> &nums1, const std::vector<T> &nums2)
+static constexpr double findMedianSortedArrays_naive(
+    const std::vector<T> &nums1,
+    const std::vector<T> &nums2)
 {
     std::vector<T> collection;
     collection.reserve(nums1.size() + nums2.size());
@@ -25,7 +27,9 @@ static constexpr double findMedianSortedArrays_naive(const std::vector<T> &nums1
 }
 
 template <typename T>
-static constexpr double findMedianSortedArrays_search(std::vector<T> &nums1, std::vector<T> &nums2)
+static constexpr double findMedianSortedArrays_search(
+    const std::vector<T> &nums1,
+    const std::vector<T> &nums2)
 {
     //  TODO    ::  There are better ways to do this than to make a heap allocation
     //              of 2 possibly large vectors. Most of the allocations are wasted anyway,
@@ -36,14 +40,14 @@ static constexpr double findMedianSortedArrays_search(std::vector<T> &nums1, std
 
 TEST_CASE("problem 4")
 {
-    std::vector<int> input_1 = {1, 3};
-    std::vector<int> input_2 = {2};
+    const std::vector<int> input_1 = {1, 3};
+    const std::vector<int> input_2 = {2};
     CHECK(2.0 == findMedianSortedArrays_naive(input_1, input_2));
 }
 
 TEST_CASE("problem 4")
 {
-    std::vector<int> input_1 = {1, 2};
-    std::vector<int> input_2 = {3, 4};
+    const std::vector<int> input_1 = {1, 2};
+    const std::vector<int> input_2 = {3, 4};
     CHECK(2.5 == findMedianSortedArrays_naive(input_1, input_2));
 }

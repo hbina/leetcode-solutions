@@ -46,8 +46,8 @@ static constexpr double findMaxAverage(const std::vector<T> &nums, const std::si
 
 TEST_CASE("problem 643")
 {
-    std::vector<int> input_1 = {1, 12, -5, -6, 50, 3};
-    std::size_t input_2 = 4;
+    const std::vector<int> input_1 = {1, 12, -5, -6, 50, 3};
+    const std::size_t input_2 = 4;
     double expected = 12.75;
     CHECK(expected == findMaxAverage(input_1, input_2));
 }

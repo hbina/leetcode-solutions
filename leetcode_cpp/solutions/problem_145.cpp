@@ -7,7 +7,7 @@
 #include "../data_structure/tree_node.hpp"
 
 template <typename T>
-static constexpr std::vector<T> postorderTraversal(TreeNode<T> *root)
+static constexpr std::vector<T> postorderTraversal(const TreeNode<T> *root)
 {
     std::vector<T> AB, A, B;
     if (root)
@@ -30,22 +30,18 @@ static constexpr std::vector<T> postorderTraversal(TreeNode<T> *root)
 
 TEST_CASE("Problem 145")
 {
-    TreeNode<> *root = new TreeNode<>(
-        1,
-        nullptr,
-        new TreeNode<>(
-            2,
-            new TreeNode<>(
-                3,
-                nullptr,
-                nullptr),
-            nullptr));
+    const TreeNode<> root =
+        TreeNode<>(1,
+                   nullptr,
+                   new TreeNode<>(
+                       2,
+                       new TreeNode<>(
+                           3,
+                           nullptr,
+                           nullptr),
+                       nullptr));
 
-    std::vector<int> result = postorderTraversal(root);
-    std::vector<int> expected = {3, 2, 1};
-    CHECK(result.size() == expected.size());
-    for (std::size_t iter = 0; iter < result.size(); iter++)
-    {
-        CHECK(result[iter] == expected[iter]);
-    }
+    const std::vector<int> result = postorderTraversal(&root);
+    const std::vector<int> expected = {3, 2, 1};
+    CHECK(result == expected);
 }

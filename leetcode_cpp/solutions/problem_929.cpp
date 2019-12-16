@@ -47,7 +47,8 @@ int numUniqueEmails(const std::vector<T> &emails)
 
 TEST_CASE("problem 929")
 {
-    std::vector<std::string> input = {"test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"};
-    int expected = 2;
-    CHECK(expected == numUniqueEmails(input));
+    const std::vector<std::string> input = {"test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"};
+    const int expected = 2;
+    const int result = numUniqueEmails(input);
+    CHECK(expected == result);
 }

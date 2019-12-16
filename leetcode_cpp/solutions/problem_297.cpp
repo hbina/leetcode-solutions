@@ -55,17 +55,17 @@ private:
 public:
     // Encodes a tree to a single string.
     static std::string
-    serialize(const std::unique_ptr<TreeNode<T>> &root)
+    serialize(const TreeNode<T> *root)
     {
         if (!root)
         {
             return "[]";
         }
         std::string result = "[";
-        std::vector<TreeNode<T> *> layers = {root.get()};
+        std::vector<const TreeNode<T> *> layers = {root};
         while (!layers.empty())
         {
-            std::vector<TreeNode<T> *> next_layers;
+            std::vector<const TreeNode<T> *> next_layers;
             for (const TreeNode<T> *node : layers)
             {
                 result += std::to_string(node->val) + ",";
@@ -111,37 +111,3 @@ public:
         return result.first;
     }
 };
-
-TEST_CASE("Problem 297 -- most trivial case")
-{
-    std::unique_ptr<TreeNode<int>> expected(nullptr);
-    std::unique_ptr<TreeNode<int>> input(nullptr);
-    std::unique_ptr<TreeNode<int>> result(Codec<int>::deserialize(Codec<int>::serialize(input)));
-    // CHECK(expected == result);
-}
-
-TEST_CASE("Problem 297 -- basic case")
-{
-    std::unique_ptr<TreeNode<int>> expected(new TreeNode<>(1));
-    std::unique_ptr<TreeNode<int>> input(new TreeNode<>(1));
-    std::unique_ptr<TreeNode<int>> result(Codec<int>::deserialize(Codec<int>::serialize(input)));
-    // CHECK(*expected == *result);
-}
-
-TEST_CASE("Problem 297")
-{
-    std::unique_ptr<TreeNode<int>> expected(
-        new TreeNode<>(1,
-                       new TreeNode<>(2),
-                       new TreeNode<>(3,
-                                      new TreeNode<>(4),
-                                      new TreeNode<>(5))));
-    std::unique_ptr<TreeNode<int>> input(
-        new TreeNode<>(1,
-                       new TreeNode<>(2),
-                       new TreeNode<>(3,
-                                      new TreeNode<>(4),
-                                      new TreeNode<>(5))));
-    std::unique_ptr<TreeNode<int>> result(Codec<int>::deserialize(Codec<int>::serialize(input)));
-    // CHECK(*expected == *result);
-}

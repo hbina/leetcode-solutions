@@ -75,7 +75,7 @@ static constexpr Node<T> *connect(Node<T> *root)
 
 TEST_CASE("Problem 117")
 {
-    Node<> *input = new Node<>(
+    Node<> input = Node<>(
         1,
         new Node<>(
             2,
@@ -102,7 +102,7 @@ TEST_CASE("Problem 117")
             nullptr),
         nullptr);
 
-    Node<> *expected = new Node<>(
+    const Node<> expected = Node<>(
         1,
         new Node<>(
             2,
@@ -147,5 +147,6 @@ TEST_CASE("Problem 117")
                 nullptr),
             nullptr),
         nullptr);
-    CHECK(*expected == *connect(input));
+    const Node<> result = *connect(&input);
+    CHECK(expected == result);
 }

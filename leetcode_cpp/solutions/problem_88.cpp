@@ -5,7 +5,9 @@
 #include <algorithm>
 
 template <typename T>
-void merge_simple(std::vector<T> &nums1, std::size_t m, std::vector<T> &nums2, std::size_t n)
+void merge_simple(
+    std::vector<T> &nums1, std::size_t m,
+    const std::vector<T> &nums2, std::size_t n)
 {
     for (std::size_t counter = 0; counter < n; counter++)
     {
@@ -16,9 +18,9 @@ void merge_simple(std::vector<T> &nums1, std::size_t m, std::vector<T> &nums2, s
 
 TEST_CASE("problem 88")
 {
-    std::vector<int> expected = {1, 2, 2, 3, 5, 6};
+    const std::vector<int> expected = {1, 2, 2, 3, 5, 6};
     std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
-    std::vector<int> nums2 = {2, 5, 6};
+    const std::vector<int> nums2 = {2, 5, 6};
     merge_simple(nums1, 3, nums2, 3);
     CHECK(expected == nums1);
 }
