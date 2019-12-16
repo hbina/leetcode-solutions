@@ -15,7 +15,7 @@ bool is_number(const Iterable &s)
     return !s.empty() &&
            std::find_if(s.begin(),
                         s.end(),
-                        [](char c) { return !std::isdigit(c); }) == s.end();
+                        [](const T &c) { return !std::isdigit(c); }) == s.end();
 }
 
 } // namespace string
