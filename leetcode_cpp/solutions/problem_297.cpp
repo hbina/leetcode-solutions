@@ -99,7 +99,6 @@ public:
     // Decodes your encoded data to tree.
     static TreeNode<T> *deserialize(const std::string &data)
     {
-        std::cerr << "data:" << data << std::endl;
         std::string skip_bracket = data.substr(1, data.length() - 2);
         std::string delimiter = ",";
         std::vector<std::string> deflatten_data =

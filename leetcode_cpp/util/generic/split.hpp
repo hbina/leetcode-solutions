@@ -10,20 +10,16 @@ template <
     typename OutputIteratorOuter,
     typename OutputIteratorInner,
     typename InputIterator,
-    typename UnaryPredicate>
+    typename UnaryPredicate,
+    typename = std::enable_if<
+        std::is_same_v<
+            typename std::iterator_traits<InputIterator>::value_type,
+            typename std::iterator_traits<typename OutputIteratorInner::iterator>::value_type>>>
 OutputIteratorOuter split_if(
     InputIterator iter_begin,
     InputIterator iter_end,
     const UnaryPredicate &predicate)
 {
-    using T = typename std::iterator_traits<InputIterator>::value_type;
-    using test_input_iterator = typename std::iterator_traits<InputIterator>::iterator_category;
-    using test_outer_output_iterator = typename std::iterator_traits<
-        typename OutputIteratorOuter::iterator>::iterator_category;
-    using test_inner_output_iterator = typename std::iterator_traits<
-        typename std::iterator_traits<
-            typename OutputIteratorOuter::iterator>::value_type::iterator>::iterator_category;
-
     OutputIteratorOuter result;
     auto find_if = std::find_if(
         iter_begin,
@@ -52,19 +48,20 @@ template <
     typename OutputIteratorOuter,
     typename OutputIteratorInner,
     typename InputIterator,
-    typename T>
+    typename T,
+    typename = std::enable_if<
+        std::is_same_v<
+            typename std::iterator_traits<InputIterator>::value_type,
+            typename std::iterator_traits<typename OutputIteratorInner::iterator>::value_type>>,
+    typename = std::enable_if<
+        std::is_same_v<
+            typename std::iterator_traits<InputIterator>::value_type,
+            T>>>
 OutputIteratorOuter split(
     InputIterator iter_begin,
     InputIterator iter_end,
     const T &delimiter)
 {
-    using test_input_iterator = typename std::iterator_traits<InputIterator>::iterator_category;
-    using test_output_iterator = typename std::iterator_traits<
-        typename OutputIteratorOuter::iterator>::iterator_category;
-    using test_output_iterator = typename std::iterator_traits<
-        typename std::iterator_traits<
-            typename OutputIteratorOuter::iterator>::value_type::iterator>::iterator_category;
-
     OutputIteratorOuter result;
     auto find = std::find(
         iter_begin,
