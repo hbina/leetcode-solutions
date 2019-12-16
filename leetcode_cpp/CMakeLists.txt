@@ -21,8 +21,11 @@ add_executable(
     
     main.cpp
     
-    util/string_util.cpp
-
+    util/string/split.cpp
+    
+    util/generic/is_integer.cpp
+    util/generic/split.cpp
+    
     solutions/problem_4.cpp
     solutions/problem_394.cpp
     solutions/problem_105.cpp
