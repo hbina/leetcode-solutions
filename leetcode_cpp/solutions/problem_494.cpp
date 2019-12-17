@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <vector>
+#include <unordered_map>
 #include <iterator>
 #include <type_traits>
 #include <iostream>
@@ -57,22 +58,22 @@ template <typename Iterable,
               typename Iterable::iterator>::value_type>
 static constexpr std::size_t findTargetSumWays_memoization(
     const Iterable &nums,
-    const T goal_value)
+    const T &goal_value)
 {
-    std::vector<T> global_summations;
-    global_summations.push_back(0);
+    std::unordered_map<T, std::size_t> global_summations;
+    global_summations.emplace(0, 1);
 
-    for (const T num : nums)
+    for (const T &num : nums)
     {
-        std::vector<T> local_summations;
-        for (const T m : global_summations)
+        std::unordered_map<T, std::size_t> local_summations;
+        for (const auto &[key, value] : global_summations)
         {
-            local_summations.push_back(m + num);
-            local_summations.push_back(m - num);
+            local_summations[key + num] = local_summations[key + num] + global_summations[key];
+            local_summations[key - num] = local_summations[key - num] + global_summations[key];
         }
-        global_summations = local_summations;
+        global_summations = std::move(local_summations);
     }
-    return std::count(global_summations.cbegin(), global_summations.cend(), goal_value);
+    return global_summations[goal_value];
 }
 
 TEST_CASE("Problem 494")
@@ -94,5 +95,16 @@ TEST_CASE("Problem 494 -- long input")
     const int result_bruteForce = static_cast<int>(findTargetSumWays_bruteForce(input_1, input_2));
     const int result_memoization = static_cast<int>(findTargetSumWays_memoization(input_1, input_2));
     CHECK(expected == result_bruteForce);
-     CHECK(expected == result_memoization);
+    CHECK(expected == result_memoization);
+}
+
+TEST_CASE("Problem 494 -- long input 2")
+{
+    const std::vector<int> input_1 = {25, 14, 16, 44, 9, 22, 15, 27, 23, 10, 41, 25, 14, 35, 28, 47, 39, 26, 11, 38};
+    const int input_2 = 43;
+    const int expected = 6182;
+    const int result_bruteForce = static_cast<int>(findTargetSumWays_bruteForce(input_1, input_2));
+    const int result_memoization = static_cast<int>(findTargetSumWays_memoization(input_1, input_2));
+    CHECK(expected == result_bruteForce);
+    CHECK(expected == result_memoization);
 }
