@@ -30,15 +30,16 @@ std::vector<std::vector<T>> levelOrderBottom(const TreeNode<T> *root)
 
 TEST_CASE("Problem 107")
 {
-    const TreeNode<> input = TreeNode<>(
-        3,
-        new TreeNode<>(9),
-        new TreeNode<>(20,
-                       new TreeNode<>(15),
-                       new TreeNode<>(7)));
+    const TreeNode<> *input =
+        new TreeNode<>(3,
+                       new TreeNode<>(9),
+                       new TreeNode<>(20,
+                                      new TreeNode<>(15),
+                                      new TreeNode<>(7)));
     const std::vector<std::vector<int>> expected = {
         {3},
         {9, 20},
         {15, 7}};
-    CHECK(expected == levelOrderBottom(&input));
+    CHECK(expected == levelOrderBottom(input));
+    delete input;
 }

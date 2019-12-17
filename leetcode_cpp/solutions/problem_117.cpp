@@ -72,60 +72,57 @@ static constexpr NodeNext<T> *connect(NodeNext<T> *root)
 
 TEST_CASE("Problem 117")
 {
-    NodeNext<> input = NodeNext<>(
-        1,
-        new NodeNext<>(
-            2,
-            new NodeNext<>(
-                4,
-                nullptr,
-                nullptr,
-                nullptr),
-            new NodeNext<>(
-                5,
-                nullptr,
-                nullptr,
-                nullptr),
-            nullptr),
+    NodeNext<> *input =
+        new NodeNext<>(1,
+                       new NodeNext<>(2,
+                                      new NodeNext<>(4,
+                                                     nullptr,
+                                                     nullptr,
+                                                     nullptr),
+                                      new NodeNext<>(5,
+                                                     nullptr,
+                                                     nullptr,
+                                                     nullptr),
+                                      nullptr),
 
-        new NodeNext<>(
-            3,
-            nullptr,
-            new NodeNext<>(
-                7,
-                nullptr,
-                nullptr,
-                nullptr),
-            nullptr),
-        nullptr);
+                       new NodeNext<>(3,
+                                      nullptr,
+                                      new NodeNext<>(7,
+                                                     nullptr,
+                                                     nullptr,
+                                                     nullptr),
+                                      nullptr),
+                       nullptr);
 
     NodeNext<> *expected_node_7 = new NodeNext<>(7);
-    NodeNext<> *expected_node_5 = new NodeNext<>(
-        5,
-        nullptr,
-        nullptr,
-        expected_node_7);
-    NodeNext<> *expected_node_4 = new NodeNext<>(
-        4,
-        nullptr,
-        nullptr,
-        expected_node_5);
-    NodeNext<> *expected_node_3 = new NodeNext<>(
-        3,
-        nullptr,
-        expected_node_7,
-        nullptr);
-    NodeNext<> *expected_node_2 = new NodeNext<>(
-        2,
-        expected_node_4,
-        expected_node_5,
-        expected_node_3);
+    NodeNext<> *expected_node_5 =
+        new NodeNext<>(5,
+                       nullptr,
+                       nullptr,
+                       expected_node_7);
+    NodeNext<> *expected_node_4 =
+        new NodeNext<>(4,
+                       nullptr,
+                       nullptr,
+                       expected_node_5);
+    NodeNext<> *expected_node_3 =
+        new NodeNext<>(3,
+                       nullptr,
+                       expected_node_7,
+                       nullptr);
+    NodeNext<> *expected_node_2 =
+        new NodeNext<>(2,
+                       expected_node_4,
+                       expected_node_5,
+                       expected_node_3);
 
-    const NodeNext<> expected = NodeNext<>(
-        1,
-        expected_node_2,
-        expected_node_3,
-        nullptr);
-    connect(&input);
-    CHECK(expected == input);
+    const NodeNext<> *expected =
+        new NodeNext<>(1,
+                       expected_node_2,
+                       expected_node_3,
+                       nullptr);
+    connect(input);
+    CHECK(*expected == *input);
+    delete input;
+    delete expected;
 }

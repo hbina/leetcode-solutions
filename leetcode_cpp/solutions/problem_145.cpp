@@ -30,18 +30,19 @@ static constexpr std::vector<T> postorderTraversal(const TreeNode<T> *root)
 
 TEST_CASE("Problem 145")
 {
-    const TreeNode<> root =
-        TreeNode<>(1,
-                   nullptr,
-                   new TreeNode<>(
-                       2,
+    const TreeNode<> *input =
+        new TreeNode<>(1,
+                       nullptr,
                        new TreeNode<>(
-                           3,
-                           nullptr,
-                           nullptr),
-                       nullptr));
+                           2,
+                           new TreeNode<>(
+                               3,
+                               nullptr,
+                               nullptr),
+                           nullptr));
 
-    const std::vector<int> result = postorderTraversal(&root);
+    const std::vector<int> result = postorderTraversal(input);
     const std::vector<int> expected = {3, 2, 1};
     CHECK(result == expected);
+    delete input;
 }

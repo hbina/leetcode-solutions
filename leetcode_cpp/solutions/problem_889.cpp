@@ -77,15 +77,16 @@ TEST_CASE("Problem 889")
 {
     const std::vector<int> input_1 = {1, 2, 4, 5, 3, 6, 7};
     const std::vector<int> input_2 = {4, 5, 2, 6, 7, 3, 1};
-    const TreeNode<> expected =
-        TreeNode<>(1,
-                   new TreeNode<>(2,
-                                  new TreeNode<>(4),
-                                  new TreeNode<>(5)),
-                   new TreeNode<>(3,
-                                  new TreeNode<>(6),
-                                  new TreeNode<>(7)));
+    const TreeNode<> *expected =
+        new TreeNode<>(1,
+                       new TreeNode<>(2,
+                                      new TreeNode<>(4),
+                                      new TreeNode<>(5)),
+                       new TreeNode<>(3,
+                                      new TreeNode<>(6),
+                                      new TreeNode<>(7)));
     const TreeNode<> *result = constructFromPrePost(input_1, input_2);
-    CHECK(expected == *result);
+    CHECK(*expected == *result);
     delete result;
+    delete expected;
 }
