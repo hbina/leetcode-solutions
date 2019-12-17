@@ -51,7 +51,7 @@ TEST_CASE("Problem 535")
                                                      nullptr,
                                                      new TreeNode<>(7))));
     const int expected = 4;
-    const int result = maxDepth(input);
+    const int result = static_cast<int>(maxDepth(input));
     CHECK(expected == result);
     delete input;
 }

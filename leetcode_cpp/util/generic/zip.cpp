@@ -7,8 +7,8 @@
 
 TEST_CASE("util::generic::zip test")
 {
-    std::vector<int> left = {0, 1, 2, 3, 4, 5};
-    std::vector<int> right = {5, 4, 3, 2, 1, 0};
+    std::vector<int> left = {0, 1, 2, 3, 4};
+    std::vector<int> right = {4, 3, 2, 1, 0};
     std::size_t expected = 1;
     std::size_t counter = 0;
     util::generic::zip(
