@@ -40,6 +40,6 @@ TEST_CASE("Problem 1051")
     const int expected = 3;
     const int result = static_cast<int>(heightChecker(input));
     const int result_zip = static_cast<int>(heightChecker_zip(input));
-    CHECK(3 == result);
-    CHECK(3 == result_zip);
+    CHECK(expected == result);
+    CHECK(expected == result_zip);
 }

@@ -42,14 +42,16 @@ TEST_CASE("Problem 535")
 
 TEST_CASE("Problem 535")
 {
-    const TreeNode<> input =
-        TreeNode<>(3,
-                   nullptr,
-                   new TreeNode<>(20,
-                                  nullptr,
-                                  new TreeNode<>(7,
-                                                 nullptr,
-                                                 new TreeNode<>(7))));
+    const TreeNode<> *input =
+        new TreeNode<>(3,
+                       nullptr,
+                       new TreeNode<>(20,
+                                      nullptr,
+                                      new TreeNode<>(7,
+                                                     nullptr,
+                                                     new TreeNode<>(7))));
     const int expected = 4;
-    CHECK(expected == maxDepth(&input));
+    const int result = maxDepth(input);
+    CHECK(expected == result);
+    delete input;
 }

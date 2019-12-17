@@ -93,7 +93,6 @@ TEST_CASE("Problem 117")
                                                      nullptr),
                                       nullptr),
                        nullptr);
-
     NodeNext<> *expected_node_7 = new NodeNext<>(7);
     NodeNext<> *expected_node_5 =
         new NodeNext<>(5,
@@ -115,7 +114,6 @@ TEST_CASE("Problem 117")
                        expected_node_4,
                        expected_node_5,
                        expected_node_3);
-
     const NodeNext<> *expected =
         new NodeNext<>(1,
                        expected_node_2,

@@ -22,35 +22,49 @@ bool isSymmetric(const TreeNode<T> *root)
 
 TEST_CASE("Problem 536")
 {
-    const TreeNode<> input =
-        TreeNode<>(1,
-                   new TreeNode<>(2,
-                                  new TreeNode<>(3),
-                                  new TreeNode<>(4)),
-                   new TreeNode<>(2,
-                                  new TreeNode<>(4),
-                                  new TreeNode<>(3)));
+    const TreeNode<> *input =
+        new TreeNode<>(1,
+                       new TreeNode<>(2,
+                                      new TreeNode<>(3),
+                                      new TreeNode<>(4)),
+                       new TreeNode<>(2,
+                                      new TreeNode<>(4),
+                                      new TreeNode<>(3)));
     bool expected = true;
-    CHECK(expected == isSymmetric(&input));
+    bool result = isSymmetric(input);
+    CHECK(expected == result);
+    delete input;
 }
 
 TEST_CASE("Problem 536")
 {
-    const TreeNode<> input =
-        TreeNode<>(1,
-                   new TreeNode<>(2,
-                                  new TreeNode<>(3),
-                                  new TreeNode<>(2)),
-                   new TreeNode<>(2,
-                                  new TreeNode<>(4),
-                                  new TreeNode<>(3)));
+    const TreeNode<> *input =
+        new TreeNode<>(1,
+                       new TreeNode<>(2,
+                                      new TreeNode<>(3),
+                                      new TreeNode<>(2)),
+                       new TreeNode<>(2,
+                                      new TreeNode<>(4),
+                                      new TreeNode<>(3)));
     const bool expected = false;
-    CHECK(expected == isSymmetric(&input));
+    bool result = isSymmetric(input);
+    CHECK(expected == result);
+    delete input;
 }
 
 TEST_CASE("Problem 536")
 {
-    const TreeNode<> input = TreeNode<>(1);
+    const TreeNode<> *input = new TreeNode<>(1);
     const bool expected = true;
-    CHECK(expected == isSymmetric(&input));
+    bool result = isSymmetric(input);
+    CHECK(expected == result);
+    delete input;
+}
+
+TEST_CASE("Problem 536")
+{
+    const TreeNode<> *input = nullptr;
+    const bool expected = true;
+    bool result = isSymmetric(input);
+    CHECK(expected == result);
 }

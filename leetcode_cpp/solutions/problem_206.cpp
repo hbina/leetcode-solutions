@@ -136,11 +136,8 @@ TEST_CASE("Problem 206 single")
 TEST_CASE("problem 206 single")
 {
     ListNode<> *input = new ListNode<>(5);
-
     const ListNode<> *expected = new ListNode<>(5);
-
     const ListNode<> *result = reverseList_recursive(input);
-
     CHECK(*result == *expected);
     delete input;
     delete expected;

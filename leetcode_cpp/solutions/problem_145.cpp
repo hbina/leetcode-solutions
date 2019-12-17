@@ -40,7 +40,6 @@ TEST_CASE("Problem 145")
                                nullptr,
                                nullptr),
                            nullptr));
-
     const std::vector<int> result = postorderTraversal(input);
     const std::vector<int> expected = {3, 2, 1};
     CHECK(result == expected);

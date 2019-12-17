@@ -35,7 +35,7 @@ TEST_CASE("Problem 888")
 {
     const std::vector<int> input_1{1, 1};
     const std::vector<int> input_2{2, 2};
-    const std::vector<int> result = fairCandySwap(input_1, input_2);
     const std::vector<int> expected = {1, 2};
+    const std::vector<int> result = fairCandySwap(input_1, input_2);
     CHECK(expected == result);
 }

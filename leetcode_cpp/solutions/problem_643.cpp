@@ -48,6 +48,7 @@ TEST_CASE("problem 643")
 {
     const std::vector<int> input_1 = {1, 12, -5, -6, 50, 3};
     const std::size_t input_2 = 4;
-    double expected = 12.75;
-    CHECK(expected == findMaxAverage(input_1, input_2));
+    const double expected = 12.75;
+    const double result = findMaxAverage(input_1, input_2);
+    CHECK(expected == result);
 }
