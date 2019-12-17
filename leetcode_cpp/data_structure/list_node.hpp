@@ -18,7 +18,8 @@ struct ListNode
 
   ~ListNode()
   {
-    delete next;
+    if (next)
+      delete next;
   }
 
   template <typename T2>

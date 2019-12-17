@@ -3,7 +3,8 @@
 #include "../data_structure/list_node.hpp"
 
 template <typename T>
-static constexpr ListNode<T> *reverseList_iterative(ListNode<T> *head)
+static constexpr ListNode<T> *reverseList_iterative(
+    ListNode<T> *head)
 {
     if (!head)
     {
@@ -28,7 +29,9 @@ static constexpr ListNode<T> *reverseList_iterative(ListNode<T> *head)
 }
 
 template <typename T>
-static constexpr ListNode<T> *reverseList_recursive_helper(ListNode<T> *head, ListNode<T> *next)
+static constexpr ListNode<T> *reverseList_recursive_helper(
+    ListNode<T> *head,
+    ListNode<T> *next)
 {
     // Means that we are at the end.
     if (!next)
@@ -60,7 +63,7 @@ static constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
 
 TEST_CASE("problem 206")
 {
-    ListNode<> input = ListNode<>(
+    ListNode<> *input = new ListNode<>(
         1,
         new ListNode<>(
             2,
@@ -81,13 +84,14 @@ TEST_CASE("problem 206")
                     2,
                     new ListNode<>(
                         1)))));
-
-    CHECK(*reverseList_iterative(&input) == expected);
+    ListNode<> *result = reverseList_iterative(input);
+    CHECK(*result == expected);
+    delete result;
 }
 
 TEST_CASE("problem 206")
 {
-    ListNode<> input = ListNode<>(
+    ListNode<> *input = new ListNode<>(
         1,
         new ListNode<>(
             2,
@@ -109,7 +113,9 @@ TEST_CASE("problem 206")
                     new ListNode<>(
                         1)))));
 
-    CHECK(*reverseList_recursive(&input) == expected);
+    ListNode<> *result = reverseList_iterative(input);
+    CHECK(*result == expected);
+    delete result;
 }
 
 TEST_CASE("problem 206 single")
@@ -123,6 +129,17 @@ TEST_CASE("problem 206 single")
 
 TEST_CASE("problem 206 single")
 {
+    ListNode<> ddd = ListNode<>(
+        1,
+        new ListNode<>(
+            2,
+            new ListNode<>(
+                3,
+                new ListNode<>(
+                    4,
+                    new ListNode<>(
+                        5)))));
+
     ListNode<> input = ListNode<>(5);
 
     const ListNode<> expected = ListNode<>(5);

@@ -5,16 +5,13 @@
 #include <vector>
 #include <iostream>
 
-template <typename T = int>
-using Node = NodeNext<T>;
-
 template <typename T>
-static constexpr Node<T> *connect(Node<T> *root)
+static constexpr NodeNext<T> *connect(NodeNext<T> *root)
 {
     if (!root)
         return nullptr;
 
-    Node<T> *nextmost = root->next;
+    NodeNext<T> *nextmost = root->next;
     while (
         nextmost &&
         (!nextmost->left && !nextmost->right) &&
@@ -75,26 +72,26 @@ static constexpr Node<T> *connect(Node<T> *root)
 
 TEST_CASE("Problem 117")
 {
-    Node<> input = Node<>(
+    NodeNext<> input = NodeNext<>(
         1,
-        new Node<>(
+        new NodeNext<>(
             2,
-            new Node<>(
+            new NodeNext<>(
                 4,
                 nullptr,
                 nullptr,
                 nullptr),
-            new Node<>(
+            new NodeNext<>(
                 5,
                 nullptr,
                 nullptr,
                 nullptr),
             nullptr),
 
-        new Node<>(
+        new NodeNext<>(
             3,
             nullptr,
-            new Node<>(
+            new NodeNext<>(
                 7,
                 nullptr,
                 nullptr,
@@ -102,50 +99,32 @@ TEST_CASE("Problem 117")
             nullptr),
         nullptr);
 
-    const Node<> expected = Node<>(
+    NodeNext<> *expected_node_7 = new NodeNext<>(7);
+    NodeNext<> *expected_node_5 = new NodeNext<>(
+        5,
+        nullptr,
+        nullptr,
+        expected_node_7);
+    NodeNext<> *expected_node_4 = new NodeNext<>(
+        4,
+        nullptr,
+        nullptr,
+        expected_node_5);
+    NodeNext<> *expected_node_3 = new NodeNext<>(
+        3,
+        nullptr,
+        expected_node_7,
+        nullptr);
+    NodeNext<> *expected_node_2 = new NodeNext<>(
+        2,
+        expected_node_4,
+        expected_node_5,
+        expected_node_3);
+
+    const NodeNext<> expected = NodeNext<>(
         1,
-        new Node<>(
-            2,
-            new Node<>(
-                4,
-                nullptr,
-                nullptr,
-                new Node<>(
-                    5,
-                    nullptr,
-                    nullptr,
-                    new Node<>(
-                        7,
-                        nullptr,
-                        nullptr,
-                        nullptr))),
-            new Node<>(
-                5,
-                nullptr,
-                nullptr,
-                new Node<>(
-                    7,
-                    nullptr,
-                    nullptr,
-                    nullptr)),
-            new Node<>(
-                3,
-                nullptr,
-                new Node<>(
-                    7,
-                    nullptr,
-                    nullptr,
-                    nullptr),
-                nullptr)),
-        new Node<>(
-            3,
-            nullptr,
-            new Node<>(
-                7,
-                nullptr,
-                nullptr,
-                nullptr),
-            nullptr),
+        expected_node_2,
+        expected_node_3,
         nullptr);
     connect(&input);
     CHECK(expected == input);

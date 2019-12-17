@@ -16,13 +16,14 @@ std::size_t maxDepth(const TreeNode<T> *root)
 
 TEST_CASE("Problem 535")
 {
-    TreeNode<> *input = new TreeNode<>(3,
-                                       new TreeNode<>(9),
-                                       new TreeNode<>(20,
-                                                      new TreeNode<>(15),
-                                                      new TreeNode<>(7)));
+    const TreeNode<> input = TreeNode<>(
+        3,
+        new TreeNode<>(9),
+        new TreeNode<>(20,
+                       new TreeNode<>(15),
+                       new TreeNode<>(7)));
     int expected = 3;
-    CHECK(expected == maxDepth(input));
+    CHECK(expected == maxDepth(&input));
 }
 
 TEST_CASE("Problem 535")

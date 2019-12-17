@@ -10,7 +10,8 @@
 #include <iterator>
 
 template <typename Iterator>
-static constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *
+static constexpr TreeNode<
+    typename std::iterator_traits<Iterator>::value_type> *
 constructFromPrePostTemplate(
     const Iterator &preorder_begin,
     const Iterator &preorder_end,
@@ -25,7 +26,6 @@ constructFromPrePostTemplate(
         std::distance(preorder_begin, preorder_end) == 1 &&
         std::distance(postorder_begin, postorder_end) == 1)
     {
-        assert(*preorder_begin == *postorder_begin);
         return new TreeNode<T>(*preorder_begin);
     }
     else
@@ -77,7 +77,7 @@ TEST_CASE("Problem 889")
 {
     const std::vector<int> input_1 = {1, 2, 4, 5, 3, 6, 7};
     const std::vector<int> input_2 = {4, 5, 2, 6, 7, 3, 1};
-    const TreeNode<int> expected =
+    const TreeNode<> expected =
         TreeNode<>(1,
                    new TreeNode<>(2,
                                   new TreeNode<>(4),
@@ -85,6 +85,7 @@ TEST_CASE("Problem 889")
                    new TreeNode<>(3,
                                   new TreeNode<>(6),
                                   new TreeNode<>(7)));
-    const TreeNode<> result = *constructFromPrePost(input_1, input_2);
-    CHECK(expected == result);
+    const TreeNode<> *result = constructFromPrePost(input_1, input_2);
+    CHECK(expected == *result);
+    delete result;
 }

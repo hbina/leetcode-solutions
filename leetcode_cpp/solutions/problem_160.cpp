@@ -80,4 +80,5 @@ TEST_CASE("Problem 160")
     // Solely for cleanup purposes...
     b1->next->next->next = nullptr;
     delete a1;
+    delete b1;
 }

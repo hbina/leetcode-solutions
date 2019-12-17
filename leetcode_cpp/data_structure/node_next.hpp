@@ -6,13 +6,17 @@ class NodeNext
 {
 public:
   T val;
-  NodeNext *left = nullptr;
-  NodeNext *right = nullptr;
-  NodeNext *next = nullptr;
+  NodeNext *left;
+  NodeNext *right;
+  NodeNext *next;
 
   constexpr NodeNext() = delete;
 
-  constexpr NodeNext(const T &val) = delete;
+  constexpr NodeNext(const T &val)
+      : val(val),
+        left(nullptr),
+        right(nullptr),
+        next(nullptr) {}
 
   constexpr NodeNext(const T &val,
                      NodeNext<T> *left,

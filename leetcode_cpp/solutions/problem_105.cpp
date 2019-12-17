@@ -28,7 +28,9 @@ static constexpr std::size_t get_dividing_index(
 }
 
 template <typename Iterator>
-static constexpr TreeNode<typename std::iterator_traits<Iterator>::value_type> *buildTreeTemplatePreIn(
+static constexpr TreeNode<
+    typename std::iterator_traits<Iterator>::value_type> *
+buildTreeTemplatePreIn(
     const Iterator &preorder_begin,
     const Iterator &preorder_end,
     const Iterator &inorder_begin,
@@ -81,6 +83,7 @@ TEST_CASE("Problem 105")
                    new TreeNode<>(20,
                                   new TreeNode<>(15),
                                   new TreeNode<>(7)));
-    const TreeNode<> result = *buildTreePreIn(input_1, input_2);
-    CHECK(expected == result);
+    const TreeNode<int> *result = buildTreePreIn(input_1, input_2);
+    CHECK(expected == *result);
+    delete result;
 }

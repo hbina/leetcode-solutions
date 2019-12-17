@@ -9,6 +9,8 @@ struct TreeNode
   TreeNode<T> *left;
   TreeNode<T> *right;
 
+  constexpr TreeNode() = delete;
+
   constexpr TreeNode(const T &x)
       : val(x),
         left(nullptr),
@@ -23,8 +25,10 @@ struct TreeNode
 
   ~TreeNode()
   {
-    delete left;
-    delete right;
+    if (left)
+      delete left;
+    if (right)
+      delete right;
   }
 
   template <typename T2>

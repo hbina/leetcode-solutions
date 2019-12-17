@@ -82,6 +82,7 @@ TEST_CASE("Problem 106")
                    new TreeNode<>(20,
                                   new TreeNode<>(15),
                                   new TreeNode<>(7)));
-    const TreeNode<> result = *buildTreeInPost(input_1, input_2);
-    CHECK(expected == result);
+    const TreeNode<int> *result = buildTreeInPost(input_1, input_2);
+    CHECK(expected == *result);
+    delete result;
 }
