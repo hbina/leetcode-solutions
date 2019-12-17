@@ -25,6 +25,7 @@ add_executable(
     
     util/generic/is_integer.cpp
     util/generic/split.cpp
+    util/generic/zip.cpp
     
     solutions/problem_4.cpp
     solutions/problem_394.cpp
