@@ -23,7 +23,7 @@ add_executable(
     
     util/string/split.cpp
     
-    util/generic/is_integer.cpp
+    util/generic/is_number.cpp
     util/generic/split.cpp
     util/generic/zip.cpp
     

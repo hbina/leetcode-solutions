@@ -1,6 +1,6 @@
 #include <doctest/doctest.h>
 
-#include "is_integer.hpp"
+#include "is_number.hpp"
 
 #include <vector>
 
