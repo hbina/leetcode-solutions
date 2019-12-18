@@ -73,7 +73,7 @@ static constexpr TreeNode<T> *buildTreePreIn(
         inorder.cend());
 }
 
-TEST_CASE("Problem 105")
+TEST_CASE("problem_105")
 {
     const std::vector<int> input_1 = {3, 9, 20, 15, 7};
     const std::vector<int> input_2 = {9, 3, 15, 20, 7};

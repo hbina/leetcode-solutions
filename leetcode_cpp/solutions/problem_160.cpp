@@ -53,7 +53,7 @@ static constexpr ListNode<T> *getIntersectionNode(ListNode<T> *headA, ListNode<T
     return nullptr;
 }
 
-TEST_CASE("Problem 160")
+TEST_CASE("problem_160")
 {
     ListNode<int> *c1 =
         new ListNode<int>(6,

@@ -76,7 +76,7 @@ static constexpr std::size_t findTargetSumWays_memoization(
     return global_summations[goal_value];
 }
 
-TEST_CASE("Problem 494")
+TEST_CASE("problem_494")
 {
     const std::vector<int> input_1 = {1, 1, 1, 1, 1};
     const int input_2 = 3;
@@ -87,7 +87,7 @@ TEST_CASE("Problem 494")
     CHECK(expected == result_memoization);
 }
 
-TEST_CASE("Problem 494 -- long input")
+TEST_CASE("problem_494 -- long input")
 {
     const std::vector<int> input_1 = {30, 1, 5, 32, 16, 17, 30, 29, 48, 14, 29, 4, 31, 12, 40, 13, 13, 20, 41, 38};
     const int input_2 = 9;
@@ -98,7 +98,7 @@ TEST_CASE("Problem 494 -- long input")
     CHECK(expected == result_memoization);
 }
 
-TEST_CASE("Problem 494 -- long input 2")
+TEST_CASE("problem_494 -- long input 2")
 {
     const std::vector<int> input_1 = {25, 14, 16, 44, 9, 22, 15, 27, 23, 10, 41, 25, 14, 35, 28, 47, 39, 26, 11, 38};
     const int input_2 = 43;

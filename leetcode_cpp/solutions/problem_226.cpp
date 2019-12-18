@@ -21,7 +21,7 @@ static constexpr TreeNode<T> *invertTree(TreeNode<T> *root)
     }
 }
 
-TEST_CASE("problem_226")
+TEST_CASE("problem__226")
 {
     TreeNode<> *input =
         new TreeNode<>(4,

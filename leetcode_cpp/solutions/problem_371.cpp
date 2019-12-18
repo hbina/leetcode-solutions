@@ -24,7 +24,7 @@ T getSum(const T &x_input, const T &y_input)
     return x;
 }
 
-TEST_CASE("problem 371")
+TEST_CASE("problem_371")
 {
     CHECK(3 == getSum(1, 2));
     CHECK(7 == getSum(5, 2));

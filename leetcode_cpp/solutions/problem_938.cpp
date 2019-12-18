@@ -24,7 +24,7 @@ static constexpr int rangeSumBST_recursion(
     }
 }
 
-TEST_CASE("problem 938")
+TEST_CASE("problem_938")
 {
     const TreeNode<> *input =
         new TreeNode<>(10,

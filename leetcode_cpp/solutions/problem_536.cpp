@@ -20,7 +20,7 @@ bool isSymmetric(const TreeNode<T> *root)
     return isMirror(root, root);
 }
 
-TEST_CASE("Problem 536")
+TEST_CASE("problem_536")
 {
     const TreeNode<> *input =
         new TreeNode<>(1,
@@ -36,7 +36,7 @@ TEST_CASE("Problem 536")
     delete input;
 }
 
-TEST_CASE("Problem 536")
+TEST_CASE("problem_536")
 {
     const TreeNode<> *input =
         new TreeNode<>(1,
@@ -52,7 +52,7 @@ TEST_CASE("Problem 536")
     delete input;
 }
 
-TEST_CASE("Problem 536")
+TEST_CASE("problem_536")
 {
     const TreeNode<> *input = new TreeNode<>(1);
     const bool expected = true;
@@ -61,7 +61,7 @@ TEST_CASE("Problem 536")
     delete input;
 }
 
-TEST_CASE("Problem 536")
+TEST_CASE("problem_536")
 {
     const TreeNode<> *input = nullptr;
     const bool expected = true;

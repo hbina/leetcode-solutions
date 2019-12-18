@@ -35,7 +35,7 @@ std::string reverseWords(const std::string &input)
     return result.substr(0, result.length() - 1);
 }
 
-TEST_CASE("problem 557")
+TEST_CASE("problem_557")
 {
     const std::string input = "Let's take LeetCode contest";
     const std::string expected = "s'teL ekat edoCteeL tsetnoc";

@@ -29,7 +29,7 @@ std::string decodeString(const std::string &s)
             }
             if (chars.size() == 1)
             {
-                result += tmp;
+                result += std::move(tmp);
                 chars.pop();
             }
             else
@@ -65,7 +65,7 @@ std::string decodeString(const std::string &s)
     return result;
 }
 
-TEST_CASE("Problem 394")
+TEST_CASE("problem_394")
 {
     CHECK(std::string("aaabcbc") == decodeString("3[a]2[bc]"));
     CHECK(std::string("accaccacc") == decodeString("3[a2[c]]"));

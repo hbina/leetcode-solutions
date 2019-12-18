@@ -45,7 +45,7 @@ int numUniqueEmails(const std::vector<T> &emails)
     return static_cast<int>(map.size());
 }
 
-TEST_CASE("problem 929")
+TEST_CASE("problem_929")
 {
     const std::vector<std::string> input = {"test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"};
     const int expected = 2;

@@ -16,7 +16,7 @@ static constexpr std::vector<T> sortedSquares(
     return A;
 }
 
-TEST_CASE("problem 977")
+TEST_CASE("problem_977")
 {
     std::vector<int> input = {-4, -1, 0, 3, 10};
     const std::vector<int> expected = {0, 1, 9, 16, 100};
@@ -24,7 +24,7 @@ TEST_CASE("problem 977")
     CHECK(expected == input);
 }
 
-TEST_CASE("problem 977")
+TEST_CASE("problem_977")
 {
     std::vector<int> input = {-7, -3, 2, 3, 11};
     const std::vector<int> expected = {4, 9, 9, 49, 121};

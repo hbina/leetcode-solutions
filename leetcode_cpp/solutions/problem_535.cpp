@@ -14,7 +14,7 @@ std::size_t maxDepth(const TreeNode<T> *root)
     return left > right ? left : right;
 }
 
-TEST_CASE("Problem 535")
+TEST_CASE("problem_535")
 {
     const TreeNode<> input = TreeNode<>(
         3,
@@ -26,21 +26,21 @@ TEST_CASE("Problem 535")
     CHECK(expected == maxDepth(&input));
 }
 
-TEST_CASE("Problem 535")
+TEST_CASE("problem_535")
 {
     const TreeNode<> input = TreeNode<>(3);
     int expected = 1;
     CHECK(expected == maxDepth(&input));
 }
 
-TEST_CASE("Problem 535")
+TEST_CASE("problem_535")
 {
     TreeNode<> *input = nullptr;
     int expected = 0;
     CHECK(expected == maxDepth(input));
 }
 
-TEST_CASE("Problem 535")
+TEST_CASE("problem_535")
 {
     const TreeNode<> *input =
         new TreeNode<>(3,

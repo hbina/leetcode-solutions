@@ -70,7 +70,7 @@ static constexpr NodeNext<T> *connect(NodeNext<T> *root)
     return root;
 }
 
-TEST_CASE("Problem 117")
+TEST_CASE("problem_117")
 {
     NodeNext<> *input =
         new NodeNext<>(1,

@@ -38,14 +38,14 @@ static constexpr double findMedianSortedArrays_search(
     return 0.0f;
 }
 
-TEST_CASE("problem 4")
+TEST_CASE("problem_4")
 {
     const std::vector<int> input_1 = {1, 3};
     const std::vector<int> input_2 = {2};
     CHECK(2.0 == findMedianSortedArrays_naive(input_1, input_2));
 }
 
-TEST_CASE("problem 4")
+TEST_CASE("problem_4")
 {
     const std::vector<int> input_1 = {1, 2};
     const std::vector<int> input_2 = {3, 4};

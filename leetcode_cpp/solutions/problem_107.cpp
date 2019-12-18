@@ -28,7 +28,7 @@ std::vector<std::vector<T>> levelOrderBottom(const TreeNode<T> *root)
     return result;
 }
 
-TEST_CASE("Problem 107")
+TEST_CASE("problem_107")
 {
     const TreeNode<> *input =
         new TreeNode<>(3,

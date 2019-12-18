@@ -28,7 +28,7 @@ static constexpr std::vector<T> postorderTraversal(const TreeNode<T> *root)
     return AB;
 }
 
-TEST_CASE("Problem 145")
+TEST_CASE("problem_145")
 {
     const TreeNode<> *input =
         new TreeNode<>(1,

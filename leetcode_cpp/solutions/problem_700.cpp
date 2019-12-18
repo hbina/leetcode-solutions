@@ -53,7 +53,7 @@ TreeNode<T> *searchBST_2(const TreeNode<T> *root, const T &val)
     return nullptr;
 }
 
-TEST_CASE("problem 700")
+TEST_CASE("problem_700")
 {
     //  TODO    ::  Introduce test cases
 }

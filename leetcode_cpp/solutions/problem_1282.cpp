@@ -26,7 +26,7 @@ std::vector<std::vector<T>> groupThePeople(const std::vector<T> &groupSizes)
     return result;
 }
 
-TEST_CASE("problem 1282")
+TEST_CASE("problem_1282")
 {
     const std::vector<int> input = {3, 3, 3, 3, 3, 1, 3};
     const std::vector<std::vector<int>> expected = {
@@ -38,7 +38,7 @@ TEST_CASE("problem 1282")
     CHECK(expected == result);
 }
 
-TEST_CASE("problem 1282")
+TEST_CASE("problem_1282")
 {
     const std::vector<int> input = {2, 1, 3, 3, 3, 2};
     const std::vector<std::vector<int>>

@@ -41,7 +41,7 @@ std::vector<T> preorder_recursive(const Node<T> *root)
     return result;
 }
 
-TEST_CASE("problem 589 -- iterative")
+TEST_CASE("problem_589 -- iterative")
 {
     const Node<> *input =
         new Node<>(1,
@@ -56,7 +56,7 @@ TEST_CASE("problem 589 -- iterative")
     delete input;
 }
 
-TEST_CASE("problem 589 -- recursive")
+TEST_CASE("problem_589 -- recursive")
 {
     const Node<> *input =
         new Node<>(1,

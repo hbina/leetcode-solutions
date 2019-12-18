@@ -19,7 +19,7 @@ bool hasPathSum(const TreeNode<T> *root, int sum)
     }
 }
 
-TEST_CASE("Problem 537")
+TEST_CASE("problem_537")
 {
     const TreeNode<> *input_1 =
         new TreeNode<>(5,
@@ -40,7 +40,7 @@ TEST_CASE("Problem 537")
     delete input_1;
 }
 
-TEST_CASE("Problem 537")
+TEST_CASE("problem_537")
 {
     const TreeNode<> *input_1 = nullptr;
     const int input_2 = 1;
@@ -49,7 +49,7 @@ TEST_CASE("Problem 537")
     CHECK(expected == result);
 }
 
-TEST_CASE("Problem 537 -- [1], 0 ==> false")
+TEST_CASE("problem_537 -- [1], 0 ==> false")
 {
     const TreeNode<> *input_1 = new TreeNode<>(1);
     const int input_2 = 0;
@@ -59,7 +59,7 @@ TEST_CASE("Problem 537 -- [1], 0 ==> false")
     delete input_1;
 }
 
-TEST_CASE("Problem 537 -- [1,2], 1 ==> true")
+TEST_CASE("problem_537 -- [1,2], 1 ==> true")
 {
     const TreeNode<> *input_1 =
         new TreeNode<>(1,
@@ -72,7 +72,7 @@ TEST_CASE("Problem 537 -- [1,2], 1 ==> true")
     delete input_1;
 }
 
-TEST_CASE("Problem 537 -- [-2,null, -3], -5 ==> true")
+TEST_CASE("problem_537 -- [-2,null, -3], -5 ==> true")
 {
     const TreeNode<> *input_1 =
         new TreeNode<>(-2,

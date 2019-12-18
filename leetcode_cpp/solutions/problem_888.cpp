@@ -31,7 +31,7 @@ static constexpr std::vector<T> fairCandySwap(const std::vector<T> &A, const std
     return result;
 }
 
-TEST_CASE("Problem 888")
+TEST_CASE("problem_888")
 {
     const std::vector<int> input_1{1, 1};
     const std::vector<int> input_2{2, 2};

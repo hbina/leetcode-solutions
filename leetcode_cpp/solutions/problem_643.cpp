@@ -44,7 +44,7 @@ static constexpr double findMaxAverage(const std::vector<T> &nums, const std::si
     return max_average / k;
 }
 
-TEST_CASE("problem 643")
+TEST_CASE("problem_643")
 {
     const std::vector<int> input_1 = {1, 12, -5, -6, 50, 3};
     const std::size_t input_2 = 4;

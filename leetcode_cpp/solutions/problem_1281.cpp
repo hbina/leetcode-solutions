@@ -20,7 +20,7 @@ static constexpr T subtractProductAndSum(const T &input)
            std::accumulate(collection.begin(), collection.end(), 0);
 }
 
-TEST_CASE("problem 1281")
+TEST_CASE("problem_1281")
 {
     CHECK(15 == subtractProductAndSum(234));
     CHECK(21 == subtractProductAndSum(4421));

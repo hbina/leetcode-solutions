@@ -34,7 +34,7 @@ static constexpr std::size_t heightChecker_zip(const std::vector<T> &heights)
     return counter;
 }
 
-TEST_CASE("Problem 1051")
+TEST_CASE("problem_1051")
 {
     const std::vector<int> input = {1, 1, 4, 2, 1, 3};
     const int expected = 3;

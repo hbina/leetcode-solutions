@@ -61,7 +61,7 @@ static constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
     }
 }
 
-TEST_CASE("Problem 206")
+TEST_CASE("problem_206")
 {
     ListNode<> *input =
         new ListNode<>(1,
@@ -90,7 +90,7 @@ TEST_CASE("Problem 206")
     delete expected;
 }
 
-TEST_CASE("Problem 206")
+TEST_CASE("problem_206")
 {
     ListNode<> *input =
         new ListNode<>(1,
@@ -120,7 +120,7 @@ TEST_CASE("Problem 206")
     delete expected;
 }
 
-TEST_CASE("Problem 206 single")
+TEST_CASE("problem_206 single")
 {
     ListNode<> *input = new ListNode<>(5);
 
@@ -133,7 +133,7 @@ TEST_CASE("Problem 206 single")
     delete expected;
 }
 
-TEST_CASE("problem 206 single")
+TEST_CASE("problem_206 single")
 {
     ListNode<> *input = new ListNode<>(5);
     const ListNode<> *expected = new ListNode<>(5);

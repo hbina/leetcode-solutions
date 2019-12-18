@@ -73,7 +73,7 @@ static constexpr TreeNode<T> *constructFromPrePost(
         postorder.cend());
 }
 
-TEST_CASE("Problem 889")
+TEST_CASE("problem_889")
 {
     const std::vector<int> input_1 = {1, 2, 4, 5, 3, 6, 7};
     const std::vector<int> input_2 = {4, 5, 2, 6, 7, 3, 1};
