@@ -27,41 +27,43 @@ add_executable(
     util/generic/split.cpp
     util/generic/zip.cpp
     
-    solutions/problem_4.cpp
-    solutions/problem_394.cpp
-    solutions/problem_105.cpp
-    solutions/problem_107.cpp
-    solutions/problem_145.cpp
-    solutions/problem_117.cpp
-    solutions/problem_160.cpp
-    solutions/problem_88.cpp
-    solutions/problem_206.cpp
-    solutions/problem_226.cpp
-    solutions/problem_297.cpp
-    solutions/problem_371.cpp
-    solutions/problem_494.cpp
-    solutions/problem_535.cpp
-    solutions/problem_536.cpp
-    solutions/problem_537.cpp
-    solutions/problem_557.cpp
-    solutions/problem_589.cpp
-    solutions/problem_643.cpp
-    solutions/problem_700.cpp
-    solutions/problem_888.cpp
-    solutions/problem_905.cpp
-    solutions/problem_929.cpp
-    solutions/problem_938.cpp
-    solutions/problem_106.cpp
-    solutions/problem_889.cpp
-    solutions/problem_965.cpp
-    solutions/problem_977.cpp
-    solutions/problem_1010.cpp
-    solutions/problem_1051.cpp
-    solutions/problem_1281.cpp
-    solutions/problem_1282.cpp
-    solutions/problem_1283.cpp
-    solutions/problem_1290.cpp
+    tests/problem_4.cpp
+    tests/problem_394.cpp
+    tests/problem_105.cpp
+    tests/problem_107.cpp
+    tests/problem_145.cpp
+    tests/problem_117.cpp
+    tests/problem_160.cpp
+    tests/problem_88.cpp
+    tests/problem_206.cpp
+    tests/problem_226.cpp
+    tests/problem_297.cpp
+    tests/problem_371.cpp
+    tests/problem_494.cpp
+    tests/problem_535.cpp
+    tests/problem_536.cpp
+    tests/problem_537.cpp
+    tests/problem_557.cpp
+    tests/problem_589.cpp
+    tests/problem_643.cpp
+    tests/problem_700.cpp
+    tests/problem_888.cpp
+    tests/problem_905.cpp
+    tests/problem_929.cpp
+    tests/problem_938.cpp
+    tests/problem_106.cpp
+    tests/problem_889.cpp
+    tests/problem_965.cpp
+    tests/problem_977.cpp
+    tests/problem_1010.cpp
+    tests/problem_1051.cpp
+    tests/problem_1281.cpp
+    tests/problem_1221.cpp
+    tests/problem_1282.cpp
+    tests/problem_1283.cpp
+    tests/problem_1290.cpp
     )
 
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/fmt)
+target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/include)

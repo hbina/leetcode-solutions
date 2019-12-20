@@ -5,7 +5,7 @@
 
 namespace util
 {
-namespace string
+namespace generic
 {
 
 template <typename Iterable>
@@ -19,5 +19,5 @@ bool is_number(const Iterable &s)
                         [](const T &c) { return !std::isdigit(c); }) == s.end();
 }
 
-} // namespace string
+} // namespace generic
 } // namespace util
