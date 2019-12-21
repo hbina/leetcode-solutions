@@ -24,10 +24,12 @@ add_executable(
     util/string/split.cpp
     
     util/generic/is_number.cpp
+    util/generic/find_range.cpp
     util/generic/split.cpp
     util/generic/zip.cpp
     
     tests/problem_4.cpp
+    tests/problem_14.cpp
     tests/problem_394.cpp
     tests/problem_105.cpp
     tests/problem_107.cpp

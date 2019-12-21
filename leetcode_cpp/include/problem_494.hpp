@@ -61,20 +61,20 @@ static constexpr std::size_t findTargetSumWays_memoization(
     const Iterable &nums,
     const T &goal_value)
 {
-    std::unordered_map<T, std::size_t> global_summations;
-    global_summations.emplace(0, 1);
+    std::unordered_map<T, std::size_t> dp;
+    dp.emplace(0, 1);
 
     for (const T &num : nums)
     {
-        std::unordered_map<T, std::size_t> local_summations;
-        for (const auto &[key, value] : global_summations)
+        std::unordered_map<T, std::size_t> local_dp;
+        for (const auto &[key, value] : dp)
         {
-            local_summations[key + num] = local_summations[key + num] + global_summations[key];
-            local_summations[key - num] = local_summations[key - num] + global_summations[key];
+            local_dp[key + num] = local_dp[key + num] + dp[key];
+            local_dp[key - num] = local_dp[key - num] + dp[key];
         }
-        global_summations = std::move(local_summations);
+        dp = std::move(local_dp);
     }
-    return global_summations[goal_value];
+    return dp[goal_value];
 }
 
 }; // namespace leetcode

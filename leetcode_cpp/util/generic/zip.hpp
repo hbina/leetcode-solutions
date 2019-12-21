@@ -25,4 +25,5 @@ static constexpr void zip(
 }
 
 } // namespace generic
+
 } // namespace util

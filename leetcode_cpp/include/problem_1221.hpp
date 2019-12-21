@@ -33,4 +33,5 @@ std::size_t balancedStringSplit(const std::string &s)
     }
     return global_counter;
 }
+
 }; // namespace leetcode
