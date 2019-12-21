@@ -17,13 +17,12 @@ template <
             typename std::iterator_traits<IteratorLhs>::value_type,
             typename std::iterator_traits<IteratorRhs>::value_type>>>
 IteratorLhs find_range(
-    IteratorLhs lhs_begin,
-    IteratorLhs lhs_end,
-    IteratorRhs rhs_begin,
-    IteratorRhs rhs_end)
+    IteratorLhs lhs_begin, IteratorLhs lhs_end,
+    IteratorRhs rhs_begin, IteratorRhs rhs_end)
 {
     std::size_t lhs_length = std::distance(lhs_begin, lhs_end);
     std::size_t rhs_length = std::distance(rhs_begin, rhs_end);
+
     if (lhs_length < rhs_length)
     {
         return lhs_end;
@@ -34,12 +33,12 @@ IteratorLhs find_range(
     }
     else
     {
-        const auto fe = lhs_end - rhs_length + 1;
-        while (lhs_begin != fe)
+        while (lhs_begin != lhs_end - rhs_length + 1)
         {
-            auto [iter_lhs, iter_rhs] = std::mismatch(lhs_begin, lhs_end, rhs_begin, rhs_end);
-            const auto ff = lhs_begin + rhs_length;
-            if (iter_lhs == ff && iter_rhs == rhs_end)
+            const auto [iter_lhs, iter_rhs] = std::mismatch(
+                lhs_begin, lhs_end,
+                rhs_begin, rhs_end);
+            if (iter_lhs == lhs_begin + rhs_length && iter_rhs == rhs_end)
             {
                 return lhs_begin;
             }
