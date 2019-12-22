@@ -36,3 +36,24 @@ TEST_CASE("problem_13")
     const int expected = 1994;
     CHECK(expected == leetcode::romanToInt(input));
 }
+
+TEST_CASE("problem_13")
+{
+    const std::string input = "MCMXCIV";
+    const double expected = 1994.0;
+    CHECK(expected == leetcode::romanToInt(input));
+}
+
+TEST_CASE("problem_13")
+{
+    const std::string input = "MCMXCIV";
+    const float expected = 1994.0f;
+    CHECK(expected == leetcode::romanToInt(input));
+}
+
+TEST_CASE("problem_13")
+{
+    const std::string input = "MCMXCIV";
+    const std::size_t expected = 1994;
+    CHECK(expected == leetcode::romanToInt(input));
+}

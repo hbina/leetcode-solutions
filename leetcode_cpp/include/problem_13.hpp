@@ -9,7 +9,7 @@ static constexpr T
 romanToInt(const std::string &s)
 {
     T sum = 0;
-    std::map<char, T> nums; // HashMap
+    std::map<char, T> nums;
 
     nums['I'] = 1;
     nums['V'] = 5;
