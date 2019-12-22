@@ -52,7 +52,8 @@ template <
     typename = std::enable_if<
         std::is_same_v<
             typename std::iterator_traits<InputIterator>::value_type,
-            typename std::iterator_traits<typename OutputIteratorInner::iterator>::value_type>>,
+            typename std::iterator_traits<
+                typename OutputIteratorInner::iterator>::value_type>>,
     typename = std::enable_if<
         std::is_same_v<
             typename std::iterator_traits<InputIterator>::value_type,

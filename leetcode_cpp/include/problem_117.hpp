@@ -7,7 +7,8 @@ namespace leetcode
 {
 
 template <typename T>
-static constexpr NodeNext<T> *connect(NodeNext<T> *root)
+static constexpr NodeNext<T> *
+connect(NodeNext<T> *root)
 {
     if (!root)
         return nullptr;

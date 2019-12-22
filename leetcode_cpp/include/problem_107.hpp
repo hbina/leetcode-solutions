@@ -7,7 +7,8 @@ namespace leetcode
 {
 
 template <typename T>
-std::vector<std::vector<T>> levelOrderBottom(const TreeNode<T> *root)
+static constexpr std::vector<std::vector<T>>
+levelOrderBottom(const TreeNode<T> *root)
 {
     std::vector<std::vector<T>> result = {};
     std::vector<const TreeNode<T> *> layers = {root};

@@ -6,16 +6,14 @@
 #include <iterator>
 #include <memory>
 
-namespace leetcode
-{
-
 template <typename Iterator,
           typename T,
           typename = std::enable_if_t<
               std::is_same_v<
                   typename std::iterator_traits<Iterator>::value_type,
                   T>>>
-static constexpr std::size_t get_dividing_index(
+static constexpr std::size_t
+get_dividing_index(
     const Iterator &preorder_begin,
     const Iterator &preorder_end,
     const T &inorder_end)
@@ -27,6 +25,9 @@ static constexpr std::size_t get_dividing_index(
             preorder_end,
             inorder_end));
 }
+
+namespace leetcode
+{
 
 template <typename Iterator>
 static constexpr TreeNode<
@@ -63,7 +64,8 @@ buildTreeTemplatePreIn(
 }
 
 template <typename T>
-static constexpr TreeNode<T> *buildTreePreIn(
+static constexpr TreeNode<T> *
+buildTreePreIn(
     const std::vector<T> &preorder,
     const std::vector<T> &inorder)
 {

@@ -10,7 +10,8 @@ namespace leetcode
 template <typename Iterator,
           typename ReturnType =
               typename std::iterator_traits<Iterator>::value_type>
-static constexpr ReturnType longestCommonPrefix_Iterator(
+static constexpr ReturnType
+longestCommonPrefix_Iterator(
     Iterator iter_begin,
     Iterator iter_end)
 {
