@@ -20,3 +20,15 @@ TEST_CASE("problem_19")
     delete expected;
     delete result;
 }
+
+TEST_CASE("problem_19")
+{
+    ListNode<> *input_1 =
+        new ListNode(1);
+    int input_2 = 1;
+    ListNode<> *expected = nullptr;
+    ListNode<> *result = leetcode::removeNthFromEnd(input_1, input_2);
+    CHECK(expected == result);
+    delete expected;
+    delete result;
+}

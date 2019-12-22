@@ -14,20 +14,30 @@ removeNthFromEnd(ListNode<Type> *head, const IndexType &n)
     {
         barrier = barrier->next;
     }
-    ListNode<Type> *iter = head;
 
-    while (barrier->next)
+    if (!barrier)
     {
-        barrier = barrier->next;
-        iter = iter->next;
+        ListNode<Type> *result = head->next;
+        head->next = nullptr;
+        delete head;
+        return result;
     }
+    else
+    {
+        ListNode<Type> *iter = head;
+        while (barrier->next)
+        {
+            barrier = barrier->next;
+            iter = iter->next;
+        }
 
-    ListNode<Type> *tmp = iter->next;
-    iter->next = iter->next->next;
-    tmp->next = nullptr;
-    delete tmp;
+        ListNode<Type> *tmp = iter->next;
+        iter->next = iter->next->next;
+        tmp->next = nullptr;
+        delete tmp;
 
-    return head;
+        return head;
+    }
 }
 
 } // namespace leetcode
