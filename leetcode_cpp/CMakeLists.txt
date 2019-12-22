@@ -30,6 +30,7 @@ add_executable(
     
     tests/problem_4.cpp
     tests/problem_14.cpp
+    tests/problem_21.cpp
     tests/problem_394.cpp
     tests/problem_105.cpp
     tests/problem_107.cpp
