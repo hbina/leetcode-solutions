@@ -5,7 +5,11 @@ namespace leetcode
 
 // Can be generalized further
 template <typename T>
-std::tuple<ListNode<T> *, ListNode<T> *, ListNode<T> *> advanceZip(ListNode<T> *lhs, ListNode<T> *rhs)
+static constexpr std::tuple<
+    ListNode<T> *,
+    ListNode<T> *,
+    ListNode<T> *>
+advanceZip(ListNode<T> *lhs, ListNode<T> *rhs)
 {
     if (lhs && rhs)
     {
@@ -24,7 +28,7 @@ std::tuple<ListNode<T> *, ListNode<T> *, ListNode<T> *> advanceZip(ListNode<T> *
     }
     else if (rhs)
     {
-        return {lhs, nullptr, rhs->next};
+        return {rhs, nullptr, rhs->next};
     }
     else
     {
@@ -33,7 +37,8 @@ std::tuple<ListNode<T> *, ListNode<T> *, ListNode<T> *> advanceZip(ListNode<T> *
 }
 
 template <typename T>
-ListNode<T> *mergeTwoLists(ListNode<T> *lhs, ListNode<T> *rhs)
+static constexpr ListNode<T> *
+mergeTwoLists(ListNode<T> *lhs, ListNode<T> *rhs)
 {
     if (lhs && rhs)
     {
