@@ -1,5 +1,7 @@
 #include "../data_structure/list_node.hpp"
 
+#include <tuple>
+
 namespace leetcode
 {
 
