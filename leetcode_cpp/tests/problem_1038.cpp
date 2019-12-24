@@ -33,3 +33,35 @@ TEST_CASE("problem_1038")
     delete expected;
     delete result;
 }
+
+TEST_CASE("problem_1038")
+{
+    TreeNode<double> *input =
+        new TreeNode<double>(4.0,
+                       new TreeNode<double>(1.0,
+                                      new TreeNode<double>(0.0),
+                                      new TreeNode<double>(2.0,
+                                                     nullptr,
+                                                     new TreeNode<double>(3.0))),
+                       new TreeNode<double>(6.0,
+                                      new TreeNode<double>(5.0),
+                                      new TreeNode<double>(7.0,
+                                                     nullptr,
+                                                     new TreeNode<double>(8.0))));
+    const TreeNode<double> *expected =
+        new TreeNode<double>(30.0,
+                       new TreeNode<double>(36.0,
+                                      new TreeNode<double>(36.0),
+                                      new TreeNode<double>(35.0,
+                                                     nullptr,
+                                                     new TreeNode<double>(33.0))),
+                       new TreeNode<double>(21.0,
+                                      new TreeNode<double>(26.0),
+                                      new TreeNode<double>(15.0,
+                                                     nullptr,
+                                                     new TreeNode<double>(8.0))));
+    const TreeNode<double> *result = leetcode::bstToGst(input);
+    CHECK(*expected == *result);
+    delete expected;
+    delete result;
+}

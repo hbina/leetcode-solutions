@@ -22,7 +22,8 @@ add_executable(
     main.cpp
     
     util/string/split.cpp
-    
+
+    util/generic/reverse_if.cpp
     util/generic/is_number.cpp
     util/generic/find_range.cpp
     util/generic/split.cpp
@@ -43,6 +44,8 @@ add_executable(
     tests/problem_206.cpp
     tests/problem_226.cpp
     tests/problem_297.cpp
+    tests/problem_344.cpp
+    tests/problem_345.cpp
     tests/problem_371.cpp
     tests/problem_494.cpp
     tests/problem_535.cpp
