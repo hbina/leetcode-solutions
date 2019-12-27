@@ -13,7 +13,7 @@ static constexpr void
 reverse_if(
     Iterator iter_begin,
     Iterator iter_end,
-    UnaryPredicate pred)
+    const UnaryPredicate &pred)
 {
     auto length = std::distance(iter_begin, iter_end);
     if (length == 0)

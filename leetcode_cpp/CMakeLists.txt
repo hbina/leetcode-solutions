@@ -26,6 +26,7 @@ add_executable(
     util/generic/reverse_if.cpp
     util/generic/is_number.cpp
     util/generic/find_range.cpp
+    util/generic/group_by.cpp
     util/generic/split.cpp
     util/generic/zip.cpp
     
@@ -34,6 +35,7 @@ add_executable(
     tests/problem_13.cpp
     tests/problem_19.cpp
     tests/problem_21.cpp
+    tests/problem_22.cpp
     tests/problem_394.cpp
     tests/problem_105.cpp
     tests/problem_107.cpp
