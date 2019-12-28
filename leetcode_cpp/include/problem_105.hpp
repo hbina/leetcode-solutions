@@ -26,9 +26,6 @@ get_dividing_index(
             inorder_end));
 }
 
-namespace leetcode
-{
-
 template <typename Iterator>
 static constexpr TreeNode<
     typename std::iterator_traits<Iterator>::value_type> *
@@ -62,6 +59,9 @@ buildTreeTemplatePreIn(
         inorder_end);
     return root;
 }
+
+namespace leetcode
+{
 
 template <typename T>
 static constexpr TreeNode<T> *
