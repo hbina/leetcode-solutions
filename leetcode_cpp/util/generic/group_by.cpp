@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <list>
+#include <string>
 
 TEST_CASE("util::generic::group_by")
 {
@@ -29,6 +30,20 @@ TEST_CASE("util::generic::group_by")
             input.cend(),
             [](const int &lhs, const int &rhs) -> bool {
                 return (lhs % 2) == (rhs % 2);
+            });
+    CHECK(expected == result);
+}
+
+TEST_CASE("util::generic::group_by")
+{
+    const std::string input = "123123hello3213213world";
+    const std::vector<std::string> expected = {"123123", "hello", "3213213", "world"};
+    const auto result =
+        util::generic::group_by<std::vector<std::string>>(
+            input.cbegin(),
+            input.cend(),
+            [](const auto &lhs, const auto &rhs) -> bool {
+                return std::isalpha(lhs) == std::isalpha(rhs);
             });
     CHECK(expected == result);
 }

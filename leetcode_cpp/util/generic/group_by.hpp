@@ -11,14 +11,14 @@ namespace generic
 template <
     typename OutputIteratorType,
     typename Iterator,
-    typename BinaryPredicate,
-    typename T = std::iterator_traits<Iterator>::value_type>
+    typename BinaryPredicate>
 OutputIteratorType
 group_by(
     Iterator iter_begin,
     Iterator iter_end,
     const BinaryPredicate &pred)
 {
+    using T = typename std::iterator_traits<Iterator>::value_type;
     return std::accumulate(
         std::next(iter_begin),
         iter_end,
@@ -28,7 +28,7 @@ group_by(
             -> OutputIteratorType {
             if (pred(acc.back().back(), rhs))
             {
-                acc.back().emplace_back(rhs);
+                acc.back().push_back(rhs);
             }
             else
             {
