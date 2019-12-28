@@ -5,7 +5,7 @@ namespace leetcode
 {
 
 template <typename T>
-static constexpr std::vector<std::string>
+static std::vector<std::string>
 generateParenthesis(const T &n)
 {
     return {};
