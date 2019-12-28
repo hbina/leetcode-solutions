@@ -16,10 +16,10 @@ ListNode<T> *swapPairs(ListNode<T> *head)
     }
     else
     {
-        ListNode<T> *new_head = head->next;
-        head->next = swapPairs(new_head->next);
-        new_head->next = head;
-        return new_head;
+        ListNode<T> *result = head->next;
+        head->next = swapPairs(result->next);
+        result->next = head;
+        return result;
     }
 }
 
