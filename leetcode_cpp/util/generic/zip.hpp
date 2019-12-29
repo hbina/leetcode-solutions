@@ -9,7 +9,8 @@ template <
     typename IteratorLhs,
     typename IteratorRhs,
     typename BinaryFunctor>
-static constexpr void zip(
+static constexpr void
+zip(
     IteratorLhs iter_lhs_begin,
     IteratorLhs iter_lhs_end,
     IteratorRhs iter_rhs_begin,

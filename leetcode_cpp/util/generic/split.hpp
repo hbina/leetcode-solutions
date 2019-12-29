@@ -15,7 +15,8 @@ template <
         std::is_same_v<
             typename std::iterator_traits<InputIterator>::value_type,
             typename std::iterator_traits<typename OutputIteratorInner::iterator>::value_type>>>
-OutputIteratorOuter split_if(
+static constexpr OutputIteratorOuter
+split_if(
     InputIterator iter_begin,
     InputIterator iter_end,
     const UnaryPredicate &predicate)

@@ -16,7 +16,8 @@ template <
         std::is_same_v<
             typename std::iterator_traits<IteratorLhs>::value_type,
             typename std::iterator_traits<IteratorRhs>::value_type>>>
-IteratorLhs find_range(
+static constexpr IteratorLhs
+find_range(
     IteratorLhs lhs_begin, IteratorLhs lhs_end,
     IteratorRhs rhs_begin, IteratorRhs rhs_end)
 {

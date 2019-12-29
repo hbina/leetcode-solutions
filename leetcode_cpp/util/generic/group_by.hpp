@@ -12,7 +12,7 @@ template <
     typename OutputIteratorType,
     typename Iterator,
     typename BinaryPredicate>
-OutputIteratorType
+static constexpr OutputIteratorType
 group_by(
     Iterator iter_begin,
     Iterator iter_end,
