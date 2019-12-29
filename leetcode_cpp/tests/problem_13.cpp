@@ -2,6 +2,9 @@
 
 #include "../include/problem_13.hpp"
 
+#include <vector>
+#include <string>
+
 TEST_CASE("problem_13")
 {
     const std::string input = "III";
@@ -54,6 +57,20 @@ TEST_CASE("problem_13")
 TEST_CASE("problem_13")
 {
     const std::string input = "MCMXCIV";
+    const std::size_t expected = 1994;
+    CHECK(expected == leetcode::romanToInt(input));
+}
+
+TEST_CASE("problem_13")
+{
+    const std::vector<char> input = {'M', 'C', 'M', 'X', 'C', 'I', 'V'};
+    const float expected = 1994.0f;
+    CHECK(expected == leetcode::romanToInt(input));
+}
+
+TEST_CASE("problem_13")
+{
+    const std::vector<char> input = {'M', 'C', 'M', 'X', 'C', 'I', 'V'};
     const std::size_t expected = 1994;
     CHECK(expected == leetcode::romanToInt(input));
 }

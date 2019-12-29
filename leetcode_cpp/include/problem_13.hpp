@@ -1,12 +1,13 @@
-#include <string>
 #include <map>
 
 namespace leetcode
 {
 
-template <typename T = int>
+template <
+    typename Iterable,
+    typename T = int>
 static constexpr T
-romanToInt(const std::string &s)
+romanToInt(const Iterable &s)
 {
     T sum = 0;
     std::map<char, T> nums;

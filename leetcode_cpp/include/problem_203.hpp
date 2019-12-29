@@ -7,7 +7,9 @@ template <
     typename T,
     typename UnaryPredicate>
 static constexpr ListNode<T> *
-removeElements_If(ListNode<T> *head, const UnaryPredicate &pred)
+removeElements_If(
+    ListNode<T> *head,
+    const UnaryPredicate &pred)
 {
     if (!head)
     {
@@ -47,7 +49,9 @@ removeElements_If(ListNode<T> *head, const UnaryPredicate &pred)
 
 template <typename T>
 static constexpr ListNode<T> *
-removeElements(ListNode<T> *head, const T &val)
+removeElements(
+    ListNode<T> *head,
+    const T &val)
 {
     if (!head)
     {
@@ -85,4 +89,4 @@ removeElements(ListNode<T> *head, const T &val)
     }
 }
 
-} // namespace leetcode
+}; // namespace leetcode
