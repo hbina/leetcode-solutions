@@ -45,6 +45,7 @@ add_executable(
     tests/problem_145.cpp
     tests/problem_117.cpp
     tests/problem_160.cpp
+    tests/problem_203.cpp
     tests/problem_88.cpp
     tests/problem_206.cpp
     tests/problem_226.cpp
