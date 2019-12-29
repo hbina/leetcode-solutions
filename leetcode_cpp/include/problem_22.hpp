@@ -11,4 +11,4 @@ generateParenthesis(const T &n)
     return {};
 }
 
-} // namespace leetcode
+}; // namespace leetcode
