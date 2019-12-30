@@ -9,6 +9,8 @@ namespace generic
 {
 
 //  TODO    ::  Verify templates
+//  TODO    ::  Rewrite using std::find_if, where the predicate
+//              is string matching over the range
 template <
     typename IteratorLhs,
     typename IteratorRhs,
