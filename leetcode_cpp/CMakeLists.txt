@@ -80,6 +80,7 @@ add_executable(
     tests/problem_1038.cpp
     tests/problem_1283.cpp
     tests/problem_1290.cpp
+    tests/problem_1304.cpp
     )
 
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
