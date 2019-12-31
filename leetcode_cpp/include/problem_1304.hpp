@@ -1,9 +1,11 @@
 #include <vector>
 #include <algorithm>
+#include <numeric>
 
 namespace leetcode
 {
 
+//  Replace this implementation with std::generate_n
 template <
     typename T,
     typename Iterable = std::vector<T>>
@@ -18,7 +20,9 @@ Iterable sumZero(const T &n)
     if (static_cast<diff_t>(n) % 2 == 0)
     {
         std::for_each(
-            std::next(std::begin(result), static_cast<diff_t>(n / 2)),
+            std::next(
+                std::begin(result),
+                static_cast<diff_t>(n / 2)),
             std::end(result),
             [](T &value) {
                 value++;
