@@ -8,7 +8,7 @@ template <typename Iterable,
           typename T = typename std::iterator_traits<
               typename Iterable::iterator>::value_type>
 static constexpr auto
-search(
+search_TypeOne(
     const Iterable &nums,
     const T &target)
     -> int
