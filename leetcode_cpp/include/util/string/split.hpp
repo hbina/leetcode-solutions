@@ -8,7 +8,7 @@ namespace string
 {
 
 template <
-    typename OutputIterator,
+    typename OutputIterator = std::vector<std::string>,
     typename = std::enable_if<
         std::is_same_v<
             typename std::iterator_traits<
@@ -39,14 +39,12 @@ OutputIterator split(
 }
 
 template <
-    typename OutputIterator,
+    typename OutputIterator = std::vector<std::string>,
     typename UnaryPredicate>
 OutputIterator split_if(
-    std::string::const_iterator iter_begin,
-    std::string::const_iterator iter_end,
+    const std::string &input,
     const UnaryPredicate &delimiter)
 {
-    //  FIXME   ::  How the heck do I implement this
     return {};
 }
 

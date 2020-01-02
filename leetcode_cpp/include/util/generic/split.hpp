@@ -1,55 +1,18 @@
 #include <algorithm>
 #include <type_traits>
+#include <vector>
 #include <iterator>
 
 namespace util
 {
 namespace generic
 {
-template <
-    typename OutputIteratorOuter,
-    typename OutputIteratorInner,
-    typename InputIterator,
-    typename UnaryPredicate,
-    typename = std::enable_if<
-        std::is_same_v<
-            typename std::iterator_traits<InputIterator>::value_type,
-            typename std::iterator_traits<typename OutputIteratorInner::iterator>::value_type>>>
-static constexpr OutputIteratorOuter
-split_if(
-    InputIterator iter_begin,
-    InputIterator iter_end,
-    const UnaryPredicate &predicate)
-{
-    OutputIteratorOuter result;
-    auto find_if = std::find_if(
-        iter_begin,
-        iter_end,
-        predicate);
-    while (find_if != iter_end)
-    {
-        OutputIteratorInner token(iter_begin, find_if + 1);
-        result.push_back(std::move(token));
-
-        iter_begin = find_if + 1;
-        find_if = std::find_if(
-            iter_begin,
-            iter_end,
-            predicate);
-    }
-    if (iter_begin != iter_end)
-    {
-        OutputIteratorInner token(iter_begin, iter_end);
-        result.push_back(std::move(token));
-    }
-    return result;
-}
 
 template <
-    typename OutputIteratorOuter,
-    typename OutputIteratorInner,
-    typename InputIterator,
     typename T,
+    typename OutputIteratorInner = std::vector<T>,
+    typename OutputIteratorOuter = std::vector<OutputIteratorInner>,
+    typename InputIterator,
     typename = std::enable_if<
         std::is_same_v<
             typename std::iterator_traits<InputIterator>::value_type,
@@ -65,25 +28,49 @@ OutputIteratorOuter split(
     const T &delimiter)
 {
     OutputIteratorOuter result;
-    auto find = std::find(
-        iter_begin,
-        iter_end,
-        delimiter);
-    while (find != iter_end)
+    while (iter_begin != iter_end && (*iter_begin == delimiter))
+        iter_begin = std::next(iter_begin);
+    while (iter_begin != iter_end)
     {
-        OutputIteratorInner token(iter_begin, find + 1);
-        result.push_back(std::move(token));
-
-        iter_begin = find + 1;
-        find = std::find(
-            iter_begin,
-            iter_end,
-            delimiter);
+        auto iter_until = std::next(iter_begin);
+        while (iter_until != iter_end && (*iter_until != delimiter))
+            iter_until = std::next(iter_until);
+        result.emplace_back(iter_begin, iter_until);
+        iter_begin = iter_until;
+        while (iter_begin != iter_end && (*iter_begin == delimiter))
+            iter_begin = std::next(iter_begin);
     }
-    if (iter_begin != iter_end)
+    return result;
+}
+
+template <
+    typename T,
+    typename OutputIteratorInner = std::vector<T>,
+    typename OutputIteratorOuter = std::vector<OutputIteratorInner>,
+    typename InputIterator,
+    typename UnaryPredicate,
+    typename = std::enable_if<
+        std::is_same_v<
+            typename std::iterator_traits<InputIterator>::value_type,
+            typename std::iterator_traits<typename OutputIteratorInner::iterator>::value_type>>>
+static constexpr OutputIteratorOuter
+split_if(
+    InputIterator iter_begin,
+    InputIterator iter_end,
+    const UnaryPredicate &predicate)
+{
+    OutputIteratorOuter result;
+    while (iter_begin != iter_end && predicate(*iter_begin))
+        iter_begin = std::next(iter_begin);
+    while (iter_begin != iter_end)
     {
-        OutputIteratorInner token(iter_begin, iter_end);
-        result.push_back(std::move(token));
+        auto iter_until = std::next(iter_begin);
+        while (iter_until != iter_end && !predicate(*iter_until))
+            iter_until = std::next(iter_until);
+        result.emplace_back(iter_begin, iter_until);
+        iter_begin = iter_until;
+        while (iter_begin != iter_end && predicate(*iter_begin))
+            iter_begin = std::next(iter_begin);
     }
     return result;
 }

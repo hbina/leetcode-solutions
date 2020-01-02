@@ -47,3 +47,17 @@ TEST_CASE("util::generic::group_by")
             });
     CHECK(expected == result);
 }
+
+TEST_CASE("util::generic::group_by")
+{
+    const std::string input = "hh123123hello3213213world33";
+    const std::vector<std::string> expected = {"hh", "123123", "hello", "3213213", "world", "33"};
+    const auto result =
+        util::generic::group_by<std::vector<std::string>>(
+            input.cbegin(),
+            input.cend(),
+            [](const auto &lhs, const auto &rhs) -> bool {
+                return std::isalpha(lhs) == std::isalpha(rhs);
+            });
+    CHECK(expected == result);
+}
