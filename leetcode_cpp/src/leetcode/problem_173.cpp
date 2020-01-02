@@ -12,14 +12,14 @@ TEST_CASE("problem_173")
                                       new TreeNode<>(20)));
     leetcode::BSTIterator<int> *iterator =
         new leetcode::BSTIterator<int>(input);
-    CHECK(3 == iterator->next());
-    CHECK(7 == iterator->next());
+    CHECK(3 == iterator->next()->val);
+    CHECK(7 == iterator->next()->val);
     CHECK(true == iterator->hasNext());
-    CHECK(9 == iterator->next());
+    CHECK(9 == iterator->next()->val);
     CHECK(true == iterator->hasNext());
-    CHECK(15 == iterator->next());
+    CHECK(15 == iterator->next()->val);
     CHECK(true == iterator->hasNext());
-    CHECK(20 == iterator->next());
+    CHECK(20 == iterator->next()->val);
     CHECK(false == iterator->hasNext());
     delete input;
 }

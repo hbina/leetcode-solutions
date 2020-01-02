@@ -3,6 +3,7 @@
 #include "tree_node.hpp"
 
 #include <stack>
+#include <optional>
 
 namespace leetcode
 {
@@ -29,12 +30,17 @@ public:
         parse_node(root);
     }
 
-    constexpr T next()
+    constexpr const TreeNode<T> *next()
     {
         const TreeNode<T> *result = stack.top();
         stack.pop();
         parse_node(result->right);
-        return result->val;
+        return result;
+    }
+
+    constexpr const TreeNode<T> *peek() const
+    {
+        return stack.top();
     }
 
     constexpr bool hasNext() const
@@ -43,4 +49,4 @@ public:
     }
 };
 
-}; // namespace leetcode
+} // namespace leetcode
