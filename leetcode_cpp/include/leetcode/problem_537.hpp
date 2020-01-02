@@ -1,5 +1,6 @@
+#pragma once
 
-#include "../data_structure/tree_node.hpp"
+#include "data_structure/tree_node.hpp"
 
 namespace leetcode
 {

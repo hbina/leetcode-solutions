@@ -1,4 +1,6 @@
-#include "../util/generic/find_range.hpp"
+#pragma once
+
+#include "util/generic/find_range.hpp"
 
 namespace leetcode
 {

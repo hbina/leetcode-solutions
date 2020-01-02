@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../data_structure/tree_node.hpp"
-#include "leetcode/problem_173.hpp"
+#include "data_structure/tree_node.hpp"
+#include "data_structure/bst_iterator.hpp"
 
 #include <vector>
 #include <stack>

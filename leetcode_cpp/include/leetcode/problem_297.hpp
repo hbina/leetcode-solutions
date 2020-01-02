@@ -1,4 +1,6 @@
-#include "../data_structure/tree_node.hpp"
+#pragma once
+
+#include "data_structure/tree_node.hpp"
 
 #include "../util/string/split.hpp"
 #include "../util/generic/is_number.hpp"

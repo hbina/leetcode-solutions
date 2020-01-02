@@ -1,4 +1,6 @@
-#include "../data_structure/list_node.hpp"
+#pragma once
+
+#include "data_structure/list_node.hpp"
 
 #include <iostream>
 

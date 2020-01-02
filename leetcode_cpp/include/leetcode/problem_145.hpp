@@ -1,8 +1,10 @@
+#pragma once
+
 #include <vector>
 #include <stack>
 #include <iostream>
 
-#include "../data_structure/tree_node.hpp"
+#include "data_structure/tree_node.hpp"
 
 namespace leetcode
 {

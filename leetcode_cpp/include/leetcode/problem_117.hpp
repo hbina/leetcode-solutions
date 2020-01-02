@@ -1,4 +1,6 @@
-#include "../data_structure/node_next.hpp"
+#pragma once
+
+#include "data_structure/node_next.hpp"
 
 #include <vector>
 #include <iostream>
