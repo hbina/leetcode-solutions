@@ -47,6 +47,7 @@ add_executable(
     tests/problem_107.cpp
     tests/problem_145.cpp
     tests/problem_117.cpp
+    tests/problem_173.cpp
     tests/problem_160.cpp
     tests/problem_203.cpp
     tests/problem_88.cpp
@@ -81,6 +82,7 @@ add_executable(
     tests/problem_1283.cpp
     tests/problem_1290.cpp
     tests/problem_1304.cpp
+    tests/problem_1305.cpp
     )
 
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
