@@ -22,4 +22,4 @@ bool hasPathSum(const TreeNode<T> *root, int sum)
     }
 }
 
-}; // namespace leetcode
+} // namespace leetcode

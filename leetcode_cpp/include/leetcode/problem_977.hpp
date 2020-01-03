@@ -19,4 +19,4 @@ static constexpr std::vector<T> sortedSquares(
     return A;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

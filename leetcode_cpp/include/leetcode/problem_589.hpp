@@ -44,4 +44,4 @@ std::vector<T> preorder_recursive(const Node<T> *root)
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

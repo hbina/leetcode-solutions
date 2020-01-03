@@ -57,4 +57,4 @@ maxProfit_One(const Iterable &prices)
     return global_profit;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

@@ -48,4 +48,4 @@ search_TypeOne(
     }
 }
 
-}; // namespace leetcode
+} // namespace leetcode

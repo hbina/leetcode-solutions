@@ -39,4 +39,4 @@ static constexpr double findMedianSortedArrays_search(
     //              we need is in the middle.
     return 0.0f;
 }
-}; // namespace leetcode
+} // namespace leetcode

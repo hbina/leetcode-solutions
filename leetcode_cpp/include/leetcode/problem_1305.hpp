@@ -53,4 +53,4 @@ getAllElements(
     return getAllElements_If(lhs, rhs, std::less{});
 }
 
-}; // namespace leetcode
+} // namespace leetcode

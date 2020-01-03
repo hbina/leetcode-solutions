@@ -34,4 +34,4 @@ maxProfit_Sum(const Iterable &prices)
     return acc;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

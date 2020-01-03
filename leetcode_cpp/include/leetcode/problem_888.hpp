@@ -34,4 +34,4 @@ static constexpr std::vector<T> fairCandySwap(const std::vector<T> &A, const std
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

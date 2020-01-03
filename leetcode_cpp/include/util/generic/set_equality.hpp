@@ -29,6 +29,25 @@ set_equality(
     return lhs == rhs;
 }
 
+template <
+    typename IteratorLhs,
+    typename IteratorRhs,
+    typename = std::enable_if<
+        std::is_same_v<
+            typename IteratorLhs::value_type,
+            typename IteratorRhs::value_type>>>
+static constexpr bool
+set_equality(
+    IteratorLhs lhs,
+    IteratorRhs rhs)
+{
+    return set_equality(
+        std::cbegin(lhs),
+        std::cend(lhs),
+        std::cbegin(rhs),
+        std::cend(rhs));
+}
+
 } // namespace generic
 
 } // namespace util

@@ -40,4 +40,4 @@ static constexpr bool isUnivalTree(TreeNode<T> *root)
     return left_same & right_same;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

@@ -27,4 +27,4 @@ static constexpr int rangeSumBST_recursion(
     }
 }
 
-}; // namespace leetcode
+} // namespace leetcode

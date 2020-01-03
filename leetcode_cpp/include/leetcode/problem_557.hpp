@@ -36,4 +36,4 @@ std::string reverseWords(const std::string &input)
     return result.substr(0, result.length() - 1);
 }
 
-}; // namespace leetcode
+} // namespace leetcode

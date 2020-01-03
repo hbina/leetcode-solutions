@@ -18,4 +18,4 @@ void merge_simple(
     std::sort(lhs.begin(), lhs.end());
 }
 
-}; // namespace leetcode
+} // namespace leetcode

@@ -48,4 +48,4 @@ int numUniqueEmails(const std::vector<T> &emails)
     return static_cast<int>(map.size());
 }
 
-}; // namespace leetcode
+} // namespace leetcode

@@ -61,4 +61,4 @@ static constexpr T smallestDivisor_guessFirst(const std::vector<T> &nums, T thre
     return guess_divisor;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

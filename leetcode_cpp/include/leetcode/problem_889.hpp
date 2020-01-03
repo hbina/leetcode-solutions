@@ -76,4 +76,4 @@ static constexpr TreeNode<T> *constructFromPrePost(
         postorder.cend());
 }
 
-}; // namespace leetcode
+} // namespace leetcode

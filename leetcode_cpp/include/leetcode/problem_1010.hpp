@@ -42,4 +42,4 @@ static constexpr std::size_t numPairsDivisibleBy60_O2(
     return counter;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

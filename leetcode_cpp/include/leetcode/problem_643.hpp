@@ -47,4 +47,4 @@ static constexpr double findMaxAverage(const std::vector<T> &nums, const std::si
     return max_average / k;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

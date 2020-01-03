@@ -23,4 +23,4 @@ static constexpr T subtractProductAndSum(const T &input)
            std::accumulate(collection.begin(), collection.end(), 0);
 }
 
-}; // namespace leetcode
+} // namespace leetcode

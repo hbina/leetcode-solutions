@@ -27,4 +27,4 @@ T getSum(const T &x_input, const T &y_input)
     return x;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

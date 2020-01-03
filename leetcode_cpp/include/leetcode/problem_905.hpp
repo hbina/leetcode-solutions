@@ -40,4 +40,4 @@ static constexpr std::vector<T> sortArrayByParity_stdStablePartition(
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

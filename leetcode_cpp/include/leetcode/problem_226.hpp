@@ -24,4 +24,4 @@ static constexpr TreeNode<T> *invertTree(TreeNode<T> *root)
     }
 }
 
-}; // namespace leetcode
+} // namespace leetcode

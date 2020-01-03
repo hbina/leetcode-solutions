@@ -33,4 +33,4 @@ Iterable sumZero(const T &n)
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

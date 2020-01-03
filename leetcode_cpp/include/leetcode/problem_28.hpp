@@ -24,4 +24,4 @@ strStr(
     return result == std::cend(haystack) ? -1 : static_cast<int>(std::distance(std::cbegin(haystack), result));
 }
 
-}; // namespace leetcode
+} // namespace leetcode

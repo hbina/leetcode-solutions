@@ -25,4 +25,4 @@ ListNode<T> *swapPairs(ListNode<T> *head)
     }
 }
 
-}; // namespace leetcode
+} // namespace leetcode

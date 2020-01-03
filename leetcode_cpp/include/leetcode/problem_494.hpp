@@ -79,4 +79,4 @@ static constexpr std::size_t findTargetSumWays_memoization(
     return dp[goal_value];
 }
 
-}; // namespace leetcode
+} // namespace leetcode

@@ -64,4 +64,4 @@ static constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
     }
 }
 
-}; // namespace leetcode
+} // namespace leetcode

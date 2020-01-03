@@ -74,4 +74,4 @@ connect(NodeNext<T> *root)
     return root;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

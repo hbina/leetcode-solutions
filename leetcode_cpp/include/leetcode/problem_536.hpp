@@ -23,4 +23,4 @@ bool isSymmetric(const TreeNode<T> *root)
     return isMirror(root, root);
 }
 
-}; // namespace leetcode
+} // namespace leetcode

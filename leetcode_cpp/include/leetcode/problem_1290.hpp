@@ -18,4 +18,4 @@ std::size_t getDecimalValue(const ListNode<T> *head)
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

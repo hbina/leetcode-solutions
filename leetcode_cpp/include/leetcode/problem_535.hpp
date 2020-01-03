@@ -17,4 +17,4 @@ std::size_t maxDepth(const TreeNode<T> *root)
     return left > right ? left : right;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

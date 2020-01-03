@@ -56,4 +56,4 @@ TreeNode<T> *searchBST_2(const TreeNode<T> *root, const T &val)
     return nullptr;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

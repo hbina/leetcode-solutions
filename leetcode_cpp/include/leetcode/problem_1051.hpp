@@ -37,4 +37,4 @@ static constexpr std::size_t heightChecker_zip(const std::vector<T> &heights)
     return counter;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

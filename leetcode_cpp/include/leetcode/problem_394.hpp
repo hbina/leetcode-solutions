@@ -68,4 +68,4 @@ std::string decodeString(const std::string &s)
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

@@ -29,4 +29,4 @@ std::vector<std::vector<T>> groupThePeople(const std::vector<T> &groupSizes)
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

@@ -31,4 +31,4 @@ static constexpr std::vector<T> postorderTraversal(const TreeNode<T> *root)
     return AB;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

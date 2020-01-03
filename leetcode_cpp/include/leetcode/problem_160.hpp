@@ -56,4 +56,4 @@ static constexpr ListNode<T> *getIntersectionNode(ListNode<T> *headA, ListNode<T
     return nullptr;
 }
 
-}; // namespace leetcode
+} // namespace leetcode

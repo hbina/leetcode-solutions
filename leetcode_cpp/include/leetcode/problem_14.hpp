@@ -37,4 +37,4 @@ static std::string longestCommonPrefix(const std::vector<std::string> &strs)
     return longestCommonPrefix_Iterator(strs.cbegin(), strs.cend());
 }
 
-}; // namespace leetcode
+} // namespace leetcode

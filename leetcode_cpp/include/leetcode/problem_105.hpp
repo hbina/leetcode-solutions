@@ -78,4 +78,4 @@ buildTreePreIn(
         inorder.cend());
 }
 
-}; // namespace leetcode
+} // namespace leetcode

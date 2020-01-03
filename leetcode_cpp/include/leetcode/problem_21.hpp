@@ -72,4 +72,4 @@ mergeTwoLists(ListNode<T> *lhs, ListNode<T> *rhs)
     }
 }
 
-}; // namespace leetcode
+} // namespace leetcode

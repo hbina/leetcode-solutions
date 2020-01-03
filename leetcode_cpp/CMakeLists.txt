@@ -43,6 +43,7 @@ add_executable(
     src/leetcode/problem_26.cpp
     src/leetcode/problem_27.cpp
     src/leetcode/problem_28.cpp
+    src/leetcode/problem_30.cpp
     src/leetcode/problem_33.cpp
     src/leetcode/problem_81.cpp
     src/leetcode/problem_121.cpp

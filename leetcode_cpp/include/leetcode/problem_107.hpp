@@ -32,4 +32,4 @@ levelOrderBottom(const TreeNode<T> *root)
     return result;
 }
 
-}; // namespace leetcode
+} // namespace leetcode
