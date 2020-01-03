@@ -1,0 +1,34 @@
+#include <unordered_set>
+#include <type_traits>
+
+namespace util
+{
+
+namespace generic
+{
+
+template <
+    typename IteratorLhs,
+    typename IteratorRhs,
+    typename = std::enable_if<
+        std::is_same_v<
+            typename std::iterator_traits<IteratorLhs>::value_type,
+            typename std::iterator_traits<IteratorRhs>::value_type>>>
+static constexpr bool
+set_equality(
+    IteratorLhs lhs_begin,
+    IteratorLhs lhs_end,
+    IteratorRhs rhs_begin,
+    IteratorRhs rhs_end)
+{
+    using T = std::common_type_t<
+        typename std::iterator_traits<IteratorLhs>::value_type,
+        typename std::iterator_traits<IteratorRhs>::value_type>;
+    const auto lhs = std::unordered_set<T>(lhs_begin, lhs_end);
+    const auto rhs = std::unordered_set<T>(rhs_begin, rhs_end);
+    return lhs == rhs;
+}
+
+} // namespace generic
+
+} // namespace util
