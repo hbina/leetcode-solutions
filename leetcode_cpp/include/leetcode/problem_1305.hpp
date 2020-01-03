@@ -20,10 +20,10 @@ getAllElements(
 {
     std::vector<T> result;
 
-    leetcode::BSTIterator<int> lhs_iterator =
-        leetcode::BSTIterator<int>(lhs);
-    leetcode::BSTIterator<int> rhs_iterator =
-        leetcode::BSTIterator<int>(rhs);
+    leetcode::BSTIterator<T> lhs_iterator =
+        leetcode::BSTIterator<T>(lhs);
+    leetcode::BSTIterator<T> rhs_iterator =
+        leetcode::BSTIterator<T>(rhs);
 
     while (lhs_iterator.hasNext() && rhs_iterator.hasNext())
     {
@@ -52,10 +52,10 @@ getAllElements_If(
 {
     std::vector<T> result;
 
-    leetcode::BSTIterator<int> lhs_iterator =
-        leetcode::BSTIterator<int>(lhs);
-    leetcode::BSTIterator<int> rhs_iterator =
-        leetcode::BSTIterator<int>(rhs);
+    leetcode::BSTIterator<T> lhs_iterator =
+        leetcode::BSTIterator<T>(lhs);
+    leetcode::BSTIterator<T> rhs_iterator =
+        leetcode::BSTIterator<T>(rhs);
 
     while (lhs_iterator.hasNext() && rhs_iterator.hasNext())
     {
