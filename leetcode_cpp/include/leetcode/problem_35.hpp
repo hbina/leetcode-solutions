@@ -1,15 +1,17 @@
 #include <vector>
 #include <algorithm>
+#include <iterator>
 
 namespace leetcode
 {
 
-template <typename T>
+template <
+    typename Iterable>
 static constexpr auto
 searchInsert(
-    const std::vector<T> &nums,
-    const T &target)
-    -> typename std::vector<T>::difference_type
+    const Iterable &nums,
+    const typename Iterable::value_type &target)
+    -> typename Iterable::difference_type
 {
     return std::distance(
         std::cbegin(nums),
