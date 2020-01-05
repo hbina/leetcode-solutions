@@ -1,15 +1,19 @@
+#pragma once
+
 #include <vector>
 #include <algorithm>
 
 namespace leetcode
 {
 
-template <typename Iterable>
+template <
+    typename Iterable,
+    typename IndexType = int>
 static constexpr auto
 searchRange(
     const Iterable &nums,
     const typename Iterable::value_type &target)
-    -> std::vector<int>
+    -> std::vector<IndexType>
 {
     const auto upper_bound = std::upper_bound(
         std::cbegin(nums),
@@ -26,10 +30,10 @@ searchRange(
     else
     {
         return {
-            static_cast<int>(std::distance(
+            static_cast<IndexType>(std::distance(
                 std::cbegin(nums),
                 lower_bound)),
-            static_cast<int>(std::distance(
+            static_cast<IndexType>(std::distance(
                 std::cbegin(nums),
                 upper_bound)) -
                 1};

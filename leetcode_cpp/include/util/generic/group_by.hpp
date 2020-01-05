@@ -41,5 +41,4 @@ group_by(
 }
 
 } // namespace generic
-
 } // namespace util

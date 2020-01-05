@@ -36,6 +36,20 @@ TEST_CASE("util::generic::group_by")
 
 TEST_CASE("util::generic::group_by")
 {
+    const std::list<int> input = {1, 1, 2, 4, 6, 5, 7};
+    const std::vector<std::list<int>> expected = {{1, 1}, {2, 4, 6}, {5, 7}};
+    const auto result =
+        util::generic::group_by<std::vector<std::list<int>>>(
+            input.cbegin(),
+            input.cend(),
+            [](const int &lhs, const int &rhs) -> bool {
+                return (lhs % 2) == (rhs % 2);
+            });
+    CHECK(expected == result);
+}
+
+TEST_CASE("util::generic::group_by")
+{
     const std::string input = "123123hello3213213world";
     const std::vector<std::string> expected = {"123123", "hello", "3213213", "world"};
     const auto result =

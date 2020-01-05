@@ -56,6 +56,5 @@ find_range(
     }
 }
 
-}; // namespace generic
-
-}; // namespace util
+} // namespace generic
+} // namespace util

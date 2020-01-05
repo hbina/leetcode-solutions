@@ -28,5 +28,4 @@ zip(
 }
 
 } // namespace generic
-
 } // namespace util

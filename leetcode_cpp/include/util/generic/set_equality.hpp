@@ -49,5 +49,4 @@ set_equality(
 }
 
 } // namespace generic
-
 } // namespace util

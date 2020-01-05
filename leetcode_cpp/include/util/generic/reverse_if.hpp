@@ -39,5 +39,4 @@ reverse_if(
 }
 
 } // namespace generic
-
 } // namespace util

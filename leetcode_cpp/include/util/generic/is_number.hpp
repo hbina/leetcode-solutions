@@ -23,5 +23,4 @@ is_number(const Iterable &s)
 }
 
 } // namespace generic
-
 } // namespace util

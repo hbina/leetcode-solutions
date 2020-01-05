@@ -34,6 +34,7 @@ add_executable(
     src/util/generic/zip.cpp
     
     src/leetcode/problem_4.cpp
+    src/leetcode/problem_5.cpp
     src/leetcode/problem_14.cpp
     src/leetcode/problem_13.cpp
     src/leetcode/problem_19.cpp
@@ -47,6 +48,7 @@ add_executable(
     src/leetcode/problem_33.cpp
     src/leetcode/problem_34.cpp
     src/leetcode/problem_35.cpp
+    src/leetcode/problem_36.cpp
     src/leetcode/problem_81.cpp
     src/leetcode/problem_121.cpp
     src/leetcode/problem_122.cpp
