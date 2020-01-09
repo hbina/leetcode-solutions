@@ -17,5 +17,5 @@ TEST_CASE("problem_36")
             {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
     const bool expected = true;
     const bool result = leetcode::isValidSudoku(input);
-    // CHECK(expected == result);
+    CHECK(expected == result);
 }

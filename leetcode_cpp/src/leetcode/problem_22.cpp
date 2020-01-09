@@ -1,13 +1,14 @@
 #include "doctest/doctest.h"
 
 #include "leetcode/problem_22.hpp"
+#include "util/generic/set_equality.hpp"
 
 #include <set>
 
 TEST_CASE("problem_22")
 {
     const int input = 4;
-    const std::vector<std::string> expected = {
+    std::vector<std::string> expected = {
         "(((())))",
         "((()()))",
         "((())())",
@@ -22,11 +23,28 @@ TEST_CASE("problem_22")
         "()(())()",
         "()()(())",
         "()()()()"};
-    // Need to implement setEquality
-    const std::vector<std::string> result = leetcode::generateParenthesis(input);
-    // CHECK(
-    //    std::set(expected.cbegin(), expected.cend()) ==
-    //    std::set(result.cbegin(), result.cend()));
+    std::sort(
+        std::begin(expected),
+        std::end(expected),
+        [](const auto &lhs, const auto &rhs) -> bool {
+            return std::lexicographical_compare(
+                std::cbegin(lhs),
+                std::cend(lhs),
+                std::cbegin(rhs),
+                std::cend(rhs));
+        });
+    std::vector<std::string> result = leetcode::generateParenthesis(input);
+    std::sort(
+        std::begin(result),
+        std::end(result),
+        [](const auto &lhs, const auto &rhs) -> bool {
+            return std::lexicographical_compare(
+                std::cbegin(lhs),
+                std::cend(lhs),
+                std::cbegin(rhs),
+                std::cend(rhs));
+        });
+    CHECK(util::generic::set_equality(expected, result));
 }
 
 TEST_CASE("problem_22")
@@ -38,11 +56,8 @@ TEST_CASE("problem_22")
         "(())()",
         "()(())",
         "()()()"};
-    // Need to implement setEquality
     const std::vector<std::string> result = leetcode::generateParenthesis(input);
-    // CHECK(
-    //    std::set(expected.cbegin(), expected.cend()) ==
-    //    std::set(result.cbegin(), result.cend()));
+    CHECK(util::generic::set_equality(expected, result));
 }
 
 TEST_CASE("problem_22")
@@ -51,11 +66,8 @@ TEST_CASE("problem_22")
     const std::vector<std::string> expected = {
         "()()",
         "(())"};
-    // Need to implement setEquality
     const std::vector<std::string> result = leetcode::generateParenthesis(input);
-    // CHECK(
-    //    std::set(expected.cbegin(), expected.cend()) ==
-    //    std::set(result.cbegin(), result.cend()));
+    CHECK(util::generic::set_equality(expected, result));
 }
 
 TEST_CASE("problem_22")
@@ -63,9 +75,6 @@ TEST_CASE("problem_22")
     const int input = 1;
     const std::vector<std::string> expected = {
         "()"};
-    // Need to implement setEquality
     const std::vector<std::string> result = leetcode::generateParenthesis(input);
-    // CHECK(
-    //    std::set(expected.cbegin(), expected.cend()) ==
-    //    std::set(result.cbegin(), result.cend()));
+    CHECK(util::generic::set_equality(expected, result));
 }

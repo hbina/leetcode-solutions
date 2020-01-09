@@ -25,6 +25,7 @@ add_executable(
     
     src/util/string/split.cpp
 
+    src/util/generic/accumulate.cpp
     src/util/generic/reverse_if.cpp
     src/util/generic/is_number.cpp
     src/util/generic/find_range.cpp
@@ -49,6 +50,7 @@ add_executable(
     src/leetcode/problem_34.cpp
     src/leetcode/problem_35.cpp
     src/leetcode/problem_36.cpp
+    src/leetcode/problem_38.cpp
     src/leetcode/problem_81.cpp
     src/leetcode/problem_121.cpp
     src/leetcode/problem_122.cpp

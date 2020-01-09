@@ -1,6 +1,7 @@
 #include <unordered_set>
 #include <type_traits>
 
+//  TODO    ::  Implement set_equality_If
 namespace util
 {
 

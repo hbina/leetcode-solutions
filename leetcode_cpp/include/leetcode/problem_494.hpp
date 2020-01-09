@@ -69,10 +69,10 @@ static constexpr std::size_t findTargetSumWays_memoization(
     for (const T &num : nums)
     {
         std::unordered_map<T, std::size_t> local_dp;
-        for (const auto &[key, value] : dp)
+        for (const auto &v : dp)
         {
-            local_dp[key + num] = local_dp[key + num] + dp[key];
-            local_dp[key - num] = local_dp[key - num] + dp[key];
+            local_dp[v.first + num] = local_dp[v.first + num] + dp[v.first];
+            local_dp[v.first - num] = local_dp[v.first - num] + dp[v.first];
         }
         dp = std::move(local_dp);
     }
