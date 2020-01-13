@@ -46,6 +46,7 @@ add_executable(
     src/leetcode/problem_27.cpp
     src/leetcode/problem_28.cpp
     src/leetcode/problem_30.cpp
+    src/leetcode/problem_31.cpp
     src/leetcode/problem_33.cpp
     src/leetcode/problem_34.cpp
     src/leetcode/problem_35.cpp
@@ -79,6 +80,7 @@ add_executable(
     src/leetcode/problem_700.cpp
     src/leetcode/problem_888.cpp
     src/leetcode/problem_905.cpp
+    src/leetcode/problem_897.cpp
     src/leetcode/problem_929.cpp
     src/leetcode/problem_938.cpp
     src/leetcode/problem_106.cpp
