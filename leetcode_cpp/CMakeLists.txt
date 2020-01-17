@@ -25,7 +25,6 @@ add_executable(
     
     src/util/string/split.cpp
 
-    src/util/generic/accumulate.cpp
     src/util/generic/reverse_if.cpp
     src/util/generic/is_number.cpp
     src/util/generic/find_range.cpp

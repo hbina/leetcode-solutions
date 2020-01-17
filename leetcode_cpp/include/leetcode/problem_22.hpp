@@ -1,7 +1,5 @@
 #pragma once
 
-#include "util/generic/accumulate.hpp"
-
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -24,18 +22,17 @@ static constexpr auto
 generateParenthesis(const NumType &n)
     -> std::vector<std::string>
 {
-    auto result = util::generic::accumulate(
-        1, n, std::vector<std::string>{"()"},
-        [](std::vector<std::string> &acc, const auto &index) {
-            return util::generic::accumulate(
-                std::vector<std::string>::size_type{}, acc.size(), acc,
-                [](std::vector<std::string> &acc, const auto &index) {
-                    acc.emplace_back("()" + acc[index]);
-                    acc.emplace_back(acc[index] + "()");
-                    acc.emplace_back("(" + acc[index] + ")");
-                    return acc;
-                });
-        });
+    using SizeType = typename std::vector<std::string>::size_type;
+    auto result = std::vector<std::string>{"()"};
+    for (NumType outer = 1; outer != n; outer++)
+    {
+        for (SizeType inner = 0; inner != result.size(); inner++)
+        {
+            result.emplace_back("()" + result[inner]);
+            result.emplace_back(result[inner] + "()");
+            result.emplace_back("(" + result[inner] + ")");
+        }
+    }
     result.resize(
         std::distance(
             std::begin(result),
