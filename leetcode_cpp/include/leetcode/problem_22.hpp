@@ -17,13 +17,14 @@ namespace leetcode
 //              2.  Filter result based on the length
 //              3.  Filter result based on uniqueness
 template <
-    typename NumType>
+    typename NumType,
+    typename ReturnType = std::vector<std::string>>
 static constexpr auto
 generateParenthesis(const NumType &n)
-    -> std::vector<std::string>
+    -> ReturnType
 {
-    using SizeType = typename std::vector<std::string>::size_type;
-    auto result = std::vector<std::string>{"()"};
+    using SizeType = typename ReturnType::size_type;
+    auto result = ReturnType{"()"};
     for (NumType outer = 1; outer != n; outer++)
     {
         for (SizeType inner = 0; inner != result.size(); inner++)

@@ -33,6 +33,8 @@ add_executable(
     src/util/generic/split.cpp
     src/util/generic/zip.cpp
     
+    src/util/category_theory/compose.cpp
+    
     src/leetcode/problem_4.cpp
     src/leetcode/problem_5.cpp
     src/leetcode/problem_14.cpp
@@ -96,6 +98,7 @@ add_executable(
     src/leetcode/problem_1290.cpp
     src/leetcode/problem_1304.cpp
     src/leetcode/problem_1305.cpp
+    src/leetcode/problem_5316.cpp
 )
 
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
