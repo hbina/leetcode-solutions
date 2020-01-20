@@ -23,16 +23,6 @@ TEST_CASE("problem_22")
         "()(())()",
         "()()(())",
         "()()()()"};
-    std::sort(
-        std::begin(expected),
-        std::end(expected),
-        [](const auto &lhs, const auto &rhs) -> bool {
-            return std::lexicographical_compare(
-                std::cbegin(lhs),
-                std::cend(lhs),
-                std::cbegin(rhs),
-                std::cend(rhs));
-        });
     const std::vector<std::string> result = leetcode::generateParenthesis(input);
     CHECK(util::generic::set_equality(expected, result));
 }
