@@ -3,22 +3,33 @@
 #include "util/generic/zip.hpp"
 
 #include <vector>
+#include <list>
 #include <iostream>
 
 TEST_CASE("util::generic::zip test")
 {
-    const std::vector<int> left = {0, 1, 2, 3, 4};
-    const std::vector<int> right = {4, 3, 2, 1, 0};
-    const std::size_t expected = 1;
-    std::size_t counter = 0;
+    const std::vector<int> input_1 = {0, 1, 2, 3, 4};
+    const std::vector<int> input_2 = {0, 1, 2, 3, 4};
     util::generic::zip(
-        left.cbegin(),
-        left.cend(),
-        right.cbegin(),
-        right.cend(),
-        [&](const auto &left, const auto &right) {
-            if (left == right)
-                counter++;
+        std::cbegin(input_1),
+        std::cend(input_1),
+        std::cbegin(input_2),
+        std::cend(input_2),
+        [](const auto &lhs, const auto &rhs) {
+            CHECK(lhs == rhs);
         });
-    CHECK(counter == expected);
+}
+
+TEST_CASE("util::generic::zip test")
+{
+    const std::list<int> input_1 = {0, 1, 2, 3, 4};
+    const std::list<int> input_2 = {0, 1, 2, 3, 4};
+    util::generic::zip(
+        std::cbegin(input_1),
+        std::cend(input_1),
+        std::cbegin(input_2),
+        std::cend(input_2),
+        [](const auto &lhs, const auto &rhs) {
+            CHECK(lhs == rhs);
+        });
 }

@@ -24,10 +24,12 @@ template <
         std::is_same_v<
             typename std::iterator_traits<InputIterator>::value_type,
             T>>>
-OutputIteratorOuter split(
+static constexpr auto
+split(
     InputIterator iter_begin,
     InputIterator iter_end,
     const T &delimiter)
+    -> OutputIteratorOuter
 {
     OutputIteratorOuter result;
     while (iter_begin != iter_end && (*iter_begin == delimiter))
@@ -55,11 +57,12 @@ template <
         std::is_same_v<
             typename std::iterator_traits<InputIterator>::value_type,
             typename std::iterator_traits<typename OutputIteratorInner::iterator>::value_type>>>
-static constexpr OutputIteratorOuter
+static constexpr auto
 split_if(
     InputIterator iter_begin,
     InputIterator iter_end,
     const UnaryPredicate &predicate)
+    -> OutputIteratorOuter
 {
     OutputIteratorOuter result;
     while (iter_begin != iter_end && predicate(*iter_begin))

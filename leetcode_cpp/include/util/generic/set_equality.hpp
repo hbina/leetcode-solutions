@@ -4,7 +4,6 @@
 //  TODO    ::  Implement set_equality_If
 namespace util
 {
-
 namespace generic
 {
 
@@ -15,12 +14,13 @@ template <
         std::is_same_v<
             typename std::iterator_traits<IteratorLhs>::value_type,
             typename std::iterator_traits<IteratorRhs>::value_type>>>
-static constexpr bool
+static constexpr auto
 set_equality(
     IteratorLhs lhs_begin,
     IteratorLhs lhs_end,
     IteratorRhs rhs_begin,
     IteratorRhs rhs_end)
+    -> bool
 {
     using T = std::common_type_t<
         typename std::iterator_traits<IteratorLhs>::value_type,

@@ -25,6 +25,10 @@ add_executable(
     
     src/util/string/split.cpp
 
+    src/util/generic/bst_iterator.cpp
+    src/util/generic/is_palindrome.cpp
+    src/util/generic/zip_accumulate.cpp
+    src/util/generic/preorder_iterator.cpp
     src/util/generic/reverse_if.cpp
     src/util/generic/is_number.cpp
     src/util/generic/find_range.cpp
@@ -96,6 +100,7 @@ add_executable(
     src/leetcode/problem_1290.cpp
     src/leetcode/problem_1304.cpp
     src/leetcode/problem_1305.cpp
+    src/leetcode/problem_5319.cpp
 )
 
 target_include_directories(leetcode_solutions PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
